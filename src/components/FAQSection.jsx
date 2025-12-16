@@ -1,0 +1,86 @@
+import { useState } from "react";
+import "./FAQSection.css";
+import { FiChevronDown } from "react-icons/fi";
+
+const FAQSection = () => {
+  const [openIndex, setOpenIndex] = useState(0);
+
+  const faqs = [
+    {
+      question: "What is D Pharma?",
+      answer:
+        "Diverse Innovation Pharmaceuticals Pvt. Ltd. is a growing healthcare organization committed to delivering comprehensive and accessible medical services to the community.",
+    },
+    {
+      question: "How D Pharma works?",
+      answer:
+        "D Pharma operates as a comprehensive healthcare organization, providing accessible medical services through innovative solutions and a patient-centered approach. We work to bridge the gap between healthcare providers and patients, ensuring quality care is available to all.",
+    },
+    {
+      question: "What are the services?",
+      answer:
+        "D Pharma offers a wide range of healthcare services including pharmaceutical solutions, medical consultations, health management programs, and comprehensive medical support services tailored to meet the diverse needs of our community.",
+    },
+  ];
+
+  const toggleFAQ = (index) => {
+    setOpenIndex(openIndex === index ? -1 : index);
+  };
+
+  return (
+    <section className="faq-section">
+      <div className="faq-container">
+        <div className="faq-content">
+          <div className="faq-left">
+            <p className="faq-subtitle">Want to know more?</p>
+            <h2 className="faq-title">Frequently asked questions</h2>
+            <p className="faq-description">
+              Diverse Innovation Pharmaceuticals Pvt. Ltd. is a growing
+              healthcare organization committed to delivering comprehensive and
+              accessible medical services to the community.
+            </p>
+          </div>
+
+          <div className="faq-right">
+            {faqs.map((faq, index) => (
+              <div
+                key={index}
+                className={`faq-item ${openIndex === index ? "open" : ""}`}
+              >
+                <button
+                  className="faq-question"
+                  onClick={() => toggleFAQ(index)}
+                  aria-expanded={openIndex === index}
+                >
+                  <span>{faq.question}</span>
+                  <span
+                    className={`faq-icon ${openIndex === index ? "open" : ""}`}
+                  >
+                    <svg
+                      width="63"
+                      height="63"
+                      viewBox="0 0 63 63"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <rect width="63" height="63" rx="31.5" fill="#151952" />
+                      <path
+                        d="M21.0432 38L19 36.0666L30.1353 25.5357C30.3137 25.3659 30.5259 25.2312 30.7596 25.1393C30.9933 25.0473 31.244 25 31.4971 25C31.7502 25 32.0009 25.0473 32.2346 25.1393C32.4683 25.2312 32.6805 25.3659 32.8589 25.5357L44 36.0666L41.9568 37.9982L31.5 28.1142L21.0432 38Z"
+                        fill="#D9D9D9"
+                      />
+                    </svg>
+                  </span>
+                </button>
+                <div className="faq-answer">
+                  <p>{faq.answer}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default FAQSection;

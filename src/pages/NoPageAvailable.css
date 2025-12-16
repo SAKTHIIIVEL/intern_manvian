@@ -1,0 +1,11 @@
+.no-page-available{
+    background-color: #161952;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.no-page-available-title{
+    color: white;
+    font-size: 3rem;
+}
