@@ -1,18 +1,46 @@
 import "./Footer.css";
 import logo from "../assets/logo1.svg";
 import { Link } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
 
 const Footer = () => {
+  const titleRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(false); // reset first
+          requestAnimationFrame(() => setVisible(true)); // restart animation
+        } else {
+          setVisible(false); // hide when out of view
+        }
+      },
+      { threshold: 0.4 }
+    );
+
+    if (titleRef.current) observer.observe(titleRef.current);
+
+    return () => observer.disconnect();
+  }, []);
+  
   return (
     <footer className="footer">
       <div className="footer-container">
-        <h1 className="big-title bubble">
-          {"DI PHARMA".split("").map((char, i) => (
-            <span key={i} style={{ animationDelay: `${i * 0.08}s` }}>
-              {char === " " ? "\u00A0" : char}
-            </span>
-          ))}
-        </h1>
+        <h1
+      ref={titleRef}
+      className={`big-title ${visible ? "bubble" : ""}`}
+    >
+      {"DI PHARMA".split("").map((char, i) => (
+        <span
+          key={i}
+          style={{ animationDelay: `${i * 0.08}s` }}
+        >
+          {char === " " ? "\u00A0" : char}
+        </span>
+      ))}
+    </h1>
 
         <div className="footer-content">
           <div className="footer-column footer-company">

@@ -18,10 +18,15 @@
   pointer-events: none;
 }
 
-.bubble span {
+/* Initial hidden state */
+.big-title span {
   display: inline-block;
   opacity: 0;
   transform: translateY(50px) scale(0.8);
+}
+
+/* Animation starts ONLY when .bubble class is added */
+.big-title.bubble span {
   animation: bubbleIn 0.6s ease-out forwards;
 }
 

@@ -28,6 +28,7 @@
   width: 79px;
   height: 78px;
   border-radius: 12px;
+  object-fit: fill;
 }
 
 .logo-image:hover {
