@@ -6,7 +6,14 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-container">
-        <h1 className="big-title">DI PHARMA</h1>
+        <h1 className="big-title bubble">
+          {"DI PHARMA".split("").map((char, i) => (
+            <span key={i} style={{ animationDelay: `${i * 0.08}s` }}>
+              {char === " " ? "\u00A0" : char}
+            </span>
+          ))}
+        </h1>
+
         <div className="footer-content">
           <div className="footer-column footer-company">
             <div className="footer-logo">
@@ -179,7 +186,8 @@ const Footer = () => {
 
         <div className="footer-bottom">
           <p>
-            &copy; {new Date().getFullYear()} DI PHARMA. All rights reserved.
+            &copy; {new Date().getFullYear()} DI Pharma Innovation. All rights
+            reserved. | Designed & Developed By Manvian
           </p>
         </div>
       </div>

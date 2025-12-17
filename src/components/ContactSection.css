@@ -221,7 +221,6 @@
 .phone-input-wrapper {
   display: grid;
   grid-template-columns: 50px 1fr;
-  gap: 0.5rem;
   align-items: center;
   
 }
@@ -233,7 +232,7 @@
   color: rgba(255, 255, 255, 0.6);
   padding: 1rem 0;
   font-size: 1rem;
-  margin-top: 5px;
+  margin-top: 4px;
   cursor: pointer;
 }
 
