@@ -6,6 +6,7 @@ import NoPageAvailable from './pages/NoPageAvailable'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import ServicePage from './pages/ServicePage'
+import AboutPage from './pages/AboutPage'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<ContactPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/about" element={<AboutPage />} />
         <Route path="/career" element={<CareerPage />} />
         <Route path="/services" element={<ServicePage />} />
         <Route path="*" element={<NoPageAvailable/>} />

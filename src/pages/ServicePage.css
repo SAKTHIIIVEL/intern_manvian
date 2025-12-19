@@ -6,6 +6,17 @@
   font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
 }
+/* .service-hero-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(7, 6, 32, 0.95) 0%,
+    rgba(9, 9, 43, 0.88) 30%,
+    rgba(20, 24, 75, 0.6) 55%,
+    rgba(12, 12, 43, 0.1) 100%
+  );
+} */
 
 .service-hero {
   position: relative;
@@ -20,17 +31,7 @@
   display: block;
 }
 
-/* .service-hero-gradient {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(7, 6, 32, 0.95) 0%,
-    rgba(9, 9, 43, 0.88) 30%,
-    rgba(20, 24, 75, 0.6) 55%,
-    rgba(12, 12, 43, 0.1) 100%
-  );
-} */
+
 
 .service-hero-content {
   position: absolute;
@@ -62,6 +63,49 @@
   color: #ffffff;
 }
 
+/* HERO TEXT INITIAL STATE */
+.service-hero-content > * {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.service-hero-kicker {
+  transform: translateY(-20px);
+}
+
+.service-hero-title {
+  transform: translateY(10px);
+}
+
+.service-hero-subtitle {
+  transform: translateY(30px);
+}
+
+.service-hero-kicker,
+.service-hero-title,
+.service-hero-subtitle {
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.service-hero.active .service-hero-kicker,
+.service-hero.active .service-hero-title,
+.service-hero.active .service-hero-subtitle {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.service-hero.active .service-hero-kicker {
+  transition-delay: 0.1s;
+}
+
+.service-hero.active .service-hero-title {
+  transition-delay: 0.25s;
+}
+
+.service-hero.active .service-hero-subtitle {
+  transition-delay: 0.4s;
+}
+
+/* service cards  */
 .service-cards-section {
    position: relative;
   z-index: 5;
@@ -125,7 +169,7 @@
   content: "";
   position: absolute;
   inset: 12px;
-  background: rgba(22, 25, 82, 0.85);
+  background: rgba(22, 25, 82, 0.486);
   opacity: 0;
   transition: opacity 0.45s ease;
   z-index: 2;
@@ -133,7 +177,7 @@
 
 
 .card-1::before {
-  background-image: url("../assets/icons/service_globe.png");
+  background-image: url("../assets/about/about_team1.jpg");
 }
 
 .card-2::before {
@@ -227,10 +271,49 @@
   opacity: 1;
 }
 
+/* transition for the service cards */
+.service-card {
+  opacity: 0;
+  transform: translateY(0);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+  will-change: transform, opacity;
+}
+
+.card-1 {
+  transform: translateY(60px);
+}
+
+.card-2 {
+  transform: translateX(-60px);
+}
+
+.card-3 {
+  transform: translateX(60px);
+}
+
+.card-4 {
+  transform: translateY(80px);
+}
+
+.card-5 {
+  transform: translateY(40px);
+}
+
+.service-card.in-view {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.card-1 { transition-delay: 0s; }
+.card-2 { transition-delay: 0.1s; }
+.card-3 { transition-delay: 0.2s; }
+.card-4 { transition-delay: 0.15s; }
+.card-5 { transition-delay: 0.25s; }
 
 
-
-
+/* community section */
 
 .service-community-section {
   display: flex;
@@ -342,11 +425,46 @@
 
 }
 
+/* transition state for community */
+.service-community-section {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.service-community-text {
+  transform: translateX(20px);
+}
+.service-community-text,
+.service-community-btn,
+.service-community-stats {
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.service-community-stats {
+  transform: translateY(20px);
+}
+.service-community-section.active .service-community-text,
+.service-community-section.active .service-community-btn,
+.service-community-section.active .service-community-stats {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.service-community-section.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Brands Strip */
+.service-brands-marquee{
+background: #2B2B9A;
+}
 .service-brands-section {
   margin-bottom: 0px;
   padding: 12px 18px;
   height: 100px;
-  background: #2B2B9A;
+  
   display: flex;
   justify-content: center;
   align-items: center;

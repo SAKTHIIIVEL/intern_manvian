@@ -1,5 +1,5 @@
 import "./ServicePage.css";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import heroBanner from "../assets/service_banner.png";
 import syringe from "../assets/icons/service_injection.png";
 import tablet from "../assets/icons/service_tablet.png";
@@ -28,6 +28,9 @@ const ServicePage = () => {
     message: "",
   });
   const [errors, setErrors] = useState({});
+  const heroRef = useRef(null);
+  const cardsRef = useRef(null);
+  const communityRef = useRef(null);
 
   const handleChange = (e) => {
     setFormData({
@@ -38,6 +41,7 @@ const ServicePage = () => {
   };
 
   const validate = () => {
+
     const newErrors = {};
     if (!formData.firstName.trim())
       newErrors.firstName = "First name is required";
@@ -97,10 +101,57 @@ const ServicePage = () => {
       alert("Server error");
     }
   };
+
+  //for hero section animation
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      heroRef.current.classList.toggle("active", entry.isIntersecting);
+    },
+    { threshold: 0.3 }
+  );
+
+  if (heroRef.current) observer.observe(heroRef.current);
+
+  return () => observer.disconnect();
+}, []);
+
+//for service cards animation
+useEffect(() => {
+  const cards = cardsRef.current.querySelectorAll(".service-card");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        entry.target.classList.toggle("in-view", entry.isIntersecting);
+      });
+    },
+    {
+      threshold: 0.25,
+    }
+  );
+
+  cards.forEach((card) => observer.observe(card));
+
+  return () => observer.disconnect();
+}, []);
+
+//for community section animation
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      communityRef.current.classList.toggle("active", entry.isIntersecting);
+    },
+    { threshold: 0.3 }
+  );
+  if (communityRef.current) observer.observe(communityRef.current);
+  return () => observer.disconnect();
+}, []);
+
   return (
-    <div className="service-page">
+    <div className="service-page" >
       {/* Hero Section */}
-      <section className="service-hero">
+      <section className="service-hero" ref={heroRef}>
         <img
           src={heroBanner}
           className="service-hero-image"
@@ -128,7 +179,7 @@ const ServicePage = () => {
       </section>
 
       {/* Services Cards */}
-      <section className="service-cards-section">
+      <section className="service-cards-section" ref={cardsRef}>
         <div className="service-card card-1">
           <div className="service-card-inner">
             <div className="service-card-icon-wrapper">
@@ -213,7 +264,7 @@ const ServicePage = () => {
       </section>
 
       {/* Stats & Community Section */}
-      <section className="service-community-section">
+      <section className="service-community-section" ref={communityRef}>
         <div className="service-community-text">
           <p className="service-community-kicker">Our Community</p>
           <h2 className="service-community-title">
@@ -275,6 +326,7 @@ const ServicePage = () => {
       </section>
 
       {/* Brands Strip */}
+      <marquee direction="left" className="service-brands-marquee">
       <section className="service-brands-section">
         <span className="service-brand-pill">
           <img src={dipharma} alt="diPharma" />
@@ -331,6 +383,7 @@ const ServicePage = () => {
           Indo Continental
         </span>
       </section>
+      </marquee>
 
       {/* Contact & Form Section */}
       <section className="service-contact-section">
