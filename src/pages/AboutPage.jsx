@@ -9,74 +9,96 @@ import magaeshImage from "../assets/about/magaesh.png";
 import seniorManager1 from "../assets/about/senior_manager_1.png";
 import seniorManager2 from "../assets/about/senior_manager_2.png";
 import { useEffect, useRef } from "react";
-
-
+import FlightTimeline from "../components/FlightTimeline";
 
 const AboutPage = () => {
   const sectionRef = useRef(null);
   const teamRef = useRef(null);
   const commitmentRef = useRef(null);
+  const missionRef = useRef(null);
+const visionRef = useRef(null);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          sectionRef.current.classList.add("about-visible");
+        } else {
+          sectionRef.current.classList.remove("about-visible");
+        }
+      },
+      {
+        threshold: 0.3, // triggers when 30% visible
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  //for team section animation
+  useEffect(() => {
+    if (!teamRef.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          teamRef.current.classList.add("team-visible");
+        } else {
+          teamRef.current.classList.remove("team-visible");
+        }
+      },
+      {
+        threshold: 0.3,
+      }
+    );
+
+    observer.observe(teamRef.current);
+
+    return () => observer.disconnect();
+  }, []);
+
+  //for commitment section animation
+  useEffect(() => {
+    if (!commitmentRef.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          commitmentRef.current.classList.add("commitment-visible");
+        } else {
+          commitmentRef.current.classList.remove("commitment-visible");
+        }
+      },
+      {
+        threshold: 0.3,
+      }
+    );
+    observer.observe(commitmentRef.current);
+
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
   const observer = new IntersectionObserver(
-    ([entry]) => {
-      if (entry.isIntersecting) {
-        sectionRef.current.classList.add("about-visible");
-      } else {
-        sectionRef.current.classList.remove("about-visible");
-      }
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        } else {
+          entry.target.classList.remove("show");
+        }
+      });
     },
     {
-      threshold: 0.3, // triggers when 30% visible
+      threshold: 0.35,
     }
   );
 
-  if (sectionRef.current) {
-    observer.observe(sectionRef.current);
-  }
-
-  return () => observer.disconnect();
-}, []);
-
-//for team section animation
-useEffect(() => {
-  if (!teamRef.current) return;
-
-  const observer = new IntersectionObserver(
-    ([entry]) => {
-      if (entry.isIntersecting) {
-        teamRef.current.classList.add("team-visible");
-      } else {
-        teamRef.current.classList.remove("team-visible");
-      }
-    },
-    {
-      threshold: 0.3,
-    }
-  );
-
-  observer.observe(teamRef.current);
-
-  return () => observer.disconnect();
-}, []);
-
-//for commitment section animation
-useEffect(() => {
-  if (!commitmentRef.current) return;
-  const observer = new IntersectionObserver(
-    ([entry]) => {
-      if (entry.isIntersecting) {
-        commitmentRef.current.classList.add("commitment-visible");
-      } else {
-        commitmentRef.current.classList.remove("commitment-visible");
-      }
-    },
-    {
-      threshold: 0.3,
-    }
-  );
-  observer.observe(commitmentRef.current);
+  if (missionRef.current) observer.observe(missionRef.current);
+  if (visionRef.current) observer.observe(visionRef.current);
 
   return () => observer.disconnect();
 }, []);
@@ -123,33 +145,11 @@ useEffect(() => {
       {/* Our Mission & Our Vision Section */}
       <section className="mission-vision-section">
         {/* BACKGROUND ROAD */}
-        <div className="mission-road-bg">
-          <svg viewBox="0 0 1200 400" preserveAspectRatio="none">
-            <path d="M 0 250 C 300 50, 900 450, 1200 150" className="road-bg" />
-            <path
-              d="M 0 250 C 300 50, 900 450, 1200 150"
-              className="road-dash"
-            />
-          </svg>
-
-          {/* Airplane */}
-          <div className="bg-airplane">✈️</div>
-
-          {/* Pins */}
-          <div className="bg-pin pin-left">
-            📍
-            <span>2014 – Dr. Will</span>
-          </div>
-
-          <div className="bg-pin pin-right">
-            📍
-            <span>2010 – Indo Continental</span>
-          </div>
-        </div>
+        <FlightTimeline />
 
         {/* FOREGROUND CONTENT */}
-        <div className="mission-vision-container">
-          <div className="mission-content">
+        <div className="mission-vision-container" >
+          <div className="mission-content" ref={missionRef}>
             <h2>Our Mission</h2>
             <p>
               To enhance the <strong>healthcare ecosystem</strong> by providing{" "}
@@ -162,7 +162,7 @@ useEffect(() => {
             </p>
           </div>
 
-          <div className="vision-content">
+          <div className="vision-content" ref={visionRef}>
             <h2>Our Vision</h2>
             <p>
               To become one of <strong>India’s most trusted names</strong> in

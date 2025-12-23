@@ -8,6 +8,26 @@
 .faq-container {
   max-width: 1400px;
   margin: 0 100px;
+  position: relative;
+  overflow: visible;
+}
+
+.faq-container::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 900px;
+  height: 900px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    #4846FFB2 0%,
+    transparent 70%
+  );
+  filter: blur(120px);
+  z-index: 0;
+  pointer-events: none;
 }
 
 .faq-content {
@@ -16,12 +36,13 @@
   gap: 4rem;
   align-items: start;
   align-content: start;
+   position: relative;
+  z-index: 1;
 }
 
 .faq-left {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
 }
 
 .faq-subtitle {
@@ -29,6 +50,7 @@
   font-size: 1.1rem;
   font-weight: 500;
   margin: 0;
+  margin-bottom: 4px;
 }
 
 .faq-title {
@@ -37,6 +59,7 @@
   font-weight: 700;
   margin: 0;
   line-height: 1.2;
+  margin-bottom: 17px;
 }
 
 .faq-description {
@@ -124,6 +147,31 @@
   line-height: 1.7;
   margin: 0;
 }
+
+/* INITIAL STATE */
+.faq-left {
+  opacity: 0;
+  transform: translateX(-70px);
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s ease;
+}
+
+.faq-right {
+  opacity: 0;
+  transform: translateX(70px);
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s ease;
+}
+
+/* ACTIVE STATE */
+.faq-left.show,
+.faq-right.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 
 @media (max-width: 968px) {
   .faq-content {

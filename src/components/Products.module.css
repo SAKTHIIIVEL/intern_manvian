@@ -1,0 +1,147 @@
+.products {
+    padding: 7rem 2rem;
+    margin:0px 70px;
+    color: white;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.headingContainer {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.headingContainer h2 {
+    font-size: 46px;
+    margin-bottom: 2rem;
+}
+
+.headingContainer p {
+    max-width: 900px;
+    margin: 0 auto;
+    opacity: 0.8;
+    font-size: 20px;
+    color: #E3E3E3;
+}
+
+.grid {
+  position: relative; /* 🔑 required */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 1rem;
+  align-items: center;
+
+  z-index: 1;
+}
+.grid::before {
+  content: "";
+  position: absolute;
+  inset: -40px; /* controls glow spread */
+
+  background: radial-gradient(
+    ellipse at center,
+    #4846FFB2,
+    transparent 70%
+  );
+
+  filter: blur(45px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+
+.card {
+    padding: 2rem;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 100%;
+}
+
+.card p{
+    max-width: 280px;
+}
+
+.darkCard {
+    background-color: #0d0f36;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.lightCard {
+    background-color: #D9D9D9;
+    color: #191538;
+}
+
+.centerImage {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* 🔥 DARK SQUARE */
+.darksqu {
+  position: absolute;
+
+  /* ⬇️ push it down */
+  top: 300px;          /* increase this to move further down */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 340px;
+  height: 400px;
+
+  background: #151952;
+  border-radius: 15%;
+  z-index: 1;
+}
+
+/* IMAGE */
+.imagePlaceholder img {
+  position: relative;
+  z-index: 2;
+  border-radius: 22px;
+}
+
+.imagePlaceholder {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border-radius: 50px 50px 0 0;
+    /* Dome shape */
+    overflow: hidden;
+}
+
+.iconWrapper {
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 900px) {
+    .grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+    }
+
+    .centerImage {
+        grid-column: 1 / span 2;
+        grid-row: auto;
+        height: 400px;
+        margin: 2rem 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .centerImage {
+        grid-column: 1;
+    }
+}

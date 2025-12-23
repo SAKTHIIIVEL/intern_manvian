@@ -92,7 +92,7 @@
 
 .banner-question {
   color: rgba(255, 255, 255, 0.95);
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 300;
   margin: 0;
   line-height: 1.4;
@@ -100,7 +100,7 @@
 
 .banner-subtitle {
   color: rgba(255, 255, 255, 0.9);
-  font-size: 1.2rem;
+  font-size: 1.8rem;
   font-weight: 300;
   margin: 0;
   line-height: 1.4;
@@ -115,9 +115,9 @@
 }
 
 .banner-title {
-  font-size: 12.6rem;
+  font-size: 12.8rem;
   font-weight: 600;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.10em;
   margin: 0;
   line-height: 1;
   text-align: center;

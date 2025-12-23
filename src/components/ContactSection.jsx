@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./ContactSection.css";
 
 const COUNTRY_RULES = {
@@ -26,6 +26,8 @@ const ContactSection = () => {
     });
     setErrors((prev) => ({ ...prev, [e.target.name]: "" }));
   };
+  const infoRef = useRef(null);
+    const formRef = useRef(null);
 
   const validate = () => {
     const newErrors = {};
@@ -88,10 +90,30 @@ const ContactSection = () => {
     }
   };
 
+  useEffect(() => {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("show");
+            } else {
+              entry.target.classList.remove("show"); // replay on scroll
+            }
+          });
+        },
+        { threshold: 0.3 }
+      );
+  
+      if (infoRef.current) observer.observe(infoRef.current);
+      if (formRef.current) observer.observe(formRef.current);
+  
+      return () => observer.disconnect();
+    }, []);
+
   return (
     <section className="contact-section">
       <div className="contact-content">
-        <div className="contact-info-panel">
+        <div className="contact-info-panel" ref={infoRef}>
           <div className="info-item">
             <h3 className="info-label">Contact</h3>
             <p className="info-value">+91-9677787817</p>
@@ -188,7 +210,7 @@ const ContactSection = () => {
           </div>
         </div>
 
-        <div className="contact-form-panel">
+        <div className="contact-form-panel" ref={formRef}>
           <h2 className="form-title">Let's Get In Touch</h2>
           <p className="form-subtitle">
             Let us know your concern, and we'll get back to you within 24 hours.

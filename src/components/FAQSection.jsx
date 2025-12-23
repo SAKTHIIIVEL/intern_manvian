@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./FAQSection.css";
 import { FiChevronDown } from "react-icons/fi";
 
 const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState(0);
+  const faqLeftRef = useRef(null);
+const faqRightRef = useRef(null);
 
   const faqs = [
     {
@@ -22,6 +24,26 @@ const FAQSection = () => {
         "D Pharma offers a wide range of healthcare services including pharmaceutical solutions, medical consultations, health management programs, and comprehensive medical support services tailored to meet the diverse needs of our community.",
     },
   ];
+  useEffect(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        } else {
+          // remove so animation replays on scroll
+          entry.target.classList.remove("show");
+        }
+      });
+    },
+    { threshold: 0.3 }
+  );
+
+  if (faqLeftRef.current) observer.observe(faqLeftRef.current);
+  if (faqRightRef.current) observer.observe(faqRightRef.current);
+
+  return () => observer.disconnect();
+}, []);
 
   const toggleFAQ = (index) => {
     setOpenIndex(openIndex === index ? -1 : index);
@@ -31,7 +53,7 @@ const FAQSection = () => {
     <section className="faq-section">
       <div className="faq-container">
         <div className="faq-content">
-          <div className="faq-left">
+          <div className="faq-left" ref={faqLeftRef}>
             <p className="faq-subtitle">Want to know more?</p>
             <h2 className="faq-title">Frequently asked questions</h2>
             <p className="faq-description">
@@ -41,7 +63,7 @@ const FAQSection = () => {
             </p>
           </div>
 
-          <div className="faq-right">
+          <div className="faq-right" ref={faqRightRef}>
             {faqs.map((faq, index) => (
               <div
                 key={index}

@@ -7,18 +7,24 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import ServicePage from './pages/ServicePage'
 import AboutPage from './pages/AboutPage'
+import FlightTimeline from './components/FlightTimeline'
+import HomePage from './pages/HomePage'
+import GlobeSvg from './components/GlobeSvg'
 
 function App() {
   return (
     <Router>
       <Header/>
       <Routes>
-        <Route path="/" element={<ContactPage />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/career" element={<CareerPage />} />
         <Route path="/services" element={<ServicePage />} />
+        <Route path='/flight' element={<FlightTimeline/>} />
         <Route path="*" element={<NoPageAvailable/>} />
+        <Route path='/globe' element={<GlobeSvg/>} />
+        
       </Routes>
       <Footer />
     </Router>

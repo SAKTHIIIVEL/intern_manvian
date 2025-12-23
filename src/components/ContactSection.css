@@ -279,6 +279,30 @@
   margin-top: 0.35rem;
 }
 
+/* INITIAL STATE */
+.contact-info-panel {
+  opacity: 0;
+  transform: translateX(-60px) scale(0.97);
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.contact-form-panel {
+  opacity: 0;
+  transform: translateX(60px) scale(0.97);
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ACTIVE STATE */
+.contact-info-panel.show,
+.contact-form-panel.show {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
 @media (max-width: 968px) {
   .contact-content {
     grid-template-columns: 1fr;

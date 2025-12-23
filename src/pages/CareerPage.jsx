@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./CareerPage.css";
 import heroBanner from "../assets/career_banner.png";
 import personOne from "../assets/career_person1.png";
@@ -193,6 +193,71 @@ const CareerPage = () => {
     }
   };
 
+  const heroRef = useRef(null);
+  const positionsRef = useRef(null);
+const portraitRef = useRef(null);
+const contactportraitRef = useRef(null);
+const formRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        } else {
+          entry.target.classList.remove("show");
+        }
+      },
+      { threshold: 0.4 }
+    );
+
+    if (heroRef.current) observer.observe(heroRef.current);
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        } else {
+          // remove so it replays when scrolling back
+          entry.target.classList.remove("show");
+        }
+      });
+    },
+    { threshold: 0.35 }
+  );
+
+  if (positionsRef.current) observer.observe(positionsRef.current);
+  if (portraitRef.current) observer.observe(portraitRef.current);
+
+  return () => observer.disconnect();
+}, []);
+
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+        } else {
+          // remove to replay on scroll
+          entry.target.classList.remove("show");
+        }
+      });
+    },
+    { threshold: 0.35 }
+  );
+
+  if (contactportraitRef.current) observer.observe(contactportraitRef.current);
+  if (formRef.current) observer.observe(formRef.current);
+
+  return () => observer.disconnect();
+}, []);
+
   return (
     <div className="career-page">
       <section className="career-hero">
@@ -208,7 +273,7 @@ const CareerPage = () => {
           </h1>
         </div>
       </section>
-      <div className="hero-info">
+      <div className="hero-info" ref={heroRef}>
         <p className="hero-sub">Join Us in Shaping the Future of Healthcare</p>
         <p className="hero-description">
           At Dipharmanovation, we are committed to improving lives through
@@ -221,7 +286,7 @@ const CareerPage = () => {
       </div>
 
       <section className="positions-section">
-        <div className="positions-content">
+        <div className="positions-content"  ref={positionsRef}>
           <div className="positions-text">
             <h2 className="section-title">Open Positions</h2>
             <p className="section-lead"></p>
@@ -256,7 +321,7 @@ const CareerPage = () => {
             </div>
           </div>
 
-          <div className="hero-portrait framed">
+          <div className="hero-portrait framed" ref={portraitRef}>
             <img src={personOne} alt="Team member" />
           </div>
         </div>
@@ -264,10 +329,10 @@ const CareerPage = () => {
 
       <section className="career-contact-block">
         <div className="contact-card">
-          <div className="contact-portrait">
+          <div className="contact-portrait" ref={contactportraitRef}>
             <img src={personTwo} alt="Work with us" />
           </div>
-          <div className="contact-form-wrapper">
+          <div className="contact-form-wrapper" ref={formRef}>
             <div className="contact-form-header">
               <p className="contact-kicker">
                 Our Team Will Respond to You Within 24 Hours
@@ -301,7 +366,7 @@ const CareerPage = () => {
                       <option value="+1">+1</option>
                     </select>
                     <input
-                      type="tel"
+                      type="number"
                       name="phone"
                       placeholder="Phone number"
                       value={formData.phone}
@@ -358,16 +423,16 @@ const CareerPage = () => {
               <div className="form-actions upload-row-career">
                 <div className="form-group-career">
                   <label className="file-upload-career">
-                    
                     <input
                       type="file"
                       name="upload"
                       onChange={handleFileChange}
                       accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
                     />
-                    
+
                     <span className="upload-btn">
-                      <svg className="upload-svg"
+                      <svg
+                        className="upload-svg"
                         width="12"
                         height="12"
                         viewBox="0 0 12 12"

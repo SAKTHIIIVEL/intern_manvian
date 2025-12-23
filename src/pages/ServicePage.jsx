@@ -31,6 +31,8 @@ const ServicePage = () => {
   const heroRef = useRef(null);
   const cardsRef = useRef(null);
   const communityRef = useRef(null);
+  const infoRef = useRef(null);
+  const formRef = useRef(null);
 
   const handleChange = (e) => {
     setFormData({
@@ -147,6 +149,26 @@ useEffect(() => {
   if (communityRef.current) observer.observe(communityRef.current);
   return () => observer.disconnect();
 }, []);
+
+ useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+          } else {
+            entry.target.classList.remove("show"); // replay on scroll
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    if (infoRef.current) observer.observe(infoRef.current);
+    if (formRef.current) observer.observe(formRef.current);
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="service-page" >
@@ -388,7 +410,7 @@ useEffect(() => {
       {/* Contact & Form Section */}
       <section className="service-contact-section">
         <div className="service-contact-content">
-          <div className="service-contact-info-panel">
+          <div className="service-contact-info-panel" ref={infoRef}>
             <div className="service-info-item">
               <h3 className="service-info-label">Contact</h3>
               <p className="service-info-value">+91-9677787817</p>
@@ -501,7 +523,7 @@ useEffect(() => {
             </div>
           </div>
 
-          <div className="service-contact-form-panel">
+          <div className="service-contact-form-panel" ref={formRef}>
             <h2 className="service-form-title">Let's Get In Touch</h2>
             <p className="service-form-subtitle">
               Let us know your concern, and we'll get back to you within 24

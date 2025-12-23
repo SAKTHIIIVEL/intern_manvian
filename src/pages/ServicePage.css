@@ -330,7 +330,7 @@
   transform: translateX(-30%);
   background: radial-gradient(
     circle at 50% 15%,
-    #4946ff85,
+    #4846FFB2,
     transparent 70%
   );
 
@@ -346,7 +346,7 @@
 .service-community-kicker {
   font-size: 18px;
   letter-spacing: 0.1em;
-  color: #B1AFFF;
+  color: #FFFFFF;
   margin-bottom: 8px;
 }
 
@@ -783,6 +783,31 @@ background: #2B2B9A;
   margin-top: 0.35rem;
 }
 
+/* INITIAL STATE */
+.service-contact-info-panel {
+  opacity: 0;
+  transform: translateX(-60px) scale(0.97);
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.service-contact-form-panel {
+  opacity: 0;
+  transform: translateX(60px) scale(0.97);
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ACTIVE STATE */
+.service-contact-info-panel.show,
+.service-contact-form-panel.show {
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+
 @media (max-width: 968px) {
   .contact-content {
     grid-template-columns: 1fr;
@@ -846,14 +871,14 @@ background: #2B2B9A;
   inset: -120px;
 
   background: radial-gradient(
-    ellipse at center,
+    circle at center,
     rgba(73, 70, 255, 0.35) 0%,
     rgba(73, 70, 255, 0.25) 35%,
-    rgba(27, 31, 107, 0.5) 60%,
-    #161952 78%
+    rgba(27, 31, 107, 0.5) 50%,
+    #161952 98%
   );
 
-  filter: blur(50px);
+  filter: blur(20px);
   z-index: -2;
   pointer-events: none;
 }

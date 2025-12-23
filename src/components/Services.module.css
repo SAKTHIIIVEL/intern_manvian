@@ -1,0 +1,117 @@
+.services {
+    padding: 2rem 2rem;
+    margin-left: 70px;
+    color: white;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.headTitle {
+  display: grid;
+  grid-template-columns: 0.6fr 1.2fr;
+  gap: 80px;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.heading {
+  font-size: 46px;
+  font-weight: 700;
+  color: #ffffff;
+  white-space: nowrap;
+}
+
+.description {
+  font-size: 20px;
+  line-height: 1.6;
+  color: #E3E3E3;
+  max-width: 620px;
+}
+
+
+
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.card {
+  position: relative;
+  background: #e0e0e0;
+  color: #1b1f3b;
+  padding: 3.5rem 2.5rem;
+  border-radius: 28px;
+  min-height: 380px;
+  border: none;
+  display: flex;
+  align-items: flex-end;
+
+  box-shadow: 8px 10px 10px rgba(0, 0, 0, 0.804);
+  overflow: hidden;
+}
+
+
+.card:nth-child(2) {
+    margin-top: 4rem;
+    /* Staggered effect */
+}
+
+.card:nth-child(1) {
+    /* margin-top: 8rem; */
+
+}
+
+.number {
+  position: absolute;
+  top: -54px;
+  left: -21px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 15rem;
+  font-weight: 900;
+  line-height: 1;
+
+  color: #161952;
+  opacity: 1;
+
+  z-index: 2;
+  pointer-events: none;
+}
+
+
+.cardContent {
+  position: absolute;
+  z-index: 3;
+  max-width: 228px;
+  top: 120px;
+  left: 120px;
+}
+
+
+.cardText {
+    font-size: 17px;
+    line-height: 1.7;
+    font-weight: 400;
+
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.viewButton {
+    background: #e0e0e0;
+    color: #161952;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    font-weight: 400;
+    font-size: 20px;
+    cursor: pointer;
+}

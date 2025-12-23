@@ -51,14 +51,13 @@
   flex-direction: column;
   align-items: flex-start;
   top: 80px;
-  gap: 1rem;
   color: #fff;
 }
 
 .hero-subtitle {
   font-size: 70px;
   font-weight: 600;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.07em;
   margin-left: 100px;
   color: #ffffff;
   text-transform: uppercase;
@@ -73,9 +72,9 @@
 
 .purpose-box {
   display: inline-block;
-  font-size: 120px;
+  font-size: 150px;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.06em;
   padding: 0;
   color: #ffffff;
   margin-left: auto; 
@@ -155,6 +154,32 @@
 .hero-card {
   background: transparent;
 }
+/* animation */
+.hero-info {
+  opacity: 0;
+  transform: translateY(24px);
+  filter: blur(5px);
+  transition:
+    opacity 1s ease,
+    transform 1s ease,
+    filter 1s ease;
+}
+
+.hero-info.show {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* Optional text timing */
+.hero-sub {
+  transition-delay: 0.4s;
+}
+
+.hero-description {
+  transition-delay: 0.25s;
+}
+
 
 .card-title {
   margin: 0 0 0.75rem 0;
@@ -233,7 +258,7 @@
   grid-template-columns: 1.1fr 0.9fr;
   gap: 2rem;
   align-items: center;
-  margin-right: 0;
+  margin-left: 70px;
 }
 
 .positions-text {
@@ -262,7 +287,6 @@
   justify-content: center;
   align-items: center;
   background: transparent;
-  padding: 0.5rem;
   
 }
 
@@ -273,6 +297,7 @@
   object-fit: cover;
   position: relative;
   bottom: 100px;
+  left: 25px;
 }
 
 .hero-portrait.framed {
@@ -280,12 +305,37 @@
   border: none;
 }
 
+/* animation for the position */
+/* INITIAL STATE */
+.positions-content {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s ease;
+}
+
+.hero-portrait.framed {
+  opacity: 0;
+  transform: translateX(60px);
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s ease;
+}
+
+/* ACTIVE STATE */
+.positions-content.show,
+.hero-portrait.framed.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* form career */
 .career-contact-block {
   position: relative;
   z-index: 2;
   max-width: 1400px;
   margin: 0rem auto;
-  padding: 0 0rem;
   padding-right: 2rem;
   bottom: 0px;
 }
@@ -305,6 +355,7 @@
   justify-content: center;
   align-items: center;
   z-index: 2;
+  right: 25px;
 }
 
 .contact-portrait::before {
@@ -537,6 +588,31 @@
   color: rgba(255, 255, 255, 0.12);
   padding: 3rem 1rem 4rem;
 }
+
+/* INITIAL STATE */
+.contact-portrait {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s ease;
+}
+
+.contact-form-wrapper {
+  opacity: 0;
+  transform: translateX(60px);
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s ease;
+}
+
+/* ACTIVE STATE */
+.contact-portrait.show,
+.contact-form-wrapper.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 
 @media (max-width: 1100px) {
   .contact-card {

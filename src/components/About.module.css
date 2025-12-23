@@ -1,0 +1,139 @@
+.about {
+    padding: 1rem 2rem;
+    margin-left: 70px;
+    color: white;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.textContent h2 {
+    font-size: 2.5rem;
+    line-height: 1.3;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+.textContent p {
+    font-size: 1rem;
+    opacity: 0.8;
+    margin-bottom: 3rem;
+    max-width: 450px;
+}
+
+.arrowButton {
+    width: 60px;
+    height: 60px;
+    border: 2px solid #FFFFFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.imageGrid {
+  position: relative;
+  height: 620px;
+  width: 100%;
+}
+
+/* ================= COMMON CARD ================= */
+.imageCard {
+  position: absolute;
+  overflow: visible;
+  background: #2a2f6e;
+  border: 4px solid #ffffff;
+}
+
+/* ================= IMAGE ================= */
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: inherit;
+  overflow: hidden; 
+}
+
+/* ================= LEFT BIG PILL ================= */
+.cardLarge {
+  width: 260px;
+  height: 520px;
+  border-radius: 140px;
+  
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+/* ================= RIGHT OVAL ================= */
+.cardSmall {
+  width: 230px;
+  height: 360px;
+  border-radius: 120px;
+  z-index: 1;
+}
+
+.topRight {
+  
+  right: 6%;
+}
+
+/* ================= BADGES ================= */
+.badge {
+  position: absolute;
+  background: white;
+  color: #1e1e1e;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 20px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  white-space: nowrap;
+}
+
+/* Doctor badge (top left outside) */
+.cardLarge .badge {
+  top: 18px;
+  left: -28px;       /* 👈 move OUTSIDE */
+  z-index: 5;
+}
+
+
+/* Building badge (top right outside) */
+.topRight .badge {
+  top: 18px;
+  right: -22px;
+}
+
+/* ================= BOTTOM BADGE ONLY ================= */
+.bottomRight {
+  bottom: 29%;
+  left: -15%;
+  width: auto;
+  height: auto;
+  background: transparent;
+  border: none;
+  z-index: 3;
+}
+
+.bottomRight .badge {
+  position: relative;
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+}
