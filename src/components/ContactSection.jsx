@@ -20,14 +20,32 @@ const ContactSection = () => {
   const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    // Allow ONLY numbers for phone field
+    if (name === "phone") {
+      // Remove non-numeric characters
+      const numericValue = value.replace(/[^0-9]/g, "");
+
+      setFormData({
+        ...formData,
+        phone: numericValue,
+      });
+
+      setErrors((prev) => ({ ...prev, phone: "" }));
+      return;
+    }
+
+    // Default behavior for other fields
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
-    setErrors((prev) => ({ ...prev, [e.target.name]: "" }));
+
+    setErrors((prev) => ({ ...prev, [name]: "" }));
   };
   const infoRef = useRef(null);
-    const formRef = useRef(null);
+  const formRef = useRef(null);
 
   const validate = () => {
     const newErrors = {};
@@ -91,24 +109,24 @@ const ContactSection = () => {
   };
 
   useEffect(() => {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("show");
-            } else {
-              entry.target.classList.remove("show"); // replay on scroll
-            }
-          });
-        },
-        { threshold: 0.3 }
-      );
-  
-      if (infoRef.current) observer.observe(infoRef.current);
-      if (formRef.current) observer.observe(formRef.current);
-  
-      return () => observer.disconnect();
-    }, []);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+          } else {
+            entry.target.classList.remove("show"); // replay on scroll
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    if (infoRef.current) observer.observe(infoRef.current);
+    if (formRef.current) observer.observe(formRef.current);
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <section className="contact-section">
@@ -279,6 +297,8 @@ const ContactSection = () => {
                     placeholder="Phone number"
                     value={formData.phone}
                     onChange={handleChange}
+                    inputMode="numeric"
+                    maxLength={10}
                   />
                 </div>
 

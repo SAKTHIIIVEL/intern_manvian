@@ -61,6 +61,13 @@
     transform: scale(1.05);
 }
 
+.error {
+  color: #ff4d4f;
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+
 @media (max-width: 600px) {
     .newsletter {
         flex-direction: column;
