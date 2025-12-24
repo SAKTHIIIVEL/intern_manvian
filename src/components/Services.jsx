@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import styles from './Services.module.css';
+import { useNavigate } from 'react-router-dom';
 
 const servicesData = [
   {
@@ -21,6 +22,7 @@ const servicesData = [
 ];
 
 const Services = () => {
+  const navigate = useNavigate();
   return (
     <section className={styles.services} id="services">
       <div className={styles.container}>
@@ -63,6 +65,7 @@ const Services = () => {
              className={styles.viewButton}
              whileHover={{ scale: 1.05 }}
              whileTap={{ scale: 0.95 }}
+             onClick={()=>{navigate("/services")}}
            >
              View Services
            </motion.button>

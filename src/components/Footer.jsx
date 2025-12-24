@@ -1,11 +1,12 @@
 import "./Footer.css";
 import logo from "../assets/logo1.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 
 const Footer = () => {
   const titleRef = useRef(null);
   const [visible, setVisible] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -24,23 +25,17 @@ const Footer = () => {
 
     return () => observer.disconnect();
   }, []);
-  
+
   return (
     <footer className="footer">
       <div className="footer-container">
-        <h1
-      ref={titleRef}
-      className={`big-title ${visible ? "bubble" : ""}`}
-    >
-      {"DI PHARMA".split("").map((char, i) => (
-        <span
-          key={i}
-          style={{ animationDelay: `${i * 0.08}s` }}
-        >
-          {char === " " ? "\u00A0" : char}
-        </span>
-      ))}
-    </h1>
+        <h1 ref={titleRef} className={`big-title ${visible ? "bubble" : ""}`}>
+          {"DI PHARMA".split("").map((char, i) => (
+            <span key={i} style={{ animationDelay: `${i * 0.08}s` }}>
+              {char === " " ? "\u00A0" : char}
+            </span>
+          ))}
+        </h1>
 
         <div className="footer-content">
           <div className="footer-column footer-company">
@@ -144,7 +139,7 @@ const Footer = () => {
             <h3 className="footer-heading">Home</h3>
             <ul className="footer-links">
               <li>
-                <a href="#about">About</a>
+                <Link to={"/about"}>About</Link>
               </li>
               <li>
                 <a href="#specialist">Specialist</a>
@@ -153,7 +148,7 @@ const Footer = () => {
                 <a href="#blog">Blog</a>
               </li>
               <li>
-                <a href="#service">Service</a>
+                <Link to={"/services"}>Service</Link>
               </li>
             </ul>
           </div>
@@ -188,7 +183,16 @@ const Footer = () => {
               >
                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
               </svg>
-              <span>9677787817</span>
+              <a
+                href="tel:9677787817"
+                style={{
+                  textDecoration: "none",
+                  color: "inherit",
+                  cursor: "pointer",
+                }}
+              >
+                9677787817
+              </a>
             </div>
             <div className="footer-contact-item">
               <svg
@@ -203,10 +207,15 @@ const Footer = () => {
               </svg>
               <div>
                 <p>Corporate Office:</p>
-                <span>
+                <a
+                  href="https://maps.app.goo.gl/tWf7yn3a2a17tGt9A"
+                  className="address-link"
+                  target="_blank"
+  rel="noopener noreferrer"
+                >
                   No.18, Velan Avenue, Rice Mill Road, Kandigai, Chennai -
                   600127
-                </span>
+                </a>
               </div>
             </div>
           </div>

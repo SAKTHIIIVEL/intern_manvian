@@ -10,10 +10,12 @@ import AboutPage from './pages/AboutPage'
 import FlightTimeline from './components/FlightTimeline'
 import HomePage from './pages/HomePage'
 import GlobeSvg from './components/GlobeSvg'
+import ScrollToTop from './components/ScrollToTop'
 
 function App() {
   return (
     <Router>
+      <ScrollToTop/>
       <Header/>
       <Routes>
         <Route path="/" element={<HomePage />} />

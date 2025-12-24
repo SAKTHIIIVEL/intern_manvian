@@ -129,7 +129,7 @@ const ContactSection = () => {
   }, []);
 
   return (
-    <section className="contact-section">
+    <section className="contact-section" id="contact">
       <div className="contact-content">
         <div className="contact-info-panel" ref={infoRef}>
           <div className="info-item">

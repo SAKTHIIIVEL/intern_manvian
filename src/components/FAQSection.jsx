@@ -50,7 +50,7 @@ const faqRightRef = useRef(null);
   };
 
   return (
-    <section className="faq-section">
+    <section className="faq-section" id="faq">
       <div className="faq-container">
         <div className="faq-content">
           <div className="faq-left" ref={faqLeftRef}>

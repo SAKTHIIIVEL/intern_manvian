@@ -191,6 +191,18 @@
   font-size: 0.9rem;
 }
 
+.address-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  
+}
+
+.address-link:hover {
+  text-decoration: underline;
+}
+
+
 @media (max-width: 968px) {
   .footer-content {
     grid-template-columns: 1fr 1fr;
