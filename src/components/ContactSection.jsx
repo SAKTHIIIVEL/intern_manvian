@@ -224,6 +224,20 @@ const ContactSection = () => {
                   />
                 </svg>
               </a>
+              <a href="#" className="social-icon" aria-label="Email">
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4.51378 27C3.79719 27 3.19933 26.758 2.72022 26.274C2.24111 25.79 2.00104 25.1855 2 24.4606V7.53943C2 6.81552 2.24007 6.21157 2.72022 5.72757C3.20037 5.24357 3.7977 5.00105 4.51222 5H27.4878C28.2033 5 28.8007 5.24252 29.2798 5.72757C29.7589 6.21262 29.999 6.81657 30 7.53943V24.4621C30 25.185 29.7599 25.7889 29.2798 26.274C28.7996 26.759 28.2023 27.001 27.4878 27H4.51378ZM16 15.9371C16.1296 15.9371 16.251 15.9172 16.364 15.8774C16.476 15.8376 16.587 15.7889 16.6969 15.7313L27.942 8.29371C28.0893 8.20362 28.1852 8.08052 28.2298 7.92443C28.2744 7.76833 28.2661 7.61276 28.2049 7.45771C28.1655 7.25552 28.0348 7.10886 27.8129 7.01771C27.592 6.92762 27.3779 6.94595 27.1704 7.07271L16 14.4286L4.83111 7.07429C4.6237 6.94648 4.41422 6.91924 4.20267 6.99257C3.99111 7.0659 3.85526 7.21048 3.79511 7.42629C3.73496 7.58762 3.72719 7.75157 3.77178 7.91814C3.81637 8.08471 3.91178 8.21043 4.058 8.29529L15.3031 15.7313C15.413 15.7889 15.524 15.8376 15.636 15.8774C15.749 15.9162 15.8704 15.9356 16 15.9356"
+                    fill="#222065"
+                  />
+                </svg>
+              </a>
             </div>
           </div>
         </div>
@@ -280,21 +294,23 @@ const ContactSection = () => {
               </div>
               <div className="form-group">
                 <div className="phone-input-wrapper">
-                  <select
-                    name="countryCode"
-                    value={formData.countryCode}
-                    onChange={handleChange}
-                    className="country-code-select"
-                  >
-                    <option value="+91">+91</option>
-                    <option value="+60">+60</option>
-                    <option value="+1">+1</option>
-                  </select>
+                  <div className="select-wrapper">
+                    <select
+                      name="countryCode"
+                      value={formData.countryCode}
+                      onChange={handleChange}
+                      className="country-code-select"
+                    >
+                      <option value="+91">+91</option>
+                      <option value="+60">+60</option>
+                      <option value="+1">+1</option>
+                    </select>
+                  </div>
 
                   <input
                     type="tel"
                     name="phone"
-                    placeholder="Phone number"
+                    placeholder=" Phone number"
                     value={formData.phone}
                     onChange={handleChange}
                     inputMode="numeric"

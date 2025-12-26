@@ -2,6 +2,7 @@
     padding: 2rem 2rem;
     margin-left: 70px;
     color: white;
+    margin-bottom: 30px;
 }
 
 .container {
@@ -13,12 +14,12 @@
   display: grid;
   grid-template-columns: 0.6fr 1.2fr;
   gap: 80px;
-  align-items: center;
+  
   margin-bottom: 50px;
 }
 
 .heading {
-  font-size: 46px;
+  font-size: 48px;
   font-weight: 700;
   color: #ffffff;
   white-space: nowrap;
@@ -31,6 +32,18 @@
   max-width: 620px;
 }
 
+.gridWrapper {
+  position: relative;
+}
+
+.backgroundSvg {
+  position: absolute;
+  top: 210px;   /* adjust vertical position */
+  left: 92%;   /* center horizontally */
+  transform: translateX(-50%);
+  z-index: 0;  /* behind the cards */
+  pointer-events: none; /* allows clicking cards */
+}
 
 
 
@@ -39,6 +52,7 @@
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     margin-bottom: 4rem;
+    height: 400px;
 }
 
 .card {
@@ -58,13 +72,18 @@
 
 
 .card:nth-child(2) {
-    margin-top: 4rem;
+    top: 100px;
     /* Staggered effect */
 }
 
-.card:nth-child(1) {
+.card:nth-child(1) .cardContent {
     /* margin-top: 8rem; */
+    left: 90px;
 
+}
+
+.card:nth-child(3) {
+  z-index: 2; /* on top of SVG */
 }
 
 .number {
@@ -87,15 +106,15 @@
 .cardContent {
   position: absolute;
   z-index: 3;
-  max-width: 228px;
+  max-width: 230px;
   top: 120px;
   left: 120px;
 }
 
 
 .cardText {
-    font-size: 17px;
-    line-height: 1.7;
+    font-size: 19px;
+    line-height: 1.4;
     font-weight: 400;
 
 }
@@ -103,6 +122,8 @@
 .buttonContainer {
     display: flex;
     justify-content: center;
+    position: relative;
+    top: 100px;
 }
 
 .viewButton {
@@ -111,6 +132,7 @@
     border: none;
     padding: 0.8rem 2rem;
     border-radius: 30px;
+    font-family: 'Poppins';
     font-weight: 400;
     font-size: 20px;
     cursor: pointer;

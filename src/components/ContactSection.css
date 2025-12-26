@@ -1,7 +1,7 @@
 .contact-section {
   background: #161952;
-  padding: 0.5rem 2rem;
-  min-height: 100vh;
+  padding: 2rem 2rem;
+
 }
 
 .contact-header {
@@ -52,7 +52,7 @@
   padding-left:1rem ;
   margin-left: 1rem ;
   grid-template-columns: 1fr 1.2fr;
-  gap: 3rem;
+  gap: 1.7rem;
   position: relative;
   z-index: 2;
   align-items: start;
@@ -68,10 +68,10 @@
 
   border-radius: 26px;
   padding: 2rem;
-
+  height: 665px;
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 1.2rem;
 
   /* Inner glass edge */
   border: 1px solid rgba(255, 255, 255, 0.18);
@@ -92,19 +92,19 @@
 .info-item {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 7px;
 }
 
 .info-label {
   color: #ffffff;
-  font-size: 1.25rem;
+  font-size: 24px;
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  
 }
 
 .info-value {
   color: #e2e8f0dc;
-  font-size: 1rem;
+  font-size: 24px;
   line-height: 1.6;
 }
 
@@ -154,14 +154,14 @@
 
 .form-title {
   color: #ffffff;
-  font-size: 2rem;
+  font-size: 48px;
   font-weight: 600;
   margin-bottom: 0.5rem;
 }
 
 .form-subtitle {
   color: #ffffff;
-  font-size: 1rem;
+  font-size: 24px;
   margin-bottom: 2rem;
   line-height: 1.6;
 }
@@ -202,7 +202,7 @@
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgb(255, 255, 255);
 }
 
 .form-group input:focus,
@@ -222,28 +222,50 @@
   display: grid;
   grid-template-columns: 50px 1fr;
   align-items: center;
-  
 }
 
+/* Wrapper for arrow */
+.select-wrapper {
+  position: relative;
+}
+
+/* Remove default arrow */
 .country-code-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  width: 100%;
   background: transparent;
   border: none;
   border-bottom: 1px solid rgba(203, 213, 225, 0.5);
-  color: rgba(255, 255, 255, 0.6);
-  padding: 1rem 0;
+  color: white;
+  padding: 1.3rem 0.5rem 1rem 0;
   font-size: 1rem;
-  margin-top: 4px;
   cursor: pointer;
 }
 
-.country-code-select option {
-  color: black;
+/* Custom arrow */
+.select-wrapper::after {
+  content: "▼ ";
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.7rem;
+  color: white;
+  pointer-events: none;
 }
 
 .country-code-select:focus {
   outline: none;
   border-bottom-color: #60a5fa;
 }
+
+.country-code-select option {
+  color: black;
+}
+
 
 .input-error {
   color: #ffb4b4;
@@ -260,6 +282,7 @@
   border-radius: 50px;
   font-size: 1rem;
   font-weight: 600;
+  font-family: 'Poppins';
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: 0.5rem;

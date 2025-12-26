@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import styles from "./Home.module.css";
 import IsometricNetwork from "./IsometricNetwork";
 import BuildSvg from "../assets/about/home.svg?react";
+import HeroSection from "./HeroSection";
 
 const Home = () => {
   return (
@@ -40,8 +41,10 @@ const Home = () => {
               <BuildSvg />
             </motion.svg>
           </div> */}
-          <IsometricNetwork/>
-
+          {/* <IsometricNetwork/> */}
+<div >
+          <HeroSection/>
+          </div>
           {/* Bottom Elements */}
 
           <div className={styles.bottomLeft}>

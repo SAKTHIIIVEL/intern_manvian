@@ -191,7 +191,7 @@ const Footer = () => {
                   cursor: "pointer",
                 }}
               >
-                9677787817
+               +91-9677787817
               </a>
             </div>
             <div className="footer-contact-item">
@@ -211,7 +211,7 @@ const Footer = () => {
                   href="https://maps.app.goo.gl/tWf7yn3a2a17tGt9A"
                   className="address-link"
                   target="_blank"
-  rel="noopener noreferrer"
+                  rel="noopener noreferrer"
                 >
                   No.18, Velan Avenue, Rice Mill Road, Kandigai, Chennai -
                   600127

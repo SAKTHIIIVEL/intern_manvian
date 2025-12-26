@@ -12,7 +12,7 @@ const Partners = () => {
     { id: 3, x: 440, y: 360, delay: "0.8s", label: "Africa" },
     { id: 4, x: 600, y: 240, delay: "1.1s", label: "Asia" },
     { id: 5, x: 700, y: 400, delay: "1.4s", label: "Oceania" },
-    { id: 6, x: 100, y: 430, delay: "1.8s", label: "atlantic" },
+    { id: 6, x: 100, y: 420, delay: "1.8s", label: "atlantic" },
   ];
 
   return (

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './Header.css'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import logo1 from '../assets/logo1.svg'
+import logo from "../assets/brands/logo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -21,7 +22,7 @@ const Header = () => {
         <div className="logo">
           {/* <div className="logo-icon">D</div> */}
           <Link to={"/"}>
-          <img src={logo1} alt="D Pharma Logo" className="logo-image" />
+          <img src={logo} alt="D Pharma Logo" className="logo-image" />
           </Link>
         </div>
         

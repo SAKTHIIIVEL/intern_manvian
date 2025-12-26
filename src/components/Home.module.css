@@ -1,9 +1,7 @@
 .hero {
     position: relative;
     min-height: 100vh;
-    /* Full screen height */
-    background: var(--color-primary);
-    background: radial-gradient(circle at 50% 30%, #1e2475, #161952 70%);
+    /* background: radial-gradient(circle at 50% 30%, #1e2475, #161952 70%); */
     /* Subtle glowing center */
     color: white;
     overflow: hidden;
@@ -22,6 +20,7 @@
     flex: 1;
     display: flex;
     flex-direction: column;
+    z-index: 2;
 }
 
 /* --- Text Section --- */
@@ -32,185 +31,49 @@
 }
 
 .title {
-    font-size: 3.5rem;
-    font-weight: 700;
+    font-size: 62px;
+    font-weight: 600;
     margin-bottom: 1rem;
     color: #FFFFFF;
 }
 
 .subtitle {
-    font-size: 1.2rem;
+    font-size: 24px;
     color: #E3E3E3;
     line-height: 1.5;
 }
 
 /* --- Visuals Section --- */
 .visualsContainer {
-    flex: 1;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -80px;  /* 🔥 PUSH DOWN */
+    height: 70%;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-    min-height: 500px;
-    perspective: 2000px;
-    transform: translateY(-50px);
-    /* Pull visuals up slightly */
-}
 
-.isometricGrid {
-    position: relative;
-    width: 800px;
-    height: 600px;
-    transform-style: preserve-3d;
-    /* Rotate grid to create isometric view */
-    transform: rotateX(60deg) rotateZ(-45deg);
-}
-
-.platform {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 300px;
-    height: 300px;
-    background: rgba(0, 0, 0, 0.2);
-    border-radius: 20px;
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
-}
-
-/* --- Isometric Blocks --- */
-.isoBlock {
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    transform-style: preserve-3d;
-}
-
-.blockFace {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.blockFace[data-face="top"] {
-    transform: rotateX(0deg) translateZ(60px);
-    background-color: #3b82f6;
-    /* Blue Top */
-}
-
-.blockFace[data-face="left"] {
-    transform: rotateY(-90deg) translateZ(30px) translateX(-30px);
-    background-color: #1d4ed8;
-    /* Darker Blue Side */
-}
-
-.blockFace[data-face="right"] {
-    transform: rotateX(-90deg) translateZ(30px) translateY(30px);
-    background-color: #2563eb;
-    /* Med Blue Side */
-}
-
-/* Center Block Specifics (White/Light) */
-.centerBlock {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) translateZ(20px);
-    /* Start elevated */
-    width: 80px;
-    height: 80px;
-    z-index: 10;
-}
-
-.centerBlock .blockFace[data-face="top"] {
-    background-color: #e2e8f0;
-    transform: rotateX(0deg) translateZ(80px);
-    /* Taller */
-}
-
-.centerBlock .blockFace[data-face="left"] {
-    background-color: #cbd5e1;
-    transform: rotateY(-90deg) translateZ(40px) translateX(-40px);
-    /* Add 'server' lines details */
-    background-image: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.1) 50%);
-    background-size: 100% 10px;
-}
-
-.centerBlock .blockFace[data-face="right"] {
-    background-color: #94a3b8;
-    transform: rotateX(-90deg) translateZ(40px) translateY(40px);
-    background-image: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.1) 50%);
-    background-size: 100% 10px;
-}
-
-/* Surrounding Blue Blocks Styles */
-.blueBlock .blockFace[data-face="top"] {
-    background-color: #304a9f;
-}
-
-.blueBlock .blockFace[data-face="left"] {
-    background-color: #1e2475;
-    background-image: linear-gradient(to bottom, transparent 30%, rgba(255, 255, 255, 0.1) 30%);
-    background-size: 100% 8px;
-    /* Vent lines */
-}
-
-.blueBlock .blockFace[data-face="right"] {
-    background-color: #2b3595;
-    background-image: linear-gradient(to bottom, transparent 30%, rgba(255, 255, 255, 0.1) 30%);
-    background-size: 100% 8px;
-}
-
-/* Lines Overlay */
-.linesOverlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    z-index: 1;
     pointer-events: none;
-    transform: translateZ(0);
-    /* Lay flat on grid plane */
 }
 
-/* Labels */
-.label {
-    position: absolute;
-    background: white;
-    color: var(--color-primary);
-    padding: 0.5rem 1.5rem;
-    border-radius: 4px;
-    font-weight: 600;
-    font-size: 0.9rem;
-    box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-    /* Reverse transforms to make label face camera */
-    transform: rotateZ(45deg) rotateX(-60deg) translateZ(100px);
-}
-
-.labelLeft {
-    top: 30%;
-    left: 0%;
-}
-
-.labelRight {
-    top: 30%;
-    right: 0%;
-}
 
 /* --- Bottom Elements --- */
 .bottomLeft {
     position: absolute;
     bottom: 0px;
-    left: 0;
+    left: -25px;
     width: 100%;
-    max-width: 500px;
+    max-width: 550px;
 }
 
 .social {
     position: absolute;
-    bottom: 120px;
-    left: 85px;
-    font-size: 16px;
+    bottom: 95px;
+    left: 125px;
+    font-size: 20px;
 }
 .social span{
     color: #FFFFFF;
@@ -221,6 +84,7 @@
     color: #68769D;
     margin: 0 5px;
     font-weight: 500;
+    text-decoration: none;
 }
 
 .networkSvg {
@@ -246,7 +110,7 @@
     padding: 1.5rem 3rem;
     display: inline-block;
     /* Use clip-path or absolute + width to mimicking the "sticking out" look */
-    width: 100%;
+    width: 450px;
     /* clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%); */
     text-align: right;
 }
@@ -254,7 +118,7 @@
 .exploreButton {
     background: transparent;
     border: none;
-    font-size: 1.2rem;
+    font-size: 24px;
     font-weight: 500;
     color: #191538;
     text-align: right;
@@ -264,14 +128,14 @@
 .bottomRight {
     position: absolute;
     bottom: 60px;
-    right: 60px;
+    right: 10px;
     text-align: left;
-    max-width: 410px;
+    max-width: 540px;
 }
 
 .bottomRight p {
-    color: #a0a4c9;
-    font-size: 0.95rem;
+    color: #7C8DBC;
+    font-size: 20px;
     line-height: 1.6;
 }
 

@@ -10,7 +10,7 @@
 }
 
 .content h2 {
-    font-size: 46px;
+    font-size: 48px;
     font-style: italic;
     margin-bottom: 24px;
     font-weight: 400;
@@ -33,7 +33,7 @@
 
 .input {
     flex: 1;
-    padding: 1rem 1.5rem;
+    padding: 1rem 4rem;
     border-radius: 50px;
     border: none;
     background: #393C6A;
@@ -51,6 +51,8 @@
     width: 180px;
     border: none;
     background: #D9D9D9;
+    font-family: 'Poppins';
+    font-size: 16px;
     color: #151952;
     font-weight: 600;
     cursor: pointer;

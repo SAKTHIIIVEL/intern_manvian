@@ -47,7 +47,7 @@
 
 .faq-subtitle {
   color: #B1AFFF;
-  font-size: 1.1rem;
+  font-size: 24px;
   font-weight: 500;
   margin: 0;
   margin-bottom: 4px;
@@ -64,7 +64,7 @@
 
 .faq-description {
   color: #cbd5e1;
-  font-size: 1.1rem;
+  font-size: 24px;
   line-height: 1.8;
   margin: 0;
 }
@@ -88,7 +88,7 @@
 
 .faq-question {
   width: 100%;
-  padding: 1.5rem;
+  padding: 1rem;
   background: transparent;
   border: none;
   display: flex;
@@ -96,8 +96,8 @@
   align-items: center;
   cursor: pointer;
   text-align: left;
-  font-size: 1.1rem;
-  font-weight: 600;
+  font-size: 24px;
+  font-weight: 500;
   color: #0f172a;
   transition: all 0.3s ease;
 }

@@ -23,6 +23,11 @@ const faqRightRef = useRef(null);
       answer:
         "D Pharma offers a wide range of healthcare services including pharmaceutical solutions, medical consultations, health management programs, and comprehensive medical support services tailored to meet the diverse needs of our community.",
     },
+    {
+      question: "What are the services?",
+      answer:
+        "D Pharma offers a wide range of healthcare services including pharmaceutical solutions, medical consultations, health management programs, and comprehensive medical support services tailored to meet the diverse needs of our community.",
+    },
   ];
   useEffect(() => {
   const observer = new IntersectionObserver(
@@ -79,8 +84,8 @@ const faqRightRef = useRef(null);
                     className={`faq-icon ${openIndex === index ? "open" : ""}`}
                   >
                     <svg
-                      width="63"
-                      height="63"
+                      width="64"
+                      height="64"
                       viewBox="0 0 63 63"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
