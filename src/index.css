@@ -21,12 +21,6 @@ body {
   overflow-x: hidden;
   background: #161952;
 }
-.grid {
-  height: auto;
-}
-svg {
-  display: block;
-}
 
 #root {
   width: 100%;

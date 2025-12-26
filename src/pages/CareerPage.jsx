@@ -33,6 +33,13 @@ const openRoles = [
     location: "Chennai, Tamil Nadu",
     type: "Full Time",
   },
+  {
+    title: "Research Assistant - Pharmaceutical Formulations",
+    role_focus:
+      " Assisting in formulation development, sample testing, documentation.",
+    location: "Chennai, Tamil Nadu",
+    type: "Full Time",
+  },
 ];
 
 const CareerPage = () => {
@@ -355,6 +362,7 @@ useEffect(() => {
                 </div>
                 <div className="form-group-career">
                   <div className="phone-input-wrapper-career">
+                  <div className="select-wrapper-career">
                     <select
                       name="countryCode"
                       value={formData.countryCode}
@@ -365,15 +373,18 @@ useEffect(() => {
                       <option value="+60">+60</option>
                       <option value="+1">+1</option>
                     </select>
-                    <input
-                      type="number"
-                      name="phone"
-                      placeholder="Phone number"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className={errors.phone ? "input-error-career" : ""}
-                    />
                   </div>
+
+                  <input
+                    type="tel"
+                    name="phone"
+                    placeholder=" Phone number"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    inputMode="numeric"
+                    maxLength={10}
+                  />
+                </div>
                   {errors.phone && (
                     <span className="error-message-career">{errors.phone}</span>
                   )}

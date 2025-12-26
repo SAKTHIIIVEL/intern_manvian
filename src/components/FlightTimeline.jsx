@@ -85,7 +85,7 @@ const activatePin = (pin, active) => {
   gsap.to(pin, {
     opacity: active ? 1 : 0.35,
     scale: active ? 1.08 : 1,
-    filter: active ? "drop-shadow(0 0 12px rgba(255, 255, 255, 1))" : "none",
+    filter: active ? "drop-shadow(0 0 12px #D7D7ED)" : "none",
     transformOrigin: "center",
     duration: 0.3,
   });

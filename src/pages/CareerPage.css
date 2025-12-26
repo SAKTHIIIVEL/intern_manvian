@@ -55,7 +55,7 @@
 }
 
 .hero-subtitle {
-  font-size: 70px;
+  font-size: 80px;
   font-weight: 600;
   letter-spacing: 0.07em;
   margin-left: 100px;
@@ -72,12 +72,12 @@
 
 .purpose-box {
   display: inline-block;
-  font-size: 150px;
+  font-size: 200px;
   font-weight: 600;
   letter-spacing: 0.06em;
   padding: 0;
   color: #ffffff;
-  margin-left: auto; 
+  margin-left: 300px; 
 }
 .hero-badge {
   display: inline-block;
@@ -89,7 +89,7 @@
   width: fit-content;
 }
 .hero-info {
-  max-width: 89%;
+  max-width: 95%;
   display: flex;
   flex-direction: row;
   gap: 1.6rem;
@@ -122,7 +122,7 @@
 }
 
 .hero-sub{
-  font-size: 1.2rem;
+  font-size: 32px;
   font-weight: 600;
   color: #ffffff;
   margin-left: 80px ;
@@ -130,8 +130,8 @@
 }
 
 .hero-description {
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 24px;
+  line-height: 1.5;
   color: #dbe1ff;
   margin: 0;
   width: 75%;
@@ -218,7 +218,7 @@
   margin: 0;
   color: #f5f7ff;
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 24px;
 }
 
 .role-meta {
@@ -256,7 +256,7 @@
 .positions-content {
   display: grid;
   grid-template-columns: 1.1fr 0.9fr;
-  gap: 2rem;
+  gap: 1rem;
   align-items: center;
   margin-left: 70px;
 }
@@ -451,28 +451,48 @@
   display: grid;
   grid-template-columns: 50px 1fr;
   align-items: center;
-  position: relative;
-  bottom: 4px;
 }
 
+/* Wrapper for arrow */
+.select-wrapper-career {
+  position: relative;
+}
+
+/* Remove default arrow */
 .country-code-select-career {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  width: 100%;
   background: transparent;
   border: none;
   border-bottom: 1px solid rgba(203, 213, 225, 0.5);
-  color: rgba(255, 255, 255, 0.6);
-  padding: 1rem 0;
+  color: white;
+  padding: 0.8rem 0.5rem 1rem 0;
   font-size: 1rem;
   cursor: pointer;
-  margin-bottom: 4px;
 }
 
-.country-code-select-career option {
-  color: black;
+/* Custom arrow */
+.select-wrapper-career::after {
+  content: "▼ ";
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.7rem;
+  color: white;
+  pointer-events: none;
 }
 
 .country-code-select-career:focus {
   outline: none;
   border-bottom-color: #60a5fa;
+}
+
+.country-code-select-career option {
+  color: black;
 }
 .career-form textarea {
   resize: vertical;
