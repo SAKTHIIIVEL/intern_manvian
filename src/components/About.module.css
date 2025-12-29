@@ -1,19 +1,19 @@
 .about {
-    padding: 1rem 2rem;
-    margin-left: 70px;
-    color: white;
+  padding: 1rem 2rem;
+  margin-left: 70px;
+  color: white;
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
 }
 
-.textContent{
+.textContent {
   position: relative;
   z-index: 1;
 }
@@ -28,33 +28,34 @@
   background: #4846FFB2;
   filter: blur(150px);
   border-radius: 25px;
-  z-index: -1; /* behind the container */
+  z-index: -1;
+  /* behind the container */
 }
 
 .textContent h2 {
-    font-size: 48px;
-    line-height: 1.2;
-    margin-bottom: 2rem;
-    font-weight: 700;
+  font-size: 48px;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+  font-weight: 700;
 }
 
 .textContent p {
-    font-size: 20px;
-    opacity: 0.8;
-    margin-bottom: 3rem;
-    max-width: 450px;
+  font-size: 20px;
+  opacity: 0.8;
+  margin-bottom: 3rem;
+  max-width: 450px;
 }
 
 .arrowButton {
-    width: 60px;
-    height: 60px;
-    border: 2px solid #FFFFFF;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: 1.5rem;
+  width: 60px;
+  height: 60px;
+  border: 2px solid #FFFFFF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.5rem;
 }
 
 .imageGrid {
@@ -78,7 +79,7 @@
   object-fit: cover;
   display: block;
   border-radius: inherit;
-  overflow: hidden; 
+  overflow: hidden;
 }
 
 /* ================= LEFT BIG PILL ================= */
@@ -86,7 +87,7 @@
   width: 260px;
   height: 660px;
   border-radius: 140px;
-  
+
   transform: translateY(-50%);
   z-index: 2;
 }
@@ -96,7 +97,7 @@
   width: 225px;
   height: 450px;
   border-radius: 120px;
-  
+
   z-index: 1;
 }
 
@@ -124,7 +125,8 @@
 /* Doctor badge (top left outside) */
 .cardLarge .badge {
   top: 45px;
-  left: -88px;       /* 👈 move OUTSIDE */
+  left: -88px;
+  /* 👈 move OUTSIDE */
   z-index: 5;
 }
 
@@ -151,8 +153,274 @@
 }
 
 
-@media (max-width: 768px) {
-    .container {
-        grid-template-columns: 1fr;
-    }
+
+/* Responsive Design */
+
+/* Laptop (1024px - 1439px) */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .about {
+    margin-left: 30px;
+  }
+
+  .container {
+    max-width: 1000px;
+    gap: 3rem;
+  }
+
+  .textContent h2 {
+    font-size: 40px;
+  }
+
+  .textContent p {
+    font-size: 18px;
+  }
+
+  .imageGrid {
+    height: 600px;
+  }
+
+  .cardLarge {
+    width: 230px;
+    height: 580px;
+  }
+
+  .cardSmall {
+    width: 200px;
+    height: 400px;
+  }
+
+  .bottomRight {
+    bottom: 12%;
+    left: -15%;
+    width: auto;
+    height: auto;
+    background: transparent;
+    border: none;
+    z-index: 3;
+  }
+
+  .bottomRight .badge {
+    position: relative;
+  }
+}
+
+/* Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .about {
+    margin-left: 0;
+    padding: 1rem 1.5rem;
+  }
+
+  .container {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .subtitle {
+    font-size: 13px;
+    letter-spacing: 3px;
+  }
+
+  .title {
+    font-size: 30px;
+    margin-bottom: 1rem;
+  }
+
+  .description {
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 100%;
+  }
+
+  .imageGrid {
+    height: 500px;
+  }
+
+  .cardLarge {
+    width: 200px;
+    height: 480px;
+    left: 10%;
+  }
+
+  .cardSmall {
+    width: 180px;
+    height: 350px;
+  }
+
+  .topRight {
+    right: 10%;
+  }
+
+  .cardLarge .badge {
+    left: -60px;
+    font-size: 18px;
+  }
+
+  .badge {
+    font-size: 18px;
+    padding: 5px 12px;
+  }
+
+  .bottomRight {
+    bottom: 12%;
+    left: -15%;
+    width: auto;
+    height: auto;
+    background: transparent;
+    border: none;
+    z-index: 3;
+  }
+
+  .bottomRight .badge {
+    position: relative;
+  }
+}
+
+/* Mobile (up to 767px) */
+@media (max-width: 767px) {
+  .about {
+    margin-left: 0;
+    padding: 1rem;
+  }
+
+  .container {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: 11px;
+    letter-spacing: 2px;
+  }
+
+  .title {
+    font-size: 24px;
+    margin-bottom: 0.75rem;
+  }
+
+  .description {
+    font-size: 12px;
+    line-height: 1.5;
+    max-width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  .arrowButton {
+    width: 50px;
+    height: 50px;
+    font-size: 1.25rem;
+  }
+
+  .imageGrid {
+    height: 400px;
+    margin: 0 auto;
+    max-width: 350px;
+  }
+
+  .cardLarge {
+    width: 160px;
+    height: 380px;
+    left: 5%;
+  }
+
+  .cardSmall {
+    width: 140px;
+    height: 280px;
+  }
+
+  .topRight {
+    top: 80px;
+    right: 5%;
+  }
+
+  .cardLarge .badge {
+    left: -40px;
+    font-size: 14px;
+    padding: 4px 10px;
+  }
+
+  .topRight .badge {
+    right: -15px;
+    font-size: 14px;
+    padding: 4px 10px;
+  }
+
+  .badge {
+    font-size: 14px;
+    padding: 4px 10px;
+  }
+
+
+  .bottomRight {
+    bottom: 12%;
+    left: -15%;
+    width: auto;
+    height: auto;
+    background: transparent;
+    border: none;
+    z-index: 3;
+  }
+
+  .bottomRight .badge {
+    position: relative;
+  }
+
+  .textContent::before {
+    content: none;
+  }
+}
+
+/* Extra small mobile */
+@media (max-width: 390px) {
+  .subtitle {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .description {
+    font-size: 11px;
+    line-height: 1.5;
+  }
+
+  .imageGrid {
+    height: 350px;
+    max-width: 300px;
+  }
+
+  .cardLarge {
+    width: 140px;
+    height: 330px;
+  }
+
+  .cardSmall {
+    width: 120px;
+    height: 240px;
+  }
+
+  .badge {
+    font-size: 12px;
+    padding: 3px 8px;
+  }
+
+  .bottomRight {
+    bottom: 12%;
+    left: -15%;
+    width: auto;
+    height: auto;
+    background: transparent;
+    border: none;
+    z-index: 3;
+  }
+
+  .bottomRight .badge {
+    position: relative;
+  }
+
+  .textContent::before {
+    content: none;
+  }
 }

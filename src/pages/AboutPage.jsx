@@ -174,43 +174,51 @@ const visionRef = useRef(null);
         </div>
       </section>
 
-      {/* Our Team Section */}
       <section className="team-section" ref={teamRef}>
-        <div className="team-wrapper">
-          {/* LEFT CONTENT */}
-          <div className="team-left">
-            <p className="team-label">Our Team</p>
+  <div className="team-wrapper">
+    {/* LEFT */}
+    <div className="team-left">
+      <p className="team-label">Our Team</p>
+      <h2>Dedicated Minds Driving Healthcare Forward</h2>
+    </div>
 
-            <h2>Dedicated Minds Driving Healthcare Forward</h2>
-          </div>
+    {/* RIGHT */}
+    <div className="team-right">
+      {/* MAIN CARD */}
+      <div className="team-card active">
+        <img src={magaeshImage} alt="Mr. Magesh Kumar" />
 
-          {/* RIGHT CONTENT */}
-          <div className="team-right">
-            {/* MAIN CARD */}
-            <div className="team-card active">
-              <img src={magaeshImage} alt="Mr. Magesh Kumar" />
-
-              <div className="team-info">
-                <h3>Mr. Magesh Kumar</h3>
-                <p>Director, Dr.will</p>
-              </div>
-            </div>
-
-            {/* SIDE CARD */}
-            <div className="team-card side">
-              <img src={seniorManager1} alt="Senior Manager" />
-
-              <span className="vertical-text">Senior Manager</span>
-            </div>
-
-            {/* SIDE CARD */}
-            <div className="team-card side">
-              <img src={seniorManager2} alt="Senior Manager" />
-              <span className="vertical-text">Senior Manager</span>
-            </div>
-          </div>
+        <div className="team-info">
+          <h3>Mr. Magesh Kumar</h3>
+          <p>Director, Dr.will</p>
         </div>
-      </section>
+      </div>
+
+      {/* SIDE CARD */}
+      <div className="team-card side">
+        <img src={seniorManager1} alt="Senior Manager" />
+        <span className="vertical-text">Senior Manager</span>
+
+        <div className="team-info">
+          <h3>Senior Manager</h3>
+          <p>Operations</p>
+        </div>
+      </div>
+
+      {/* SIDE CARD */}
+      <div className="team-card side">
+        <img src={seniorManager2} alt="Senior Manager" />
+        <span className="vertical-text">Senior Manager</span>
+
+        <div className="team-info">
+          <h3>Senior Manager</h3>
+          <p>Strategy</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* Our Commitment Section */}
       <section className="commitment-section" ref={commitmentRef}>

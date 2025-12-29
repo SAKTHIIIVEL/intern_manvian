@@ -7,120 +7,121 @@ import lab from "../assets/icons/service_lab.png";
 import research from "../assets/icons/service_research.png";
 import globe from "../assets/icons/service_globe.png";
 import dipharma from "../assets/brands/dipharma.png";
-import ContactSection from '../components/ContactSection'
-// import diresearch from "../assets/brands/diresearch.png";
-// import drwill from "../assets/brands/drwill.png";
-// import indocontent from "../assets/brands/indocontent.png";
+import ContactSection from "../components/ContactSection";
+import g7 from "../assets/brands/g7.png";
+import diwhole from "../assets/brands/di_whole.png";
+import mj7 from "../assets/brands/mj7.png";
+import indocontent from "../assets/brands/ic7.png";
 
-const COUNTRY_RULES = {
-  "+91": { name: "India", min: 10, max: 10 },
-  "+60": { name: "Malaysia", min: 9, max: 10 },
-  "+1": { name: "USA", min: 10, max: 10 },
-};
+// const COUNTRY_RULES = {
+//   "+91": { name: "India", min: 10, max: 10 },
+//   "+60": { name: "Malaysia", min: 9, max: 10 },
+//   "+1": { name: "USA", min: 10, max: 10 },
+// };
 
 const ServicePage = () => {
-  const [formData, setFormData] = useState({
-    countryCode: "+91",
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message: "",
-  });
-  const [errors, setErrors] = useState({});
+  // const [formData, setFormData] = useState({
+  //   countryCode: "+91",
+  //   firstName: "",
+  //   lastName: "",
+  //   email: "",
+  //   phone: "",
+  //   subject: "",
+  //   message: "",
+  // });
+  // const [errors, setErrors] = useState({});
   const heroRef = useRef(null);
   const cardsRef = useRef(null);
   const communityRef = useRef(null);
   const infoRef = useRef(null);
   const formRef = useRef(null);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  // const handleChange = (e) => {
+  //   const { name, value } = e.target;
 
-    // Allow ONLY numbers for phone field
-    if (name === "phone") {
-      // Remove non-numeric characters
-      const numericValue = value.replace(/[^0-9]/g, "");
+  //   // Allow ONLY numbers for phone field
+  //   if (name === "phone") {
+  //     // Remove non-numeric characters
+  //     const numericValue = value.replace(/[^0-9]/g, "");
 
-      setFormData({
-        ...formData,
-        phone: numericValue,
-      });
+  //     setFormData({
+  //       ...formData,
+  //       phone: numericValue,
+  //     });
 
-      setErrors((prev) => ({ ...prev, phone: "" }));
-      return;
-    }
+  //     setErrors((prev) => ({ ...prev, phone: "" }));
+  //     return;
+  //   }
 
-    // Default behavior for other fields
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+  //   // Default behavior for other fields
+  //   setFormData({
+  //     ...formData,
+  //     [name]: value,
+  //   });
 
-    setErrors((prev) => ({ ...prev, [name]: "" }));
-  };
+  //   setErrors((prev) => ({ ...prev, [name]: "" }));
+  // };
 
-  const validate = () => {
-    const newErrors = {};
-    if (!formData.firstName.trim())
-      newErrors.firstName = "First name is required";
-    if (!formData.lastName.trim()) newErrors.lastName = "Last name is required";
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!formData.email.trim()) newErrors.email = "Email is required";
-    else if (!emailRegex.test(formData.email.trim()))
-      newErrors.email = "Enter a valid email";
-    const phoneDigits = formData.phone.replace(/\D/g, "");
-    const rules = COUNTRY_RULES[formData.countryCode];
+  // const validate = () => {
+  //   const newErrors = {};
+  //   if (!formData.firstName.trim())
+  //     newErrors.firstName = "First name is required";
+  //   if (!formData.lastName.trim()) newErrors.lastName = "Last name is required";
+  //   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  //   if (!formData.email.trim()) newErrors.email = "Email is required";
+  //   else if (!emailRegex.test(formData.email.trim()))
+  //     newErrors.email = "Enter a valid email";
+  //   const phoneDigits = formData.phone.replace(/\D/g, "");
+  //   const rules = COUNTRY_RULES[formData.countryCode];
 
-    if (!phoneDigits) {
-      newErrors.phone = "Phone number is required";
-    } else if (
-      phoneDigits.length < rules.min ||
-      phoneDigits.length > rules.max
-    ) {
-      newErrors.phone = `Enter a valid ${rules.name} number (${rules.min}-${rules.max} digits)`;
-    }
+  //   if (!phoneDigits) {
+  //     newErrors.phone = "Phone number is required";
+  //   } else if (
+  //     phoneDigits.length < rules.min ||
+  //     phoneDigits.length > rules.max
+  //   ) {
+  //     newErrors.phone = `Enter a valid ${rules.name} number (${rules.min}-${rules.max} digits)`;
+  //   }
 
-    if (!formData.subject.trim()) newErrors.subject = "Subject is required";
-    if (!formData.message.trim()) newErrors.message = "Message is required";
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
+  //   if (!formData.subject.trim()) newErrors.subject = "Subject is required";
+  //   if (!formData.message.trim()) newErrors.message = "Message is required";
+  //   setErrors(newErrors);
+  //   return Object.keys(newErrors).length === 0;
+  // };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const isValid = validate();
-    if (!isValid) return;
-    console.log("Form submitted:", formData);
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   const isValid = validate();
+  //   if (!isValid) return;
+  //   console.log("Form submitted:", formData);
 
-    try {
-      const response = await fetch("http://localhost:5000/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+  //   try {
+  //     const response = await fetch("http://localhost:5000/api/contact", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(formData),
+  //     });
 
-      if (response.ok) {
-        alert("Message sent successfully!");
-        setFormData({
-          firstName: "",
-          lastName: "",
-          email: "",
-          phone: "",
-          subject: "",
-          message: "",
-        });
-      } else {
-        alert("Failed to send message");
-      }
-    } catch (error) {
-      console.error(error);
-      alert("Server error");
-    }
-  };
+  //     if (response.ok) {
+  //       alert("Message sent successfully!");
+  //       setFormData({
+  //         firstName: "",
+  //         lastName: "",
+  //         email: "",
+  //         phone: "",
+  //         subject: "",
+  //         message: "",
+  //       });
+  //     } else {
+  //       alert("Failed to send message");
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //     alert("Server error");
+  //   }
+  // };
 
   //for hero section animation
   useEffect(() => {
@@ -278,7 +279,9 @@ const ServicePage = () => {
             </div>
             <h3 className="service-card-title">Di Research</h3>
             <p className="service-card-text">
-              Sed porttitor lectus nibh. Nulla porttitor accumsan tincidunt. Vestibulum ante ipsum primis Sed porttitor lectus nibh. Nulla porttitor accumsan tincidunt. Vestibulum ante ipsum primis
+              Sed porttitor lectus nibh. Nulla porttitor accumsan tincidunt.
+              Vestibulum ante ipsum primis Sed porttitor lectus nibh. Nulla
+              porttitor accumsan tincidunt. Vestibulum ante ipsum primis
             </p>
           </div>
         </div>
@@ -364,7 +367,8 @@ const ServicePage = () => {
       </section>
 
       {/* Brands Strip */}
-      <marquee direction="left" className="service-brands-marquee">
+      <div className="service-brands-marquee">
+  <div className="service-brands-track">
         <section className="service-brands-section">
           <span className="service-brand-pill">
             <img src={dipharma} alt="diPharma" />
@@ -403,8 +407,12 @@ const ServicePage = () => {
             Di Research
           </span>
           <span className="service-brand-pill">
-            {/* <img src={indocontent} alt="diIndo Continental" /> */}
-            <svg
+            <img
+              src={indocontent}
+              alt="diIndo Continental"
+              style={{ height: "60px" }}
+            />
+            {/* <svg
               width="48"
               height="30"
               viewBox="0 0 48 30"
@@ -417,13 +425,35 @@ const ServicePage = () => {
                 d="M3.892 5.278C6.08 2.144 9.104 0 12 0C15.308 0 18.232 2.16 20.676 4.666C23.186 7.238 25.61 10.62 27.872 13.854L28.63 14.936C30.65 17.836 32.542 20.544 34.36 22.62C35.376 23.78 36.3 24.66 37.134 25.24C37.974 25.822 38.58 26 39 26C40.368 26 41.546 25.456 42.42 24.39C43.318 23.296 44 21.51 44 18.912C44 13.912 42.586 10.088 40.826 7.566C38.99 4.932 37.02 4 36 4C34.432 4 32.532 5.07 30.242 7.4C30.0604 7.59671 29.8411 7.75496 29.5972 7.86535C29.3532 7.97574 29.0896 8.03603 28.822 8.04264C28.5543 8.04925 28.288 8.00206 28.039 7.90384C27.7899 7.80563 27.563 7.65841 27.3719 7.47091C27.1808 7.2834 27.0293 7.05943 26.9263 6.81227C26.8234 6.56511 26.7711 6.29979 26.7726 6.03205C26.7741 5.76431 26.8293 5.4996 26.9351 5.25361C27.0408 5.00762 27.1948 4.78536 27.388 4.6C29.816 2.126 32.72 0 36 0C38.896 0 41.922 2.144 44.108 5.278C46.37 8.52 48 13.154 48 18.912C48 22.184 47.14 24.944 45.514 26.926C44.7299 27.8959 43.7367 28.6761 42.6088 29.2084C41.4808 29.7407 40.2472 30.0113 39 30C37.462 30 36.064 29.366 34.854 28.526C33.638 27.684 32.468 26.532 31.35 25.256C29.376 23 27.35 20.094 25.354 17.232L24.594 16.146C22.308 12.88 20.062 9.762 17.814 7.46C15.5 5.09 13.584 4 12 4C10.982 4 9.01 4.932 7.172 7.566C5.412 10.088 4 13.91 4 18.914C4 21.51 4.682 23.294 5.58 24.39C5.98874 24.9023 6.50968 25.3139 7.10263 25.593C7.69559 25.8722 8.34473 26.0114 9 26C9.77 26 10.982 25.406 12.724 23.616C14.382 21.912 16.14 19.536 18.034 16.848C18.1853 16.6333 18.3774 16.4505 18.5993 16.31C18.8212 16.1695 19.0687 16.0741 19.3275 16.0293C19.5863 15.9844 19.8514 15.991 20.1076 16.0486C20.3639 16.1062 20.6063 16.2137 20.821 16.365C21.0357 16.5163 21.2185 16.7084 21.359 16.9303C21.4995 17.1522 21.5949 17.3997 21.6397 17.6585C21.6846 17.9173 21.678 18.1824 21.6204 18.4386C21.5628 18.6949 21.4553 18.9373 21.304 19.152C19.42 21.826 17.496 24.448 15.59 26.406C13.77 28.276 11.536 30 9 30C7.75281 30.0113 6.51918 29.7407 5.39123 29.2084C4.26327 28.6761 3.27014 27.8959 2.486 26.926C0.86 24.944 0 22.186 0 18.912C0 13.156 1.63 8.518 3.892 5.278Z"
                 fill="white"
               />
-            </svg>
-            Indo Continental
+            </svg> 
+            Indo Continental */}
+          </span>
+          <span className="service-brand-pill">
+            <img
+              src={mj7}
+              alt="mj7"
+              style={{ height: "60px" }}
+            />
+          </span>
+          <span className="service-brand-pill">
+            <img
+              src={diwhole}
+              alt="mj7"
+              style={{ height: "60px" }}
+            />
+          </span>
+          <span className="service-brand-pill">
+            <img
+              src={g7}
+              alt="mj7"
+              style={{ height: "75px" }}
+            />
           </span>
         </section>
-      </marquee>
+      </div>
+      </div>
 
-{/* Contact & Form Section */}
+      {/* Contact & Form Section */}
       <ContactSection />
 
       {/* Footer Highlight */}

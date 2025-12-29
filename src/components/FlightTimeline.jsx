@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
+import "./FlightTimeline.css";
 
 gsap.registerPlugin(MotionPathPlugin);
 
@@ -157,6 +158,7 @@ export default function FlightTimeline() {
 
   return (
     <div
+      className="flight-svg"
       style={{
         position: "absolute",
         top: 0,
@@ -170,7 +172,7 @@ export default function FlightTimeline() {
       <svg viewBox="0 0 1200 300" width="100%" height="100%">
         {/* ROAD GLOW */}
         <path
-          d="M -10 400 C 300 450, 510 100, 650 10 S 1000 -40, 1200 -40"
+          d="M -10 400 C 300 450, 550 100, 650 10 S 1000 -40, 1200 -40"
           stroke="#2a3170"
           strokeWidth="80"
           fill="none"
@@ -178,7 +180,7 @@ export default function FlightTimeline() {
 
         {/* ROAD BASE */}
         <path
-          d="M -10 400 C 300 450, 510 100, 650 10 S 1000 -40, 1200 -40"
+          d="M -10 400 C 300 450, 550 100, 650 10 S 1000 -40, 1200 -40"
           stroke="#323b8f"
           strokeWidth="70"
           fill="none"
@@ -187,7 +189,7 @@ export default function FlightTimeline() {
         {/* CENTER DASH */}
         <path
           id="road-path"
-          d="M 0 400 C 300 450, 510 100, 650 10 S 1000 -40, 1200 -40"
+          d="M 0 400 C 300 450, 550 100, 650 10 S 1000 -40, 1200 -40"
           stroke="#9fa7d8"
           strokeWidth="4"
           strokeDasharray="14 14"

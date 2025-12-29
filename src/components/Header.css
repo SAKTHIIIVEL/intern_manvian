@@ -2,7 +2,7 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  background:  #161952;
+  background: #161952;
   backdrop-filter: blur(12px);
   /* border-bottom: 1px solid rgba(255, 255, 255, 0.1); */
   padding: 1rem 0;
@@ -81,7 +81,7 @@
   left: 0;
   right: 0;
   height: 2px;
-  
+
 }
 
 .book-appointment-btn {
@@ -151,9 +151,48 @@
   transform: rotate(-45deg) translate(6px, -6px);
 }
 
-@media (max-width: 968px) {
+
+/* Responsive Design */
+
+/* Laptop (1024px - 1439px) */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .header-container {
+    max-width: 1200px;
+    padding: 0 1.5rem;
+  }
+
+  .logo {
+    margin-left: 20px;
+  }
+
+  .nav {
+    gap: 1.5rem;
+  }
+
+  .nav-link {
+    font-size: 18px;
+  }
+
+  .book-appointment-btn {
+    padding: 14px 32px;
+    font-size: 16px;
+    margin-right: 40px;
+  }
+}
+
+/* Tablet (768px - 1023px) */
+@media(min-width: 768px) and (max-width: 1023px) {
   .header-container {
     padding: 0 1.5rem;
+  }
+
+  .logo {
+    margin-left: 15px;
+  }
+
+  .logo-image {
+    width: 65px;
+    height: 65px;
   }
 
   .nav {
@@ -178,6 +217,10 @@
     visibility: visible;
   }
 
+  .nav-link {
+    font-size: 18px;
+  }
+
   .book-appointment-btn {
     display: none;
   }
@@ -187,19 +230,64 @@
   }
 }
 
-@media (max-width: 640px) {
+/* Mobile (up to 767px) */
+@media (max-width: 767px) {
   .header-container {
     padding: 0 1rem;
   }
 
-  /* .logo-icon {
-    width: 40px;
-    height: 40px;
-    font-size: 24px;
-  } */
+  .logo {
+    margin-left: 0;
+  }
+
   .logo-image {
-    width: 35px;
-    height: 35px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(11, 19, 71, 0.98);
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1.25rem;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .nav-open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-link {
+    font-size: 16px;
+  }
+
+  .book-appointment-btn {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
   }
 }
 
+/* Extra small mobile */
+@media (max-width: 390px) {
+  .logo-image {
+    width: 40px;
+    height: 40px;
+  }
+
+  .nav-link {
+    font-size: 15px;
+  }
+}

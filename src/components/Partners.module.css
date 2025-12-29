@@ -1,13 +1,13 @@
 .partners {
-  position: relative;
-  width: 100%;
-  min-height: 600px;
-  padding: 80px 0;
-  z-index: 1;
-  background-image: url('../assets/about/globe.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+    position: relative;
+    width: 100%;
+    min-height: 600px;
+    padding: 80px 0;
+    z-index: 1;
+    background-image: url('../assets/about/globe.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 /* .globeContainer {
@@ -40,48 +40,54 @@
 /* brands strip */
 /* OUTER WRAPPER */
 .brandsWrapper {
-  width: 100%;
-  overflow: hidden;
+    width: 100%;
+    overflow: hidden;
 }
 
 /* BRAND STRIP */
 .brands_section {
-  padding: 10px 0;
-  height: 60px;
+    padding: 10px 0;
+    height: 60px;
 
-  display: flex;
-  align-items: center;
-  gap: 58px;
+    display: flex;
+    align-items: center;
+    gap: 58px;
 
-  width: max-content;
-  animation: marqueeScroll 18s linear infinite;
+    width: max-content;
+    animation: marqueeScroll 18s linear infinite;
 }
 
 /* BRAND STYLE (UNCHANGED) */
 .brand_pills {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 28px;
-  color: #FFFFFF87;
-  font-weight: 500;
-  white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 28px;
+    color: #FFFFFF87;
+    font-weight: 500;
+    white-space: nowrap;
 }
 
 .brand_image {
-  opacity: 53%;
-  width: 48px;
-  height: 48px;
+    opacity: 53%;
+    width: 48px;
+    height: 48px;
+}
+
+.brandImage{
+     height: 60px;
+    opacity:53%;
 }
 
 /* 🔑 TRUE INFINITE MARQUEE */
 @keyframes marqueeScroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
 }
 
 
@@ -231,9 +237,152 @@
     }
 }
 
-@media (max-width: 768px) {
+
+/* Responsive Styles */
+
+/* Laptop (1024px - 1439px) */
+@media (min-width: 1024px) and (max-width: 1439px) {
+    .partners {
+        min-height: 550px;
+        padding: 60px 0;
+    }
+
+    .header h2 {
+        font-size: 42px;
+    }
+
+    .globeContainer {
+        height: 500px;
+    }
+}
+
+/* Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .partners {
+        min-height: 500px;
+        padding: 50px 0;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .header h2 {
+        font-size: 36px;
+        margin-bottom: 1.5rem;
+    }
+
+    .brands_section{
+        height: 35px;
+        
+    }
+
+    .brand_pills {
+        font-size: 22px;
+        gap: 8px;
+    }
+
+    .brand_image {
+        width: 20px;
+        height: 20px;
+    }
+    .brandImage{
+     height: 40px;
+    opacity:53%;
+}
+
+    .globeContainer {
+        height: 450px;
+        margin-top: 1.5rem;
+    }
+
     .globe {
         width: 600px;
         height: 600px;
+    }
+}
+
+/* Mobile (up to 767px) */
+@media (max-width: 767px) {
+    .partners {
+        min-height: 450px;
+        padding: 40px 0;
+        background-size: cover;
+        background-position: center center;
+    }
+
+    .header h2 {
+        font-size: 28px;
+        margin-bottom: 1.25rem;
+    }
+
+    .brand_pills {
+        font-size: 18px;
+        gap: 6px;
+        height: 40px;
+    }
+    .brand_pills svg{
+        height: 40px;
+        width: 40px;
+    }
+
+    .brand_image {
+        width: 32px;
+        height: 32px;
+    }
+    .brandImage{
+     height: 45px;
+    opacity:53%;
+}
+
+    .brands_section {
+        gap: 40px;
+        height: 50px;
+    }
+
+    .globeContainer {
+        height: 400px;
+        margin-top: 1.25rem;
+    }
+
+    .globe {
+        width: 500px;
+        height: 500px;
+    }
+}
+
+/* Extra small mobile */
+@media (max-width: 390px) {
+    .partners {
+        min-height: 400px;
+        padding: 30px 0;
+    }
+
+    .header h2 {
+        font-size: 24px;
+    }
+
+    .brand_pills {
+        height: 30px;
+    }
+    .brand_pills svg{
+        height: 30px;
+        width: 30px;
+    }
+
+    .brand_image {
+        width: 28px;
+        height: 28px;
+    }
+    .brandImage{
+     height: 38px;
+    opacity:53%;
+}
+
+    .globeContainer {
+        height: 250px;
+    }
+
+    .globe {
+        width: 250px;
+        height: 250px;
     }
 }

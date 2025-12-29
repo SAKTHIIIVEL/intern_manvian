@@ -48,7 +48,8 @@
     position: absolute;
     left: 0;
     right: 0;
-    bottom: -80px;  /* 🔥 PUSH DOWN */
+    bottom: -80px;
+    /* 🔥 PUSH DOWN */
     height: 70%;
 
     display: flex;
@@ -75,7 +76,8 @@
     left: 125px;
     font-size: 20px;
 }
-.social span{
+
+.social span {
     color: #FFFFFF;
     font-weight: 500;
 }
@@ -88,20 +90,22 @@
 }
 
 .networkSvg {
-  width: 100%;
-  max-width: 900px;
-  margin: auto;
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
 }
+
 .svgWrapper {
-  width: 620px;          /* 🔽 reduce size here */
-  max-width: 100%;
-  margin: 0px auto 0;
+    width: 620px;
+    /* 🔽 reduce size here */
+    max-width: 100%;
+    margin: 0px auto 0;
 }
 
 .svgWrapper svg {
-  width: 100%;
-  height: auto;
-  display: block;
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 
@@ -147,28 +151,23 @@
     .visualsContainer {
         transform: scale(0.8);
     }
+
+    .title {
+        font-size: 48px;
+    }
+
+    .subtitle {
+        font-size: 20px;
+    }
 }
 
 @media (max-width: 768px) {
-    .container {
-        position: static;
-        height: auto;
-        display: block;
+    .title {
+        font-size: 36px;
     }
 
-    .bottomLeft,
-    .bottomRight,
-    .social {
-        position: static;
-        text-align: center;
-        max-width: 100%;
-        margin: 2rem 0;
-    }
-
-    .exploreWrapper {
-        width: 100%;
-        clip-path: none;
-        text-align: center;
+    .subtitle {
+        font-size: 18px;
     }
 
     .visualsContainer {
@@ -178,5 +177,84 @@
 
     .isometricGrid {
         transform: rotateX(60deg) rotateZ(-45deg) scale(0.6);
+    }
+
+    /* Keep bottomLeft and bottomRight side by side */
+    .bottomLeft {
+        left: 10px;
+        max-width: 45%;
+    }
+
+    .social {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        font-size: 16px;
+        margin-bottom: 1rem;
+    }
+
+    .exploreWrapper {
+        width: 100%;
+        max-width: 250px;
+        padding: 1rem 2rem;
+        text-align: center;
+    }
+
+    .exploreButton {
+        font-size: 18px;
+    }
+
+    .bottomRight {
+        bottom: 40px;
+        right: 10px;
+        max-width: 45%;
+    }
+
+    .bottomRight p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 28px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+    }
+
+    .bottomLeft {
+        left: 5px;
+        max-width: 48%;
+    }
+
+    .social {
+        font-size: 14px;
+    }
+
+    .social a {
+        margin: 0 2px;
+        font-size: 14px;
+    }
+
+    .exploreWrapper {
+        max-width: 200px;
+        padding: 0.75rem 1.5rem;
+    }
+
+    .exploreButton {
+        font-size: 16px;
+    }
+
+    .bottomRight {
+        bottom: 30px;
+        right: 5px;
+        max-width: 48%;
+    }
+
+    .bottomRight p {
+        font-size: 14px;
+        line-height: 1.4;
     }
 }
