@@ -128,7 +128,7 @@ const HeroSection = () => {
 
   return (
     <div className="iso-container">
-      <svg  viewBox="0 0 550 450" style={{width: '620px', height: '500px'}}>
+      <svg  viewBox="0 0 550 450" >
         <defs>
           <linearGradient id="flow" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stopColor="#2D5AA0" />

@@ -74,9 +74,9 @@
     height: 48px;
 }
 
-.brandImage{
-     height: 60px;
-    opacity:53%;
+.brandImage {
+    height: 60px;
+    opacity: 53%;
 }
 
 /* 🔑 TRUE INFINITE MARQUEE */
@@ -270,9 +270,9 @@
         margin-bottom: 1.5rem;
     }
 
-    .brands_section{
+    .brands_section {
         height: 35px;
-        
+
     }
 
     .brand_pills {
@@ -284,10 +284,11 @@
         width: 20px;
         height: 20px;
     }
-    .brandImage{
-     height: 40px;
-    opacity:53%;
-}
+
+    .brandImage {
+        height: 40px;
+        opacity: 53%;
+    }
 
     .globeContainer {
         height: 450px;
@@ -303,7 +304,7 @@
 /* Mobile (up to 767px) */
 @media (max-width: 767px) {
     .partners {
-        min-height: 450px;
+        min-height: 350px;
         padding: 40px 0;
         background-size: cover;
         background-position: center center;
@@ -319,7 +320,8 @@
         gap: 6px;
         height: 40px;
     }
-    .brand_pills svg{
+
+    .brand_pills svg {
         height: 40px;
         width: 40px;
     }
@@ -328,10 +330,11 @@
         width: 32px;
         height: 32px;
     }
-    .brandImage{
-     height: 45px;
-    opacity:53%;
-}
+
+    .brandImage {
+        height: 45px;
+        opacity: 53%;
+    }
 
     .brands_section {
         gap: 40px;
@@ -352,7 +355,7 @@
 /* Extra small mobile */
 @media (max-width: 390px) {
     .partners {
-        min-height: 400px;
+        min-height: auto;
         padding: 30px 0;
     }
 
@@ -363,7 +366,8 @@
     .brand_pills {
         height: 30px;
     }
-    .brand_pills svg{
+
+    .brand_pills svg {
         height: 30px;
         width: 30px;
     }
@@ -372,10 +376,11 @@
         width: 28px;
         height: 28px;
     }
-    .brandImage{
-     height: 38px;
-    opacity:53%;
-}
+
+    .brandImage {
+        height: 38px;
+        opacity: 53%;
+    }
 
     .globeContainer {
         height: 250px;

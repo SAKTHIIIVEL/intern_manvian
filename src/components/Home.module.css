@@ -215,13 +215,16 @@
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 390px) {
+    .container {
+        max-width: 390px;
+    }
     .title {
-        font-size: 28px;
+        font-size: 24px;
     }
 
     .subtitle {
-        font-size: 16px;
+        font-size: 10px;
     }
 
     .bottomLeft {
@@ -230,31 +233,31 @@
     }
 
     .social {
-        font-size: 14px;
+        font-size: 10px;
     }
 
     .social a {
         margin: 0 2px;
-        font-size: 14px;
+        font-size: 10px;
     }
 
     .exploreWrapper {
-        max-width: 200px;
-        padding: 0.75rem 1.5rem;
+        max-width: 160px;
+        padding: 0.75rem 1rem;
     }
 
     .exploreButton {
-        font-size: 16px;
+        font-size: 12px;
     }
 
     .bottomRight {
         bottom: 30px;
-        right: 5px;
-        max-width: 48%;
+        right: 3px;
+        max-width: 40%;
     }
 
     .bottomRight p {
-        font-size: 14px;
-        line-height: 1.4;
+        font-size: 10px;
+        line-height: 1.2;
     }
 }

@@ -1,5 +1,5 @@
 .products {
-    padding: 7rem 2rem;
+    padding: 3rem 2rem;
     margin-left: 70px;
     color: white;
 }
@@ -120,9 +120,7 @@
     overflow: hidden;
 }
 
-.iconWrapper {
-    /* margin-bottom: 1rem; */
-}
+
 
 
 
@@ -188,12 +186,12 @@
 /* Mobile (up to 767px) */
 @media (max-width: 767px) {
     .products {
-        padding: 3rem 1.5rem;
+        padding: 2rem 1rem;
         margin-left: 0;
     }
 
     .headingContainer {
-        margin-bottom: 2.5rem;
+        margin-bottom: 0rem;
     }
 
     .headingContainer h2 {
@@ -219,6 +217,22 @@
         order: -1;
     }
 
+    .doc {
+        order: 1;
+    }
+
+    .heart {
+        order: 2;
+    }
+
+    .ai {
+        order: 4;
+    }
+
+    .nurse {
+        order: 3;
+    }
+
     .darksqu {
         top: 180px;
         width: 300px;
@@ -237,23 +251,43 @@
 /* Extra small mobile */
 @media (max-width: 390px) {
     .products {
-        padding: 2.5rem 1rem;
+        padding: 1rem 1rem;
     }
 
     .headingContainer h2 {
-        font-size: 24px;
+        font-size: 28px;
     }
 
     .headingContainer p {
-        font-size: 14px;
+        font-size: 15px;
     }
 
     .centerImage {
         height: 380px;
     }
 
+    .centerImage::before {
+        content: "";
+        position: absolute;
+        inset: -20px;
+
+        background: radial-gradient(ellipse at 50% 10%,
+                /* 🔼 moved up */
+                #4846FFB2,
+                transparent 70%);
+
+        filter: blur(190px);
+        z-index: -1;
+        pointer-events: none;
+    }
+
+
     .darksqu {
         width: 260px;
         height: 320px;
+    }
+
+    .grid::before {
+        content: none;
     }
 }

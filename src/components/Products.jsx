@@ -20,7 +20,7 @@ const Products = () => {
         <div className={styles.grid}>
           {/* Card 1 */}
           <motion.div
-            className={`${styles.card} ${styles.darkCard}`}
+            className={`${styles.card} ${styles.darkCard} ${styles.doc}`}
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -90,7 +90,7 @@ const Products = () => {
 
           {/* Card 2 */}
           <motion.div
-            className={`${styles.card} ${styles.lightCard}`}
+            className={`${styles.card} ${styles.lightCard} ${styles.heart}`}
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.2 }}
@@ -120,7 +120,7 @@ const Products = () => {
 
           {/* Card 3 */}
           <motion.div
-            className={`${styles.card} ${styles.lightCard}`}
+            className={`${styles.card} ${styles.lightCard} ${styles.ai}`}
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3 }}
@@ -164,7 +164,7 @@ const Products = () => {
 
           {/* Card 4 */}
           <motion.div
-            className={`${styles.card} ${styles.darkCard}`}
+            className={`${styles.card} ${styles.darkCard} ${styles.nurse}`}
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.4 }}
