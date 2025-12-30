@@ -497,3 +497,62 @@
     content: none;
   }
 }
+
+@media (max-width: 330px) {
+  .cardLarge {
+    width: 110px;
+    height: 310px;
+    left: 35px;
+  }
+
+  .cardSmall {
+    width: 90px;
+    height: 240px;
+  }
+
+  .topRight {
+    top: 40px;
+    right: 10px;
+  }
+
+  .cardLarge .badge {
+    left: -30px;
+    top: 30px;
+    font-size: 10px;
+    padding: 2px 4px;
+  }
+
+  .topRight .badge {
+    right: -15px;
+    top: 10px;
+    font-size: 10px;
+    padding: 2px 4px;
+  }
+
+  .badge {
+    font-size: 10x;
+    padding: 2px 4px;
+    height: 30px;
+  }
+
+  .badge svg{
+    width: 20px;
+    height: 20px;
+  }
+
+  .bottomRight {
+    bottom: 5%;
+    left: -1%;
+    width: auto;
+    height: auto;
+    background: transparent;
+    border: none;
+    z-index: 3;
+  }
+
+  .bottomRight .badge {
+    position: relative;
+    font-size: 10px;
+  }
+  
+}

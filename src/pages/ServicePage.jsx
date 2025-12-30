@@ -247,7 +247,7 @@ const ServicePage = () => {
                 className="service-card-icon"
               />
             </div>
-            <h3 className="service-card-title">DI Diabetologist</h3>
+            <h3 className="service-card-title">DI wholeSale</h3>
             <p className="service-card-text">
               Sed porttitor lectus nibh. Nulla porttitor accumsan tincidunt.
               Vestibulum ante ipsum primis Sed porttitor lectus nibh. Nulla
@@ -313,6 +313,11 @@ const ServicePage = () => {
             <br />
             Community of Business
             <br />
+            &amp; Logistics
+          </h2>
+          <h2 className="service-community-title-only-mobile">
+            Join a Growing
+            Community of Business
             &amp; Logistics
           </h2>
           <p className="service-community-description">
@@ -454,7 +459,10 @@ const ServicePage = () => {
       </div>
 
       {/* Contact & Form Section */}
+      <div className="service-contact-component">
       <ContactSection />
+
+      </div>
 
       {/* Footer Highlight */}
       <section className="quote-section">
@@ -469,7 +477,7 @@ const ServicePage = () => {
         >
           <path
             d="M253 187H139.816V84.8179L199.497 0H235.756L200.256 80.1429H253V187ZM113.184 187H0V84.8179L59.6814 0H95.9403L60.4404 80.1429H113.184V187Z"
-            fill="#1A1D53"
+            
           />
         </svg>
 

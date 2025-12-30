@@ -338,3 +338,44 @@
     font-size: 15px;
   }
 }
+
+@media (max-width: 330px) {
+  .faq-subtitle {
+    font-size: 16px;
+  }
+
+  .faq-title {
+    font-size: 22px;
+  }
+
+  .faq-description {
+    font-size: 12px;
+  }
+
+  .faq-question {
+    font-size: 18px;
+    padding: 0.5rem;
+  }
+
+  .faq-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .faq-icon svg {
+    width: 35px;
+    height: 35px;
+  }
+
+  .faq-answer {
+    padding: 0 0.5rem;
+  }
+
+  .faq-item.open .faq-answer {
+    padding: 0 0.5rem 0.5rem;
+  }
+
+  .faq-answer p {
+    font-size: 12px;
+  }
+}
