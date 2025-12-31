@@ -116,12 +116,12 @@ const HeroSection = () => {
         />
 
         {/* Status light */}
-        <circle
+        {/* <circle
           cx={s.x + s.w - 10}
           cy={s.y + 14}
           r="3"
           className="status"
-        />
+        /> */}
       </g>
     );
   };

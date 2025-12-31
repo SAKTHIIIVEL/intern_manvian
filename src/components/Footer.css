@@ -230,8 +230,8 @@
 /* Laptop (1024px - 1439px) */
 @media (min-width: 1024px) and (max-width: 1439px) {
   .big-title {
-    font-size: 11.53rem;
-    letter-spacing: 1rem;
+    font-size: 11.2rem;
+    letter-spacing: 0.8rem;
   }
 
   .footer-container {
@@ -409,11 +409,30 @@
   }
   
 }
+@media (max-width: 460px) {
+  .big-title {
+    font-size: 3.6rem;
+    letter-spacing: 0.3rem;
+  }
+}
+@media (max-width: 440px) {
+  .big-title {
+    font-size: 3.2rem;
+    letter-spacing: 0.467rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .big-title {
+    font-size: 3.1rem;
+    letter-spacing: 0.3rem;
+  }
+}
 
 /* Extra small mobile */
 @media (max-width: 390px) {
   .big-title {
-    font-size: 3.1rem;
+    font-size: 3rem;
     letter-spacing: 0.3rem;
   }
 
@@ -430,7 +449,7 @@
   }
 }
 
-@media (max-width: 375px) {
+@media (max-width: 380px) {
   .big-title {
     font-size: 2.8rem;
     letter-spacing: 0.3rem;

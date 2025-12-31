@@ -287,6 +287,55 @@
   }
 }
 
+@media (max-width: 480px) {
+  .container {
+    max-width: 390px;
+  }
+
+  .heading {
+    font-size: 28px;
+  }
+
+  .description {
+    font-size: 15px;
+  }
+
+  .card {
+    padding: 2rem 1.5rem;
+  }
+
+  .number {
+    font-size: 10rem;
+    left: -13px;
+    top: -34px;
+  }
+
+  .cardContent {
+    left: 90px;
+    max-width: 190px;
+    top: 70px;
+  }
+
+  .card:nth-child(1) .cardContent {
+    left: 70px;
+    max-width: 190px;
+    top: 70px;
+  }
+
+  .cardText {
+    font-size: 15px;
+  }
+
+  .buttonContainer {
+    top: 5px;
+  }
+
+  .viewButton {
+    font-size: 15px;
+  }
+  
+}
+
 /* Extra small mobile */
 @media (max-width: 390px) {
   .container {

@@ -1158,6 +1158,113 @@ strong {
   }
 }
 
+@media (max-width: 480px) {
+  .about-title {
+    font-size: 28px;
+  }
+
+  .about-kicker {
+    font-size: 16px;
+  }
+
+  .about-description {
+    font-size: 14px;
+  }
+
+  .mission-content h2,
+  .vision-content h2 {
+    font-size: 24px;
+  }
+
+  .vision-content {
+    text-align: left;
+  }
+
+  .mission-content p,
+  .vision-content p {
+    font-size: 14px;
+    max-width: 170px;
+  }
+
+  .team-left h2 {
+    font-size: 24px;
+  }
+
+  .team-label {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  .team-section {
+    padding: 35px 4%;
+  }
+
+  .team-wrapper {
+    gap: 20px;
+  }
+
+  .team-right {
+    gap: 0px;
+  }
+
+  .team-card {
+    width: 140px !important;
+    max-width: 140px;
+    height: 240px;
+  }
+
+  .team-card.side {
+    width: 90px !important;
+    max-width: 90px;
+    height: 240px;
+  }
+
+  .team-right:not(:hover) .team-card.active {
+    width: 150px !important;
+    max-width: 150px;
+    height: 240px;
+  }
+
+  .team-right:not(:hover) .team-card:not(.active) {
+    width: 90px !important;
+    max-width: 90px;
+    height: 240px;
+  }
+
+  .team-right:hover .team-card:not(:hover) {
+    width: 90px !important;
+    max-width: 90px;
+    height: 240px;
+  }
+
+  .team-card:hover {
+    width: 170px !important;
+    max-width: 170px;
+    height: 240px;
+  }
+
+  .team-info h3 {
+    font-size: 12px;
+  }
+
+  .team-info p {
+    font-size: 10px;
+  }
+
+  .vertical-text {
+    font-size: 11px;
+    bottom: 120px;
+  }
+
+  .commitment-title {
+    font-size: 28px;
+  }
+
+  .commitment-text {
+    font-size: 16px;
+  }
+}
+
 /* Extra small mobile (up to 390px) */
 @media (max-width: 390px) {
   .about-title {

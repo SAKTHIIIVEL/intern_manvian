@@ -4,6 +4,7 @@ import styles from "./Home.module.css";
 import IsometricNetwork from "./IsometricNetwork";
 import BuildSvg from "../assets/about/home.svg?react";
 import HeroSection from "./HeroSection";
+import NetworkDiagram from "./ui/NetworkDiagram";
 
 const Home = () => {
   return (
@@ -42,8 +43,9 @@ const Home = () => {
             </motion.svg>
           </div> */}
           {/* <IsometricNetwork/> */}
-<div >
-          <HeroSection/>
+          <div className="network-diagram">
+            {/* <HeroSection/> */}
+            <NetworkDiagram />
           </div>
           {/* Bottom Elements */}
 

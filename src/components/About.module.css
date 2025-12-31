@@ -401,6 +401,99 @@
   }
 }
 
+@media (max-width: 480px) {
+  .container {
+    gap: 2rem;
+  }
+
+  .textContent {
+    order: 2;
+    text-align: center;
+  }
+
+  .textContent h2 {
+    font-size: 24px;
+    line-height: 1.3;
+  }
+
+  .textContent p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .arrowButton {
+    width: 42px;
+    height: 42px;
+  }
+
+  .imageGrid {
+    height: 320px;
+    max-width: 280px;
+    order: 1;
+  }
+
+  .cardLarge {
+    width: 140px;
+    height: 310px;
+    left: 15px;
+  }
+
+  .cardSmall {
+    width: 118px;
+    height: 240px;
+  }
+
+  .topRight {
+    top: 40px;
+    right: -10px;
+  }
+
+  .cardLarge .badge {
+    left: -30px;
+    top: 30px;
+    font-size: 10px;
+    padding: 2px 4px;
+  }
+
+  .topRight .badge {
+    right: -15px;
+    top: 10px;
+    font-size: 10px;
+    padding: 2px 4px;
+  }
+
+  .badge {
+    font-size: 10x;
+    padding: 2px 4px;
+    height: 30px;
+  }
+
+  .badge svg{
+    width: 20px;
+    height: 20px;
+  }
+
+  .bottomRight {
+    bottom: 5%;
+    left: -12%;
+    width: auto;
+    height: auto;
+    background: transparent;
+    border: none;
+    z-index: 3;
+  }
+
+  .bottomRight .badge {
+    position: relative;
+    font-size: 10px;
+  }
+
+  .textContent::before {
+    content: none;
+  }
+  
+}
+
 /* Extra small mobile */
 @media (max-width: 390px) {
   .about {

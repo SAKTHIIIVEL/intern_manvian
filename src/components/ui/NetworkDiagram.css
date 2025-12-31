@@ -1,0 +1,194 @@
+/* ================= WRAPPER ================= */
+.diagram-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden; /* 🔥 important */
+}
+
+
+/* ================= MAIN DIAGRAM ================= */
+.diagram {
+  position: relative;
+  width: 700px;
+  height: 510px;
+  margin: auto;
+  background: transparent;
+  transition: transform 0.3s ease;
+}
+
+/* ================= SVG ================= */
+.connections {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.connections path {
+  fill: none;
+  stroke: #2C4A74;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ================= BUILDINGS ================= */
+.server {
+  position: absolute;
+  width: 118px;
+  z-index: 2;
+  filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.55));
+}
+
+/* ================= CENTER ================= */
+.center {
+  position: absolute;
+  bottom: 25px;
+  left: -25px;
+  width: 118px;
+  z-index: 4;
+}
+
+/* ================= TOP ================= */
+.lt {
+  top: 45px;
+  left: 140px;
+}
+
+.rt {
+  top: 45px;
+  right: 150px;
+}
+
+/* ================= BOTTOM ================= */
+.lb {
+  top: 160px;
+  left: 60px;
+}
+
+.rb {
+  top: 160px;
+  right: 60px;
+}
+
+/* ================= WHITE LOWER ================= */
+.wl {
+  top: 250px;
+  left: 155px;
+}
+
+.wr {
+  top: 250px;
+  right: 155px;
+}
+
+/* ================= CENTER GROUP ================= */
+.center-group {
+  position: absolute;
+  top: 125px;
+  left: 326px;
+  width: 180px;
+  height: 140px;
+  z-index: 3;
+}
+
+/* ================= CENTER BASE ================= */
+.center-base {
+  position: absolute;
+  bottom: 0;
+  left: -20px;
+  width: 150px;
+  height: 120px;
+
+  background:
+    linear-gradient(#1c345a 1px, transparent 1px),
+    linear-gradient(90deg, #1c345a 1px, transparent 1px),
+    #0e2344;
+
+  background-size: 40px 40px;
+  border-radius: 12px;
+
+  transform: skewX(-10deg) rotateX(50deg) rotateZ(38deg);
+  transform-origin: center;
+
+  box-shadow: 0 30px 50px rgba(0, 0, 0, 0.6);
+}
+
+/* ================= RESPONSIVE SCALING ================= */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .diagram {
+    transform: scale(0.9);
+    transform-origin: top center;
+  }
+}
+
+@media (max-width: 900px) {
+  .diagram {
+    transform: scale(0.8);
+    transform-origin: top center;
+  }
+  .diagram-wrapper {
+    margin-bottom: -80px;
+  }
+}
+
+@media (max-width: 768px) {
+  .diagram {
+    transform: scale(0.75);
+    transform-origin: top center;
+  }
+  .diagram-wrapper {
+    margin-bottom: -100px;
+  }
+}
+
+@media (max-width: 670px) {
+  .diagram {
+    transform: scale(0.7);
+    transform-origin: top center;
+  }
+  .diagram-wrapper {
+    margin-bottom: -140px;
+  }
+  .center-base{
+    width: 120px;
+    height: 100px;
+  }
+  .center-group{
+    top: 115px;
+  left: 300px;
+  }
+}
+@media (max-width: 580px) {
+  .diagram {
+    transform: scale(0.65);
+    transform-origin: top center;
+  }
+  .diagram-wrapper {
+    margin-bottom: -140px;
+  }
+  .center-base{
+    width: 100px;
+    height: 80px;
+  }
+  .center-group{
+    top: 105px;
+  left: 260px;
+  }
+}
+
+/* 🔥 MOBILE FIX */
+@media (max-width: 480px) {
+  .diagram {
+    transform: scale(0.4);
+    transform-origin: top center;
+  }
+
+  /* 🔥 REMOVE RESERVED HEIGHT */
+  .diagram-wrapper {
+    margin-bottom: -180px;
+  }
+}
+
