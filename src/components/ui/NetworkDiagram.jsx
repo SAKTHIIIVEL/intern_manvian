@@ -10,37 +10,77 @@ export default function NetworkDiagram() {
       <div className="diagram">
         {/* CONNECTIONS */}
         <svg className="connections" viewBox="0 0 700 510">
-          {/* LEFT TOP BLUE */}
-          <path d="M220 120 L340 200 L380 200" />
-          
-          {/* BOTTOM LEFT WHITE */}
-          
-          <path d="M240 330 L240 300 L370 200" />
+          {/* center to LEFT TOP BLUE */}
+          <path className="base-line" d="M220 120 L340 200 L380 200" />
+          <path className="flow center-out" d="M220 120 L340 200 L380 200" />
 
-          {/* BOTTOM RIGHT WHITE */}
-          <path d="M520 300 L480 290 L390 230" />
+          {/* center to BOTTOM LEFT WHITE */}
+          <path className="base-line" d="M240 330 L390 200" />
+          <path className="flow center-out" d="M240 330 L390 200" />
 
-          <path d="M490 120 L620 220" />
+          {/* center to BOTTOM RIGHT WHITE */}
+          <path className="base-line" d="M480 300 L390 230" />
+          <path className="flow center-out" d="M480 300 L390 230" />
 
-          <path d="M240 330 L360 390 L520 300" />
-          <path d="M520 300 L620 220" />
+          {/* LEFT Top BLUE to center white */}
+          <path className="base-line" d="M500 120 L390 200" />
+          <path className="flow center-out" d="M500 120 L390 200" />
+
+          {/* Right top BLUE to bottom blue */}
+          <path className="base-line" d="M500 120 L620 220" />
+          <path className="flow relay" d="M500 120 L620 220" />
+
+          {/* LEFT bottom white to left blue */}
+          <path className="base-line" d="M210 360 L45 230" />
+          <path className="flow relay" d="M210 360 L45 230" />
+          {/* LEFT bottom blue to left top blue */}
+          <path className="base-line" d="M80 230 L220 120" />
+          <path className="flow relay" d="M80 230 L220 120" />
+          {/* right top blue to left top blue */}
+          <path className="base-line" d="M220 120 L360 10 L500 120" />
+          <path className="flow relay" d="M220 120 L360 10 L500 120" />
+
+          {/* LEFT bottom white to right white */}
+          <path className="base-line" d="M190 360 L350 460 L480 360" />
+          <path className="flow relay" d="M190 360 L350 460 L480 360" />
+          {/*right bottom white to right blue */}
+          <path className="base-line" d="M530 310 L650 220" />
+          <path className="flow relay" d="M530 310 L650 220" />
         </svg>
 
         {/* BLUE BUILDINGS */}
-        <img src={blue} className="server blue lt" alt="" />
-        <img src={blue} className="server blue rt" alt="" />
-        <img src={blue} className="server blue lb" alt="" />
-        <img src={blue} className="server blue rb" alt="" />
+        <div className="server-wrap lt">
+          <img src={blue} className="server blue" alt="" />
+        </div>
+
+        <div className="server-wrap rt">
+          <img src={blue} className="server blue" alt="" />
+        </div>
+
+        <div className="server-wrap lb">
+          <img src={blue} className="server blue" alt="" />
+        </div>
+
+        <div className="server-wrap rb">
+          <img src={blue} className="server blue" alt="" />
+        </div>
 
         {/* WHITE BUILDINGS */}
-        <img src={white} className="server white wl" alt="" />
-        <img src={white} className="server white wr" alt="" />
+        <div className="server-wrap wl">
+          <img src={white} className="server white" alt="" />
+        </div>
+
+        <div className="server-wrap wr">
+          <img src={white} className="server white" alt="" />
+        </div>
 
         {/* CENTER */}
-        {/* CENTER GROUP */}
         <div className="center-group">
           <div className="center-base"></div>
-          <img src={white} className="server center" alt="" />
+
+          <div className="server-wrap center">
+            <img src={white} className="server white" alt="" />
+          </div>
         </div>
       </div>
     </div>

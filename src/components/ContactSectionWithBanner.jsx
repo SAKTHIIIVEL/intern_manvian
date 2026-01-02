@@ -1,10 +1,8 @@
-import { useState } from 'react'
-import './ContactSectionWithBanner.css'
-import './ContactSection.css'
+import { useState } from "react";
+import "./ContactSectionWithBanner.css";
+import "./ContactSection.css";
 
 const ContactSectionWithBanner = () => {
-  
-
   return (
     <section className="contact-banner-section">
       {/* HERO BANNER */}
@@ -20,7 +18,7 @@ const ContactSectionWithBanner = () => {
 
         <div className="banner-content">
           <div className="banner-text-left">
-            <h2 className="banner-question">Questions? Concerns? Enquires?</h2>
+            <h2 className="banner-question">Questions? Concerns? Enquiries?</h2>
             <p className="banner-subtitle">We are here to support you!</p>
           </div>
 
@@ -29,10 +27,8 @@ const ContactSectionWithBanner = () => {
           </div>
         </div>
       </div>
-
     </section>
-  )
-}
+  );
+};
 
-export default ContactSectionWithBanner
-
+export default ContactSectionWithBanner;

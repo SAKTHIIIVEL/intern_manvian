@@ -360,7 +360,6 @@
   position: relative;
   /* 🔑 REQUIRED for glow */
   display: flex;
-  justify-content: flex-end;
   align-items: center;
   z-index: 2;
   margin-right: -2rem;
@@ -750,14 +749,17 @@
     margin-left: 1rem;
   }
 
-  .positions-content {
+  /* .positions-content {
     grid-template-columns: 1fr;
     margin-left: 30px;
     gap: 2rem;
-  }
+  } */
 
   .positions-text {
+    margin-top: 20px;
     margin-bottom: 0;
+    gap: 0.5rem;
+    
   }
 
   .section-title {
@@ -768,15 +770,39 @@
     font-size: 1rem;
   }
 
+  .positions-content {
+  opacity: 1;
+  transform: translateX(0);
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s ease;
+}
+
+.hero-portrait.framed {
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+  position: relative;
+  left: 25px;
+}
+
+.hero-portrait.framed.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
   .hero-portrait {
-    justify-content: flex-end;
-    margin-right: -1.5rem;
+    display: flex;
+    
+    margin-right: 0;
   }
 
   .hero-portrait img {
-    max-width: 400px;
-    bottom: 50px;
+    max-width: 380px;
+    bottom: 30px;
   }
+
+ 
 
   .contact-card {
     grid-template-columns: 1fr;
@@ -786,7 +812,6 @@
 
   .contact-portrait {
     order: 2;
-    justify-content: flex-end;
     margin-right: -1rem;
   }
 
@@ -806,7 +831,7 @@
   /* Open Positions styling for tablet */
   .section-title {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-top: 2rem;
   }
 
   .role-list {
@@ -814,11 +839,8 @@
   }
 
   .role-item {
-    border-radius: 12px;
+
     padding: 1.5rem 1.25rem;
-    border-bottom: none;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    background: #222065;
   }
 
   .role-name,
@@ -935,7 +957,29 @@
 
   .positions-text {
     margin-bottom: 20px;
+    order: 2;
+    padding: 1rem;
   }
+    .positions-content {
+  opacity: 1;
+  transform: translateX(0);
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s ease;
+}
+
+.hero-portrait.framed {
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+  position: relative;
+  left: 25px;
+}
+
+.hero-portrait.framed.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
 
   .section-title {
     font-size: 2rem;
@@ -947,8 +991,17 @@
   }
 
   .hero-portrait {
-    display: none;
+    display: flex;
+    margin: 0 auto;
+    order: 1;
   }
+
+  .hero-portrait img {
+    width: 620px;
+    bottom: 0;
+  }
+
+  
 
   .role-list {
     gap: 0.5rem;
@@ -988,8 +1041,7 @@
 
   .contact-portrait {
     display: flex;
-    right: 0;
-    justify-content: center;
+    
     margin-right: 0;
     margin-left: 0;
     order: 2;
@@ -997,13 +1049,14 @@
 
   .contact-portrait img {
     max-width: 90%;
-    width: auto;
+    width: 500px;
     bottom: 0;
   }
 
   .contact-form-wrapper {
     gap: 1.25rem;
     order: 1;
+    padding: 1.5rem;
   }
 
   .contact-form-header .contact-kicker {
@@ -1097,14 +1150,42 @@
 
   .positions-section {
     padding-left: 1rem;
-    margin-left: 0.5rem;
+    margin-left: 0px;
     padding-right: 1rem;
   }
+  .positions-content {
+  opacity: 1;
+  transform: translateX(0);
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s ease;
+}
 
+/* .hero-portrait.framed {
+  opacity: 1;
+  transform: translateX(0);
+  transition:
+    opacity 0.9s ease,
+    transform 0.9s ease;
+} */
 
+/* Hero image in positions section */
+.hero-portrait.framed {
+  opacity: 0;
+  transform: translateY(40px) scale(0.98);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.hero-portrait.framed.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
   .positions-text {
     margin-bottom: 20px;
     gap: 10px;
+    padding-right:1rem ;
+    padding-left: 0px;
+    margin-right: 10px;
   }
 
   .section-title {
@@ -1116,9 +1197,15 @@
     line-height: 1.5;
   }
 
-  .hero-portrait {
-    display: none;
+   .hero-portrait img {
+    max-width: 440px;
   }
+
+  /* Fix: Ensure hero portrait is visible on mobile 480px */
+  /* .hero-portrait.framed {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+  } */
 
   /* Open Positions styling */
   .section-title {
@@ -1128,11 +1215,12 @@
 
   .role-list {
     gap: 1rem;
+    padding-right: 1rem;
   }
 
   .role-item {
     border-radius: 12px;
-    padding: 1.8rem 1rem;
+    padding: 1.8rem 1.5rem;
     border-bottom: none;
     border: none;
     position: relative;
@@ -1197,8 +1285,8 @@
 
   .contact-portrait {
     display: flex;
-    right: 0;
-    justify-content: center;
+    position: relative;
+    right: 20px;
     margin-right: 0;
     margin-left: 0;
     order: 1;
