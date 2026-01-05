@@ -422,6 +422,13 @@
   }
 }
 
+@media (max-width: 415px) {
+  .big-title {
+    font-size: 3.1rem;
+    letter-spacing: 0.457rem;
+  }
+}
+
 @media (max-width: 400px) {
   .big-title {
     font-size: 3.1rem;
