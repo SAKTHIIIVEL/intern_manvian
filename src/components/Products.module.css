@@ -248,6 +248,72 @@
     }
 }
 
+@media (max-width: 480px) {
+    .products {
+        padding: 2rem 1rem;
+        margin-left: 0;
+    }
+
+    .headingContainer {
+        margin-bottom: 0rem;
+    }
+
+    .headingContainer h2 {
+        font-size: 28px;
+        margin-bottom: 1.25rem;
+    }
+
+    .headingContainer p {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    .centerImage {
+        grid-column: 1;
+        grid-row: auto;
+        height: 450px;
+        margin: 1.5rem 0;
+        order: -1;
+    }
+
+    .doc {
+        order: 1;
+    }
+
+    .heart {
+        order: 2;
+    }
+
+    .ai {
+        order: 4;
+    }
+
+    .nurse {
+        order: 3;
+    }
+
+    .darksqu {
+        top: 180px;
+        width: 300px;
+        height: 350px;
+    }
+
+    .card {
+        padding: 1.5rem;
+        height: 280px;
+    }
+
+    .card p {
+        max-width: 90%;
+        font-size: 20px;
+    }
+}
+
 /* Extra small mobile */
 @media (max-width: 390px) {
     .products {

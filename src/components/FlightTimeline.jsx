@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 import "./FlightTimeline.css";
@@ -106,6 +106,29 @@ export default function FlightTimeline() {
     }
   };
 
+  const DESKTOP_PATH =
+  "M -10 400 C 300 450, 550 100, 650 10 S 1000 -40, 1200 -40";
+
+const MOBILE_PATH =
+  "M -10 600 C 300 590, 550 200, 690 10 S 1000 -90, 1250 -170";
+
+const DESKTOP_DASH_PATH =
+  "M 0 400 C 300 450, 550 100, 650 10 S 1000 -40, 1200 -40";
+  const MOBILE_DASH_PATH =
+  "M 0 600 C 300 590, 550 200, 690 10 S 1000 -90, 1250 -170";
+  
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const onResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  return isMobile;
+}
+
   useEffect(() => {
     /* PLACE PINS ON THE ROAD */
     pins.forEach((pin, index) => {
@@ -156,23 +179,16 @@ export default function FlightTimeline() {
     });
   }, []);
 
+  const isMobile = useIsMobile();
+const path = isMobile ? MOBILE_PATH : DESKTOP_PATH;
   return (
     <div
       className="flight-svg"
-      style={{
-        position: "absolute",
-        top: 0,
-        left: 0,
-        width: "100%",
-        height: "100%",
-        zIndex: 0, // behind content
-        pointerEvents: "none",
-      }}
     >
       <svg viewBox="0 0 1200 300" width="100%" height="100%">
         {/* ROAD GLOW */}
         <path
-          d="M -10 400 C 300 450, 550 100, 650 10 S 1000 -40, 1200 -40"
+          d={path}
           stroke="#2a3170"
           strokeWidth="80"
           fill="none"
@@ -180,7 +196,7 @@ export default function FlightTimeline() {
 
         {/* ROAD BASE */}
         <path
-          d="M -10 400 C 300 450, 550 100, 650 10 S 1000 -40, 1200 -40"
+          d={path}
           stroke="#323b8f"
           strokeWidth="70"
           fill="none"
@@ -189,7 +205,7 @@ export default function FlightTimeline() {
         {/* CENTER DASH */}
         <path
           id="road-path"
-          d="M 0 400 C 300 450, 550 100, 650 10 S 1000 -40, 1200 -40"
+          d={isMobile ? MOBILE_DASH_PATH : DESKTOP_DASH_PATH}
           stroke="#9fa7d8"
           strokeWidth="4"
           strokeDasharray="14 14"

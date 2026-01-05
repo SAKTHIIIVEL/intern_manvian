@@ -29,6 +29,12 @@
 .flight-svg {
   width: 100%;
   max-width: 1400px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
 }
 
 /* Responsive Styles for Flight Timeline */
@@ -82,17 +88,21 @@
 }
 
 /* Extra Small Mobile (up to 390px) */
-@media (max-width: 390px) {
+@media (max-width: 480px) {
+  .flight-svg {
+     top: auto;
+     
+  }
   .flight-svg svg {
-    height: 180px;
+    height: 500px;
   }
 
   .pin-card {
-    padding: 3px 6px;
-    font-size: 9px;
+    padding: 4px 8px;
+    font-size: 10px;
   }
 
   .pin-card strong {
-    font-size: 10px;
+    font-size: 11px;
   }
 }

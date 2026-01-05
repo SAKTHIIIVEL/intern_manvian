@@ -19,8 +19,8 @@ export default function NetworkDiagram() {
           <path className="flow center-out" d="M240 330 L390 200" />
 
           {/* center to BOTTOM RIGHT WHITE */}
-          <path className="base-line" d="M480 300 L390 230" />
-          <path className="flow center-out" d="M480 300 L390 230" />
+          <path className="base-line" d="M510 320 L390 230" />
+          <path className="flow center-out" d="M510 320 L390 230" />
 
           {/* LEFT Top BLUE to center white */}
           <path className="base-line" d="M500 120 L390 200" />
@@ -51,27 +51,33 @@ export default function NetworkDiagram() {
         {/* BLUE BUILDINGS */}
         <div className="server-wrap lt">
           <img src={blue} className="server blue" alt="" />
+          <button className="server-btn">View</button>
         </div>
 
         <div className="server-wrap rt">
           <img src={blue} className="server blue" alt="" />
+          <button className="server-btn">View</button>
         </div>
 
         <div className="server-wrap lb">
           <img src={blue} className="server blue" alt="" />
+          <button className="server-btn">View</button>
         </div>
 
         <div className="server-wrap rb">
           <img src={blue} className="server blue" alt="" />
+          <button className="server-btn">View</button>
         </div>
 
         {/* WHITE BUILDINGS */}
         <div className="server-wrap wl">
           <img src={white} className="server white" alt="" />
+          <button className="server-btn">View</button>
         </div>
 
         <div className="server-wrap wr">
           <img src={white} className="server white" alt="" />
+          <button className="server-btn">View</button>
         </div>
 
         {/* CENTER */}
@@ -80,6 +86,7 @@ export default function NetworkDiagram() {
 
           <div className="server-wrap center">
             <img src={white} className="server white" alt="" />
+            <button className="server-btn">View</button>
           </div>
         </div>
       </div>

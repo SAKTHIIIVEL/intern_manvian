@@ -216,6 +216,48 @@
     
 }
 
+@media (max-width: 480px) {
+    .hero{
+        margin-bottom: -50px;
+    }
+    /* Keep bottomLeft and bottomRight side by side */
+    .bottomLeft {
+        left: 10px;
+        max-width: 45%;
+        bottom: 100px;
+    }
+
+    .social {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        font-size: 16px;
+        margin-bottom: 1rem;
+    }
+
+    .exploreWrapper {
+        width: 100%;
+        max-width: 250px;
+        padding: 1rem 2rem;
+        text-align: center;
+    }
+
+    .exploreButton {
+        font-size: 18px;
+    }
+
+    .bottomRight {
+        bottom: 140px;
+        right: 10px;
+        max-width: 45%;
+    }
+
+    .bottomRight p {
+        font-size: 16px;
+    }
+    
+}
+
 @media (max-width: 390px) {
     .container {
         max-width: 390px;
