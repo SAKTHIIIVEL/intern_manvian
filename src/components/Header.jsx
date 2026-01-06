@@ -22,7 +22,7 @@ const Header = () => {
         <div className="logo">
           {/* <div className="logo-icon">D</div> */}
           <Link to={"/"}>
-          <img src={logo} alt="D Pharma Logo" className="logo-image" />
+          <img src={logo} alt="D Pharma Logo" className="logo-image-head" />
           </Link>
         </div>
         
