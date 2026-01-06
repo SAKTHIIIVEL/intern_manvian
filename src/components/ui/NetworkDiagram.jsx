@@ -51,33 +51,171 @@ export default function NetworkDiagram() {
         {/* BLUE BUILDINGS */}
         <div className="server-wrap lt">
           <img src={blue} className="server blue" alt="" />
-          <button className="server-btn">View</button>
+          <button className="server-btn">
+            <span className="btn-text">View</span>
+            <span className="btn-arrow">
+              <svg width="26" height="18" viewBox="0 0 66 43">
+                <g fill="none">
+                  <path
+                    className="one"
+                    d="M40.15 3.89L44 0.14 65.7 20.78 44 42.86 40.15 39.1 57 21.85z"
+                    fill="#000"
+                  />
+                  <path
+                    className="two"
+                    d="M20.15 3.89L24 0.14 45.7 20.78 24 42.86 20.15 39.1 37 21.85z"
+                    fill="#000"
+                  />
+                  <path
+                    className="three"
+                    d="M0.15 3.89L4 0.14 25.7 20.78 4 42.86 0.15 39.1 17 21.85z"
+                    fill="#000"
+                  />
+                </g>
+              </svg>
+            </span>
+          </button>
         </div>
 
         <div className="server-wrap rt">
           <img src={blue} className="server blue" alt="" />
-          <button className="server-btn">View</button>
+          <button className="server-btn">
+            <span className="btn-text">View</span>
+            <span className="btn-arrow">
+              <svg width="26" height="18" viewBox="0 0 66 43">
+                <g fill="none">
+                  <path
+                    className="one"
+                    d="M40.15 3.89L44 0.14 65.7 20.78 44 42.86 40.15 39.1 57 21.85z"
+                    fill="#000"
+                  />
+                  <path
+                    className="two"
+                    d="M20.15 3.89L24 0.14 45.7 20.78 24 42.86 20.15 39.1 37 21.85z"
+                    fill="#000"
+                  />
+                  <path
+                    className="three"
+                    d="M0.15 3.89L4 0.14 25.7 20.78 4 42.86 0.15 39.1 17 21.85z"
+                    fill="#000"
+                  />
+                </g>
+              </svg>
+            </span>
+          </button>
         </div>
 
         <div className="server-wrap lb">
           <img src={blue} className="server blue" alt="" />
-          <button className="server-btn">View</button>
+          <button className="server-btn">
+            <span className="btn-text">View</span>
+            <span className="btn-arrow">
+              <svg width="26" height="18" viewBox="0 0 66 43">
+                <g fill="none">
+                  <path
+                    className="one"
+                    d="M40.15 3.89L44 0.14 65.7 20.78 44 42.86 40.15 39.1 57 21.85z"
+                    fill="#000"
+                  />
+                  <path
+                    className="two"
+                    d="M20.15 3.89L24 0.14 45.7 20.78 24 42.86 20.15 39.1 37 21.85z"
+                    fill="#000"
+                  />
+                  <path
+                    className="three"
+                    d="M0.15 3.89L4 0.14 25.7 20.78 4 42.86 0.15 39.1 17 21.85z"
+                    fill="#000"
+                  />
+                </g>
+              </svg>
+            </span>
+          </button>
         </div>
 
         <div className="server-wrap rb">
           <img src={blue} className="server blue" alt="" />
-          <button className="server-btn">View</button>
+          <button className="server-btn">
+            <span className="btn-text">View</span>
+            <span className="btn-arrow">
+              <svg width="26" height="18" viewBox="0 0 66 43">
+                <g fill="none">
+                  <path
+                    className="one"
+                    d="M40.15 3.89L44 0.14 65.7 20.78 44 42.86 40.15 39.1 57 21.85z"
+                    fill="#000"
+                  />
+                  <path
+                    className="two"
+                    d="M20.15 3.89L24 0.14 45.7 20.78 24 42.86 20.15 39.1 37 21.85z"
+                    fill="#000"
+                  />
+                  <path
+                    className="three"
+                    d="M0.15 3.89L4 0.14 25.7 20.78 4 42.86 0.15 39.1 17 21.85z"
+                    fill="#000"
+                  />
+                </g>
+              </svg>
+            </span>
+          </button>
         </div>
 
         {/* WHITE BUILDINGS */}
         <div className="server-wrap wl">
           <img src={white} className="server white" alt="" />
-          <button className="server-btn">View</button>
+          <button className="server-btn">
+            <span className="btn-text">View</span>
+            <span className="btn-arrow">
+              <svg width="26" height="18" viewBox="0 0 66 43">
+                <g fill="none">
+                  <path
+                    className="one"
+                    d="M40.15 3.89L44 0.14 65.7 20.78 44 42.86 40.15 39.1 57 21.85z"
+                    fill="#000"
+                  />
+                  <path
+                    className="two"
+                    d="M20.15 3.89L24 0.14 45.7 20.78 24 42.86 20.15 39.1 37 21.85z"
+                    fill="#000"
+                  />
+                  <path
+                    className="three"
+                    d="M0.15 3.89L4 0.14 25.7 20.78 4 42.86 0.15 39.1 17 21.85z"
+                    fill="#000"
+                  />
+                </g>
+              </svg>
+            </span>
+          </button>
         </div>
 
         <div className="server-wrap wr">
           <img src={white} className="server white" alt="" />
-          <button className="server-btn">View</button>
+          <button className="server-btn">
+            <span className="btn-text">View</span>
+            <span className="btn-arrow">
+              <svg width="26" height="18" viewBox="0 0 66 43">
+                <g fill="none">
+                  <path
+                    className="one"
+                    d="M40.15 3.89L44 0.14 65.7 20.78 44 42.86 40.15 39.1 57 21.85z"
+                    fill="#000"
+                  />
+                  <path
+                    className="two"
+                    d="M20.15 3.89L24 0.14 45.7 20.78 24 42.86 20.15 39.1 37 21.85z"
+                    fill="#000"
+                  />
+                  <path
+                    className="three"
+                    d="M0.15 3.89L4 0.14 25.7 20.78 4 42.86 0.15 39.1 17 21.85z"
+                    fill="#000"
+                  />
+                </g>
+              </svg>
+            </span>
+          </button>
         </div>
 
         {/* CENTER */}
@@ -86,7 +224,30 @@ export default function NetworkDiagram() {
 
           <div className="server-wrap center">
             <img src={white} className="server white" alt="" />
-            <button className="server-btn">View</button>
+            <button className="server-btn">
+              <span className="btn-text">View</span>
+              <span className="btn-arrow">
+                <svg width="26" height="18" viewBox="0 0 66 43">
+                  <g fill="none">
+                    <path
+                      className="one"
+                      d="M40.15 3.89L44 0.14 65.7 20.78 44 42.86 40.15 39.1 57 21.85z"
+                      fill="#000"
+                    />
+                    <path
+                      className="two"
+                      d="M20.15 3.89L24 0.14 45.7 20.78 24 42.86 20.15 39.1 37 21.85z"
+                      fill="#000"
+                    />
+                    <path
+                      className="three"
+                      d="M0.15 3.89L4 0.14 25.7 20.78 4 42.86 0.15 39.1 17 21.85z"
+                      fill="#000"
+                    />
+                  </g>
+                </svg>
+              </span>
+            </button>
           </div>
         </div>
       </div>

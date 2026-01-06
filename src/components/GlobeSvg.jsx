@@ -1,14 +1,44 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 // 1. IMPORT YOUR IMAGE HERE
 // Make sure globe.jpg is in the same folder as this component
 // If you are using Next.js, this might be '/globe.jpg'
 import GlobeImg from '../assets/about/globe.png';
+
 
 const GlobeSvg = () => {
   // 2. CONFIGURATION
   // Aspect ratio based on standard images (adjust viewBox if your image is square)
   const viewBoxWidth = 800;
   const viewBoxHeight = 533;
+  const containerRef = useRef(null);
+const [inView, setInView] = useState(false);
+
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        setInView(true);
+      } else {
+        setInView(false); // 👈 allows re-animation when scrolling back
+      }
+    },
+    {
+      threshold: 0.35,
+    }
+  );
+
+  if (containerRef.current) {
+    observer.observe(containerRef.current);
+  }
+
+  return () => {
+    if (containerRef.current) {
+      observer.unobserve(containerRef.current);
+    }
+  };
+}, []);
+
+
 
   // Pin Coordinates: x (0-800), y (0-533)
   // Adjust these numbers to move pins to specific cities on your background image
@@ -24,10 +54,11 @@ const GlobeSvg = () => {
     <div className="flex justify-center items-center w-full min-h-[600px] bg-black">
       
       {/* CONTAINER: Must be relative to hold the absolute overlay */}
-      <div 
-        className="relative w-full max-w-[800px]" 
-        style={{ aspectRatio: `${viewBoxWidth}/${viewBoxHeight}` }}
-      >
+      <div
+  ref={containerRef}
+  className={`relative w-full max-w-[800px] ${inView ? 'in-view' : ''}`}
+  style={{ aspectRatio: `${viewBoxWidth}/${viewBoxHeight}` }}
+>
         
         {/* --- LAYER 1: THE BACKGROUND IMAGE --- */}
         <img 
@@ -54,12 +85,18 @@ const GlobeSvg = () => {
               transform-box: fill-box;
               transform-origin: bottom center;
               opacity: 0; /* Start hidden */
-              animation: pinPop 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
             }
+              .in-view .pin-container {
+  animation: pinPop 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
             .pulse-circle {
               transform-origin: center;
-              animation: pulseRing 2s infinite ease-out;
+              opacity: 0;
             }
+              .in-view .pulse-circle {
+  opacity: 1;
+  animation: pulseRing 2s infinite ease-out;
+}
           `}</style>
 
           <svg

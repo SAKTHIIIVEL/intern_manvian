@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./Partners.module.css";
 import dipharma from "../assets/brands/dipharma.png";
 import g7 from "../assets/brands/g7.png";
@@ -9,6 +9,27 @@ const Partners = () => {
   // SVG viewBox (same as globe image ratio)
   const viewBoxWidth = 800;
   const viewBoxHeight = 533;
+  const globeRef = useRef(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setInView(entry.isIntersecting);
+      },
+      { threshold: 0.35 }
+    );
+
+    if (globeRef.current) {
+      observer.observe(globeRef.current);
+    }
+
+    return () => {
+      if (globeRef.current) {
+        observer.unobserve(globeRef.current);
+      }
+    };
+  }, []);
 
   const pins = [
     { id: 1, x: 200, y: 320, delay: "0.2s", label: "Americas" },
@@ -66,7 +87,11 @@ const Partners = () => {
               Di Research
             </span>
             <span className={styles.brand_pills}>
-              <img src={indocontent} alt="diIndo Continental" className={styles.brandImage}  />
+              <img
+                src={indocontent}
+                alt="diIndo Continental"
+                className={styles.brandImage}
+              />
               {/* <svg
                 width="48"
                 height="30"
@@ -84,25 +109,13 @@ const Partners = () => {
               Indo Continental*/}
             </span>
             <span className={styles.brand_pills}>
-              <img
-                src={diwhole}
-                alt="diPharma"
-                className={styles.brandImage}
-              />
+              <img src={diwhole} alt="diPharma" className={styles.brandImage} />
             </span>
             <span className={styles.brand_pills}>
-              <img
-                src={mj7}
-                alt="diPharma"
-                className={styles.brandImage}
-              />
+              <img src={mj7} alt="diPharma" className={styles.brandImage} />
             </span>
             <span className={styles.brand_pills}>
-              <img
-                src={g7}
-                alt="diPharma"
-                className={styles.brandImage}
-              />
+              <img src={g7} alt="diPharma" className={styles.brandImage} />
             </span>
 
             <span className={styles.brand_pills}>
@@ -146,7 +159,11 @@ const Partners = () => {
               Di Research
             </span>
             <span className={styles.brand_pills}>
-              <img src={indocontent} alt="diIndo Continental" className={styles.brandImage} />
+              <img
+                src={indocontent}
+                alt="diIndo Continental"
+                className={styles.brandImage}
+              />
               {/* <svg
                 width="48"
                 height="30"
@@ -164,55 +181,79 @@ const Partners = () => {
               Indo Continental*/}
             </span>
             <span className={styles.brand_pills}>
-              <img
-                src={diwhole}
-                alt="diPharma"
-                className={styles.brandImage}
-              />
+              <img src={diwhole} alt="diPharma" className={styles.brandImage} />
             </span>
             <span className={styles.brand_pills}>
-              <img
-                src={mj7}
-                alt="diPharma"
-                className={styles.brandImage}
-              />
+              <img src={mj7} alt="diPharma" className={styles.brandImage} />
             </span>
             <span className={styles.brand_pills}>
-              <img
-                src={g7}
-                alt="diPharma"
-                className={styles.brandImage}
-              />
+              <img src={g7} alt="diPharma" className={styles.brandImage} />
             </span>
           </section>
         </div>
       </div>
 
-      <div className={styles.globeContainer}>
+      <div
+        ref={globeRef}
+        className={`${styles.globeContainer} ${inView ? "in-view" : ""}`}
+      >
         {/* ===== PIN ANIMATIONS ===== */}
         <style>{`
           @keyframes pinPop {
-            0% { opacity: 0; transform: scale(0) translateY(30px); }
-            60% { opacity: 1; transform: scale(1.1) translateY(-6px); }
-            100% { opacity: 1; transform: scale(1) translateY(0); }
-          }
+  0% {
+    opacity: 0;
+    transform: scale(0) translateY(24px);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.15) translateY(-6px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
 
-          @keyframes pulseRing {
-            0% { transform: scale(0.7); opacity: 0.6; }
-            100% { transform: scale(1.6); opacity: 0; }
-          }
+/* Gentle floating after pop */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
 
-          .pin-container {
-            transform-box: fill-box;
-            transform-origin: bottom center;
-            opacity: 0;
-            animation: pinPop 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-          }
+@keyframes pulseRing {
+  0% { transform: scale(0.6); opacity: 0.6; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
 
-          .pulse-circle {
-            transform-origin: center;
-            animation: pulseRing 2s infinite ease-out;
-          }
+/* RESET STATE */
+.pin-container {
+  opacity: 0;
+  animation: none;
+  transform-box: fill-box;
+  transform-origin: bottom center;
+}
+
+/* ACTIVE STATE */
+.in-view .pin-container {
+  animation:
+    pinPop 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards,
+    float 3s ease-in-out infinite;
+  animation-delay: var(--delay);
+}
+
+/* Pulse */
+.pulse-circle {
+  opacity: 0;
+  animation: none;
+}
+
+.in-view .pulse-circle {
+  opacity: 1;
+  animation: pulseRing 2s infinite ease-out;
+  animation-delay: var(--delay);
+}
+
         `}</style>
 
         {/* ===== SVG OVERLAY ===== */}
@@ -284,10 +325,7 @@ const Partners = () => {
 
           {pins.map((pin) => (
             <g key={pin.id} transform={`translate(${pin.x}, ${pin.y})`}>
-              <g
-                className="pin-container"
-                style={{ animationDelay: pin.delay }}
-              >
+              <g className="pin-container" style={{ "--delay": pin.delay }}>
                 {/* Pulse ring (smaller) */}
                 <circle
                   cx="0"
@@ -297,7 +335,7 @@ const Partners = () => {
                   stroke="rgba(255,255,255,0.6)"
                   strokeWidth="1.5"
                   className="pulse-circle"
-                  style={{ animationDelay: pin.delay }}
+                  style={{ "--delay": pin.delay }}
                 />
 
                 {/* Pin body */}

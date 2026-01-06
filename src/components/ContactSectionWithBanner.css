@@ -115,7 +115,7 @@
 }
 
 .banner-title {
-  font-size: 11.6rem;
+  font-size: 11.5rem;
   font-weight: 700;
   letter-spacing: 0.10em;
   margin: 0;
@@ -159,20 +159,22 @@
 
 @media (max-width: 768px) {
   .contact-banner-section {
-    min-height: 55vh;
+    min-height: 35vh;
   }
 
+  .contact-banner-container {
+    min-height: 20vh;
+  }
   .banner-image-overlay {
     width: 100%;
-    height: 60%;
     top: 0;
   }
 
   .banner-content {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
-    gap: 1.5rem;
-    padding: 2.5rem 2rem 3rem;
+    gap: 0.5rem;
+    padding: 2rem 2rem 2rem;
   }
 
   .banner-contact-body {
@@ -182,12 +184,12 @@
   .banner-text-left {
     text-align: left;
     margin-top: 60px;
-    margin-left: 2rem;
+    margin-left: 0.5rem;
     gap: 0.3rem;
   }
 
   .banner-title {
-    font-size: 4.5rem;
+    font-size: 4.3rem;
     letter-spacing: 0.08em;
   }
 
@@ -238,8 +240,8 @@
   }
 
   .banner-title {
-    font-size: 4.3rem;
-    letter-spacing: 0.10em;
+    font-size: 3.7rem;
+    letter-spacing: 0.11em;
   }
 
   .banner-question {
@@ -264,8 +266,15 @@
     gap: 2rem;
   }
   .banner-title {
-    font-size: 3.7rem;
-    letter-spacing: 0.09em;
+    font-size: 3.4rem;
+    letter-spacing: 0.1em;
   }
 }
 
+@media (max-width: 380px) {
+  .banner-title {
+    font-size: 3rem;
+    letter-spacing: 0.1em;
+  }
+  
+}
