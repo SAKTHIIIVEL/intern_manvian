@@ -1,7 +1,8 @@
 .hero {
     position: relative;
     min-height: 100vh;
-    /* background: radial-gradient(circle at 50% 30%, #1e2475, #161952 70%); */
+     background:url("../assets/home_background.png");
+     object-fit: cover;
     /* Subtle glowing center */
     color: white;
     overflow: hidden;
@@ -63,16 +64,14 @@
 
 /* --- Bottom Elements --- */
 .bottomLeft {
-    position: absolute;
-    bottom: 0px;
-    left: -25px;
+    
     width: 100%;
     max-width: 550px;
 }
 
 .social {
     position: absolute;
-    bottom: 95px;
+    bottom: 70px;
     left: 125px;
     font-size: 20px;
 }

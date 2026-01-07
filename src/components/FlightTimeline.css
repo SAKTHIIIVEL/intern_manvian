@@ -42,7 +42,7 @@
 /* Laptop (1024px - 1439px) */
 @media (min-width: 1024px) and (max-width: 1439px) {
   .flight-svg {
-    max-width: 1250px;
+    max-width: 1450px;
   }
 }
 
@@ -94,6 +94,7 @@
      
   }
   .flight-svg svg {
+    width: 500px;
     height: 500px;
   }
 

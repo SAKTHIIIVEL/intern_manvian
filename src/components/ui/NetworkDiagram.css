@@ -208,7 +208,7 @@ animation-fill-mode: both; /* 🔒 CRITICAL */
   transform: translateX(-50%) translateY(14px);
 
   padding: 6px 16px;
-  font-size: 18px;
+  font-size: 12px;
   font-weight: 400;
   font-family: 'Poppins', sans-serif;
 
@@ -233,7 +233,10 @@ animation-fill-mode: both; /* 🔒 CRITICAL */
   box-shadow: 0 8px 18px rgba(38, 52, 246, 0.45);
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: space-between; /* 🔥 key */
+  gap: 8px;
+  max-width: 200px;      /* 🔒 control width */
+  white-space: nowrap;
 }
 
 @keyframes btnReveal {
@@ -269,12 +272,19 @@ animation-fill-mode: both; /* 🔒 CRITICAL */
 
 .center { --btn-delay: 3s; }
 
+.btn-text {
+  flex: 1;
+}
 .btn-arrow {
+  flex-shrink: 0; 
   width: 0;
   overflow: hidden;
   transition: width 0.4s ease;
 }
-
+.btn-arrow svg {
+  transform: scale(0.9);
+  transform-origin: center;
+}
 .server-wrap:hover .btn-arrow {
   width: 26px;
 }
@@ -314,6 +324,20 @@ animation-fill-mode: both; /* 🔒 CRITICAL */
   animation: arrowPulse 1s infinite 0s;
 }
 
+/* ================= RIGHT SIDE BUTTONS ================= */
+.server-wrap.rt .server-btn,
+.server-wrap.wr .server-btn {
+  left: auto;
+  right: -250px;
+  transform: translateX(0) translateY(14px);
+  z-index: 30;
+}
+.server-wrap.rb .server-btn{
+  left: auto;
+  right: -220px;
+  z-index: 30;
+  transform: translateX(0) translateY(14px);
+}
 
 
 /* ================= HOVER BUTTON for center ================= */
@@ -328,7 +352,7 @@ animation-fill-mode: both; /* 🔒 CRITICAL */
 /* 🔥 POP ON HOVER */
 .server-wrap:hover {
   transform: translateY(-28px) scale(1.12);
-  z-index: 30;
+  z-index: 32;
 
   filter:
     drop-shadow(0 20px 40px rgba(0, 0, 0, 0.7))
@@ -336,6 +360,7 @@ animation-fill-mode: both; /* 🔒 CRITICAL */
 }
 
 .server-wrap:hover .server-btn {
+  font-size: 16px;
   opacity: 1;
   pointer-events: auto;
   animation-play-state: paused;
@@ -826,6 +851,15 @@ animation-fill-mode: both; /* 🔒 CRITICAL */
   100% { transform: translateX(-50%) translateY(0); }
 }
 
+ .server-wrap.lt .server-btn,
+.server-wrap.wl .server-btn {
+  right: -50px;
+  z-index: 30;
+}
+.server-wrap.lb .server-btn{
+   right: -90px;
+  z-index: 30;
+}
 
 /* ================= CENTER GROUP ================= */
 .center-group {

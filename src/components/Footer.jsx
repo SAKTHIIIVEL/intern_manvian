@@ -2,6 +2,7 @@ import "./Footer.css";
 import logo from "../assets/logo1.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
+import partners from "../assets/brands/footer_partners.png";
 
 const Footer = () => {
   const titleRef = useRef(null);
@@ -133,6 +134,12 @@ const Footer = () => {
                 </svg>
               </a>
             </div>
+            <div className="footer-partner">
+              <h2>Our Partners Companies</h2>
+              <div className="footer-partner-list">
+                <img src={partners} alt="" />
+              </div>
+            </div>
           </div>
 
           <div className="footer-column">
@@ -142,13 +149,13 @@ const Footer = () => {
                 <Link to={"/about"}>About</Link>
               </li>
               <li>
-                <a href="#specialist">Specialist</a>
-              </li>
-              <li>
-                <a href="#blog">Blog</a>
-              </li>
-              <li>
                 <Link to={"/services"}>Service</Link>
+              </li>
+              <li>
+                <Link to={"/career"}>Career</Link>
+              </li>
+              <li>
+                <a href="#partners">Partner</a>
               </li>
             </ul>
           </div>
@@ -160,7 +167,7 @@ const Footer = () => {
                 <a href="#help">Help Centre</a>
               </li>
               <li>
-                <a href="#contact">Contact Us</a>
+                <Link to={"/contact"}>Contact Us</Link>
               </li>
               <li>
                 <a href="#faq">FAQ</a>

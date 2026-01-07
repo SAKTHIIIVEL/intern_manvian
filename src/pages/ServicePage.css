@@ -183,19 +183,19 @@
 }
 
 .card-2::before {
-  background-image: url("../assets/icons/service_tablet.png");
+  background-image: url("../assets/diWholesale_background.jpeg");
 }
 
 .card-3::before {
-  background-image: url("../assets/icons/service_lab.png");
+  background-image: url("../assets/dilabatory.jpeg");
 }
 
 .card-4::before {
-  background-image: url("../assets/icons/service_research.png");
+  background-image: url("../assets/diresearch.jpeg");
 }
 
 .card-5::before {
-  background-image: url("../assets/icons/service_globe.png");
+  background-image: url("../assets/indocontenental.jpeg");
 }
 
 .service-card-inner {
@@ -493,19 +493,17 @@
 }
 
 .service-brands-track {
-  display: inline-block;
-  white-space: nowrap;
-  animation: marquee 19s linear infinite;
-  /* 👈 speed */
+  display: flex;
+  width: max-content;
+  animation: marquee 22s linear infinite;
 }
 
 @keyframes marquee {
   from {
-    transform: translateX(100%);
+    transform: translateX(0);
   }
-
   to {
-    transform: translateX(-100%);
+    transform: translateX(-50%);
   }
 }
 
@@ -513,7 +511,7 @@
   margin-bottom: 0px;
   padding: 12px 18px;
   height: 100px;
-
+flex-shrink: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -600,7 +598,7 @@
 }
 
 .quote-mark path{
-  fill:#1A1D53;
+  fill:#171946;
 }
 
 .quote-mark-left {

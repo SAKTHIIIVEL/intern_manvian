@@ -52,16 +52,9 @@ const Home = () => {
           <div className={styles.bottomLeft}>
             <div className={styles.social}>
               <span>Follow Us - </span>
-              <a href="#">Twitter.</a> <a href="#">Linked In.</a>{" "}
-              <a href="#">Youtube</a>
+              <a href="#">Facebook.</a> <a href="#">Linked In.</a>{" "}
+              <a href="#">Instagram</a>
             </div>
-
-            <motion.div
-              className={styles.exploreWrapper}
-              whileHover={{ x: 10 }}
-            >
-              <button className={styles.exploreButton}>Explore More</button>
-            </motion.div>
           </div>
 
           <div className={styles.bottomRight}>

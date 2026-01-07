@@ -394,6 +394,7 @@
   object-fit: cover;
   position: relative;
   bottom: 80px;
+  right: 50px;
   z-index: 1;
 }
 
@@ -647,8 +648,8 @@
 
 /* Responsive Design */
 
-/* Laptop (1024px - 1439px) */
-@media (min-width: 1024px) and (max-width: 1439px) {
+/* Laptop (1024px - 1280px) */
+@media (min-width: 1024px) and (max-width: 1280px) {
   .career-hero-content {
     padding: 0 4rem 3.5rem;
   }
@@ -693,7 +694,7 @@
 
   .hero-portrait img {
     position: relative;
-    left: 39px;
+    left: 59px;
     max-width: 500px;
     bottom: 80px;
   }
@@ -701,13 +702,15 @@
   .contact-portrait img {
     max-width: 500px;
     bottom: 60px;
-    right: 80px;
+    right: 40px;
   }
 
   .contact-card {
     max-width: 1200px;
   }
 }
+
+
 
 /* Tablet (768px - 1023px) */
 @media (min-width: 768px) and (max-width: 1023px) {

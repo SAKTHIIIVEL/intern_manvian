@@ -47,7 +47,7 @@
 /* BRAND STRIP */
 .brands_section {
     padding: 10px 0;
-    height: 60px;
+    height: 70px;
 
     display: flex;
     align-items: center;
@@ -75,7 +75,7 @@
 }
 
 .brandImage {
-    height: 60px;
+    height: 70px;
     opacity: 53%;
 }
 

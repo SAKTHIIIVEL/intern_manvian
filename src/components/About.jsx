@@ -3,7 +3,9 @@ import { motion } from "framer-motion";
 import styles from "./About.module.css";
 import doc from "../assets/about/doctor.jpg";
 import bulding from "../assets/about/homeAbout.jpg";
+import { useNavigate } from "react-router-dom";
 const About = () => {
+  const navigate = useNavigate();
   return (
     <section className={styles.about} id="about">
       <div className={styles.container}>
@@ -23,7 +25,7 @@ const About = () => {
             organization committed to delivering comprehensive and accessible
             medical services to the community.
           </p>
-          <motion.div className={styles.arrowButton} whileHover={{ x: 10 }}>
+          <motion.div className={styles.arrowButton} whileHover={{ x: 10 }} onClick={()=> navigate('/about')}>
             <svg
               width="79"
               height="79"

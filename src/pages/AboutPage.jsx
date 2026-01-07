@@ -5,9 +5,9 @@ import aboutPills from "../assets/about/about_pills.jpg";
 import aboutScientist from "../assets/about/about_scientist.jpg";
 import aboutShip from "../assets/about/about_ship.jpg";
 import aboutTeamCloseup from "../assets/about/scientist.jpg";
-import magaeshImage from "../assets/about/magaesh.png";
-import seniorManager1 from "../assets/about/senior_manager_1.png";
-import seniorManager2 from "../assets/about/senior_manager_2.png";
+import magaeshImage from "../assets/about/managing_director.jpeg";
+import seniorManager1 from "../assets/about/director.jpeg";
+import seniorManager2 from "../assets/about/general_Manager.jpeg";
 import { useEffect, useRef } from "react";
 import FlightTimeline from "../components/FlightTimeline";
 
@@ -186,33 +186,33 @@ const visionRef = useRef(null);
     <div className="team-right">
       {/* MAIN CARD */}
       <div className="team-card active">
-        <img src={magaeshImage} alt="Mr. Magesh Kumar" />
+        <img src={magaeshImage} alt="Dr. Jefry Wilson" />
 
         <div className="team-info">
-          <h3>Mr. Magesh Kumar</h3>
-          <p>Director, Dr.will</p>
+          <h3>Dr. Jefry Wilson</h3>
+          <p>Managing Director</p>
         </div>
       </div>
 
       {/* SIDE CARD */}
       <div className="team-card side">
         <img src={seniorManager1} alt="Senior Manager" />
-        <span className="vertical-text">Senior Manager</span>
+        <span className="vertical-text">Director</span>
 
         <div className="team-info">
-          <h3>Senior Manager</h3>
-          <p>Operations</p>
+          <h3>Dr. Arjun</h3>
+          <p>Director</p>
         </div>
       </div>
 
       {/* SIDE CARD */}
       <div className="team-card side">
         <img src={seniorManager2} alt="Senior Manager" />
-        <span className="vertical-text">Senior Manager</span>
+        <span className="vertical-text">General Manager</span>
 
         <div className="team-info">
-          <h3>Senior Manager</h3>
-          <p>Strategy</p>
+          <h3>Mr. Kathireswaran</h3>
+          <p>General Manager</p>
         </div>
       </div>
     </div>

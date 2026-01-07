@@ -11,7 +11,7 @@
 
 /* ABOUT Hero Section */
 .about-hero-section {
-  padding: 10px 6% 10px;
+  padding: 40px 6% 10px;
   max-width: 1400px;
   margin: 0 auto;
 }
@@ -21,6 +21,7 @@
   grid-template-rows: 0.6fr 1.2fr;
   align-items: center;
   gap: 80px;
+  margin-left: 10px;
 }
 
 @media (max-width: 968px) {
@@ -486,14 +487,14 @@ strong {
 =========================== */
 .vertical-text {
   position: absolute;
-  bottom: 150px;
+  bottom: 110px;
   right: 20px;
   transform: rotate(-90deg);
   transform-origin: right;
 
   font-size: 14px;
   letter-spacing: 1px;
-  color: #bbbbc0;
+  color: #e9e9f1;
   font-weight: 500;
 
   opacity: 1;
@@ -655,7 +656,7 @@ strong {
   .mission-vision-section,
   .team-section,
   .commitment-section {
-    max-width: 1250px;
+    max-width: 1450px;
   }
 
   .about-title {

@@ -54,6 +54,7 @@ const pins = [
    ROAD PIN COMPONENT
 ======================= */
 function RoadPin({ refProp, year, title }) {
+  const LABEL_PADDING = 14;
   return (
     <g ref={refProp} opacity="0.35">
       {/* PIN ICON */}
@@ -64,14 +65,14 @@ function RoadPin({ refProp, year, title }) {
       <circle cx="12" cy="11" r="4" fill="#2a3170" />
 
       {/* LABEL BELOW PIN */}
-      <g transform={`translate(-50, 40)`}>
-        {" "}
-        {/* Center label under pin */}
-        <rect width="120" height="54" rx="10" fill="#D7D7ED" />
-        <text x="12" y="22" fontSize="11" fill="#1E1E1E" fontWeight="600">
+      <g transform="translate(-50, 40)">
+        <rect width={120 + LABEL_PADDING} height="54" rx="10" fill="#D7D7ED" />
+
+        <text x={LABEL_PADDING} y="22" fontSize="11" fontWeight="600">
           {year}
         </text>
-        <text x="12" y="40" fontSize="12" fill="#1E1E1E">
+
+        <text x={LABEL_PADDING} y="40" fontSize="12">
           {title}
         </text>
       </g>
@@ -86,7 +87,7 @@ const activatePin = (pin, active) => {
   gsap.to(pin, {
     opacity: active ? 1 : 0.35,
     scale: active ? 1.08 : 1,
-    filter: active ? "drop-shadow(0 0 12px #D7D7ED)" : "none",
+    filter: active ? "none" : "none",
     transformOrigin: "center",
     duration: 0.3,
   });
@@ -99,6 +100,8 @@ export default function FlightTimeline() {
   const planeRef = useRef(null);
   const pinRefs = useRef([]);
   pinRefs.current = [];
+  const sectionRef = useRef(null);
+  const timelineRef = useRef(null);
 
   const setPinRef = (el) => {
     if (el && !pinRefs.current.includes(el)) {
@@ -107,30 +110,32 @@ export default function FlightTimeline() {
   };
 
   const DESKTOP_PATH =
-  "M -10 400 C 300 450, 550 100, 650 10 S 1000 -40, 1200 -40";
+  "M -10 400 C 300 450, 550 100, 800 8 S 1000 -40, 1450 -40";
 
 const MOBILE_PATH =
   "M -10 600 C 300 590, 550 200, 690 10 S 1000 -90, 1250 -170";
 
-const DESKTOP_DASH_PATH =
-  "M 0 400 C 300 450, 550 100, 650 10 S 1000 -40, 1200 -40";
+  const DESKTOP_DASH_PATH =
+    "M 0 400 C 300 450, 550 100, 800 10 S 1000 -40, 1450 -40";
   const MOBILE_DASH_PATH =
-  "M 0 600 C 300 590, 550 200, 690 10 S 1000 -90, 1250 -170";
-  
-function useIsMobile() {
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+    "M 0 600 C 300 590, 550 200, 690 10 S 1000 -90, 1250 -170";
+
+  function useIsMobile() {
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+    useEffect(() => {
+      const onResize = () => setIsMobile(window.innerWidth <= 768);
+      window.addEventListener("resize", onResize);
+      return () => window.removeEventListener("resize", onResize);
+    }, []);
+
+    return isMobile;
+  }
 
   useEffect(() => {
-    const onResize = () => setIsMobile(window.innerWidth <= 768);
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
-  }, []);
+    if (!planeRef.current || !pinRefs.current.length) return;
 
-  return isMobile;
-}
-
-  useEffect(() => {
-    /* PLACE PINS ON THE ROAD */
+    // PLACE PINS
     pins.forEach((pin, index) => {
       gsap.set(pinRefs.current[index], {
         motionPath: {
@@ -143,24 +148,18 @@ function useIsMobile() {
       });
     });
 
-    /* PLANE TIMELINE */
-    // const reversedPins = [...pins].sort((a, b) => b.position - a.position);
     const FLIGHT_START = 1;
     const FLIGHT_END = 0.53;
     const FLIGHT_DISTANCE = FLIGHT_START - FLIGHT_END;
 
     const tl = gsap.timeline({
+      paused: true,
       onUpdate: () => {
-        // Convert timeline progress → actual path progress
         const flightProgress = FLIGHT_START - tl.progress() * FLIGHT_DISTANCE;
 
         pinRefs.current.forEach((pinEl, index) => {
           const pinPos = pins[index].position;
-
-          // Activate pins already passed by plane
-          const isActive = flightProgress <= pinPos;
-
-          activatePin(pinEl, isActive);
+          activatePin(pinEl, flightProgress <= pinPos);
         });
       },
     });
@@ -177,30 +176,36 @@ function useIsMobile() {
         end: FLIGHT_END,
       },
     });
+
+    timelineRef.current = tl;
+
+    // INTERSECTION OBSERVER
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          tl.restart();
+        } else {
+          tl.pause(0);
+        }
+      },
+      { threshold: 0.4 }
+    );
+
+    observer.observe(sectionRef.current);
+
+    return () => observer.disconnect();
   }, []);
 
   const isMobile = useIsMobile();
-const path = isMobile ? MOBILE_PATH : DESKTOP_PATH;
+  const path = isMobile ? MOBILE_PATH : DESKTOP_PATH;
   return (
-    <div
-      className="flight-svg"
-    >
-      <svg viewBox="0 0 1200 300" width="100%" height="100%">
+    <div className="flight-svg" ref={sectionRef}>
+      <svg viewBox="0 0 1400 300" width="100%" height="100%">
         {/* ROAD GLOW */}
-        <path
-          d={path}
-          stroke="#2a3170"
-          strokeWidth="80"
-          fill="none"
-        />
+        <path d={path} stroke="#2a3170" strokeWidth="80" fill="none" />
 
         {/* ROAD BASE */}
-        <path
-          d={path}
-          stroke="#323b8f"
-          strokeWidth="70"
-          fill="none"
-        />
+        <path d={path} stroke="#202365" strokeWidth="70" fill="none" />
 
         {/* CENTER DASH */}
         <path

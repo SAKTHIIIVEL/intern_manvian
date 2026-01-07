@@ -140,7 +140,7 @@ const ContactSection = () => {
           <div className="info-item">
             <h3 className="info-label">Address</h3>
             <p className="info-value">
-              123 Business Avenue, Suite 456, Innovation City, Country-000000
+              No.18, Velan Avenue, Rice Mill Road, Kandigai, Chennai – 600127
             </p>
           </div>
 
