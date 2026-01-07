@@ -3,7 +3,7 @@
       #161952 0%,
       #050b2c 100%);
   color: #e2e8f0;
-  padding: 2rem 2rem 2rem;
+  padding: 2rem 1rem 2rem;
 }
 
 .big-title {
@@ -63,7 +63,7 @@
   grid-template-columns: 2fr 1fr 1fr 1.5fr;
   gap: 3rem;
   margin-bottom: 3rem;
-  margin-left: 40px;
+  margin-left: 50px;
 }
 
 .footer-column {
@@ -230,8 +230,8 @@
 /* Laptop (1024px - 1439px) */
 @media (min-width: 1024px) and (max-width: 1439px) {
   .big-title {
-    font-size: 11.2rem;
-    letter-spacing: 0.8rem;
+    font-size: 11.5rem;
+    letter-spacing: 0.99rem;
   }
 
   .footer-container {
@@ -240,7 +240,7 @@
 
   .footer-content {
     grid-template-columns: 1.8fr 1fr 1fr 1.3fr;
-    margin-left: 20px;
+    margin-left: 30px;
   }
 
   .footer-description {
