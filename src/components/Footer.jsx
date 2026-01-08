@@ -3,6 +3,8 @@ import logo from "../assets/logo1.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import partners from "../assets/brands/footer_partners.png";
+import indoPartner from "../assets/brands/idocontinental_partners.png";
+import drwill from "../assets/brands/drwill_partners.png";
 
 const Footer = () => {
   const titleRef = useRef(null);
@@ -137,7 +139,8 @@ const Footer = () => {
             <div className="footer-partner">
               <h2>Our Partners Companies</h2>
               <div className="footer-partner-list">
-                <img src={partners} alt="" />
+                <img src={indoPartner} alt="" />
+                <img src={drwill} alt="" />
               </div>
             </div>
           </div>

@@ -216,7 +216,7 @@ animation-fill-mode: both; /* 🔒 CRITICAL */
   background: #ffffff;
   border: none;
   border-radius: 8px;
-
+  z-index: 33;
   cursor: pointer;
 
   opacity: 0;

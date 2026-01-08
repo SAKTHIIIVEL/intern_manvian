@@ -16,37 +16,37 @@ const pins = [
     year: "2014",
     title: "IndoContinental 7",
     align: "right",
-    position: 0.79,
+    position: 0.77,
   },
   {
     year: "2017",
     title: "MJ7",
     align: "left",
-    position: 0.65,
+    position: 0.63,
   },
   {
     year: "2025",
     title: "Di Wholesale",
     align: "left",
-    position: 0.53,
+    position: 0.50,
   },
   {
     year: "coming soon",
     title: "Di polyclinic",
     align: "right",
-    position: 0.4,
+    position: 0.36,
   },
   {
     year: "coming soon",
     title: "Di Laboratories",
     align: "right",
-    position: 0.3,
+    position: 0.24,
   },
   {
     year: "coming soon",
     title: "Di Research",
     align: "right",
-    position: 0.2,
+    position: 0.1,
   },
 ];
 
@@ -60,12 +60,12 @@ function RoadPin({ refProp, year, title }) {
       {/* PIN ICON */}
       <path
         d="M12 2C7 2 3 6 3 11c0 7 9 15 9 15s9-8 9-15c0-5-4-9-9-9z"
-        fill="#ffffff"
+        fill="#D7D7ED"
       />
       <circle cx="12" cy="11" r="4" fill="#2a3170" />
 
       {/* LABEL BELOW PIN */}
-      <g transform="translate(-50, 40)">
+      <g transform="translate(-50, 63)">
         <rect width={120 + LABEL_PADDING} height="54" rx="10" fill="#D7D7ED" />
 
         <text x={LABEL_PADDING} y="22" fontSize="11" fontWeight="600">
@@ -149,7 +149,7 @@ const MOBILE_PATH =
     });
 
     const FLIGHT_START = 1;
-    const FLIGHT_END = 0.53;
+    const FLIGHT_END = 0.50;
     const FLIGHT_DISTANCE = FLIGHT_START - FLIGHT_END;
 
     const tl = gsap.timeline({
@@ -233,7 +233,7 @@ const MOBILE_PATH =
           <svg width="56" height="56" viewBox="0 0 67 64" fill="none">
             <path
               d="M9.42954 3.59867L4.72086 8.38223L11.8028 41.9504L1.86363 52.0477C0.545617 53.3866 -0.11858 55.1351 0.0171533 56.9083C0.152887 58.6815 1.07743 60.3343 2.58741 61.5031C4.09738 62.6718 6.06908 63.2608 8.06877 63.1405C10.0685 63.0201 11.9323 62.2003 13.2504 60.8613L23.4504 50.499L61.9153 52.1852L66.3606 47.6692L36.6049 37.1353L48.0375 25.521L61.5471 27.0826L66.5167 22.034L47.3137 16.0656L38.0499 0L33.0803 5.04856L36.6508 16.7074L25.0095 28.5338L9.42954 3.59867Z"
-              fill="#c6c6d4ff"
+              fill="#ffffff"
             />
           </svg>
         </g>

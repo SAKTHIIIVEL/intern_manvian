@@ -42,6 +42,7 @@
 .brandsWrapper {
     width: 100%;
     overflow: hidden;
+    height: 100px;
 }
 
 /* BRAND STRIP */
@@ -75,7 +76,11 @@
 }
 
 .brandImage {
-    height: 70px;
+    height: 80px;
+    opacity: 53%;
+}
+.g7{
+    height: 100px;
     opacity: 53%;
 }
 
@@ -289,6 +294,10 @@
         height: 40px;
         opacity: 53%;
     }
+    .g7{
+        height: 60px;
+        opacity: 53%;
+    }
 
     .globeContainer {
         height: 450px;
@@ -335,6 +344,10 @@
         height: 45px;
         opacity: 53%;
     }
+    .g7{
+        height: 55px;
+        opacity: 53%;
+    }
 
     .brands_section {
         gap: 40px;
@@ -379,6 +392,10 @@
 
     .brandImage {
         height: 38px;
+        opacity: 53%;
+    }
+    .g7{
+        height: 45px;
         opacity: 53%;
     }
 

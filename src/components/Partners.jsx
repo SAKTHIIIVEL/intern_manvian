@@ -115,7 +115,7 @@ const Partners = () => {
               <img src={mj7} alt="diPharma" className={styles.brandImage} />
             </span>
             <span className={styles.brand_pills}>
-              <img src={g7} alt="diPharma" className={styles.brandImage} />
+              <img src={g7} alt="diPharma" className={styles.g7} />
             </span>
 
             <span className={styles.brand_pills}>
@@ -187,7 +187,7 @@ const Partners = () => {
               <img src={mj7} alt="diPharma" className={styles.brandImage} />
             </span>
             <span className={styles.brand_pills}>
-              <img src={g7} alt="diPharma" className={styles.brandImage} />
+              <img src={g7} alt="diPharma" className={styles.g7} />
             </span>
           </section>
         </div>

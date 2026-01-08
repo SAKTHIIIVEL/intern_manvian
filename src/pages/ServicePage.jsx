@@ -307,7 +307,7 @@ const ServicePage = () => {
       </section>
 
       {/* Stats & Community Section */}
-      <section className="service-community-section" ref={communityRef}>
+      <section className="service-community-section" ref={communityRef} id="community">
         <div className="service-community-text">
           <p className="service-community-kicker">Our Community</p>
           <h2 className="service-community-title">
