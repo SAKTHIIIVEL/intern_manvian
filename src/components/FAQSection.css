@@ -1,7 +1,7 @@
 .faq-section {
   background: #161952;
 
-  padding: 3rem 3rem;
+  padding: 4rem 3rem;
   position: relative;
 }
 
@@ -10,6 +10,7 @@
   margin: 0 50px;
   position: relative;
   overflow: visible;
+  padding-top: 2rem;
 }
 
 .faq-container::before {
@@ -41,6 +42,8 @@
 .faq-left {
   display: flex;
   flex-direction: column;
+   position: relative;
+  top: 30%;
 }
 
 .faq-subtitle {
@@ -287,6 +290,13 @@
   .faq-answer p {
     font-size: 15px;
   }
+}
+
+@media (max-width: 480px) {
+    .faq-left {
+        text-align: center;
+        top: 0;
+    }
 }
 
 /* Extra small mobile */

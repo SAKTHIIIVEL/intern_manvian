@@ -888,7 +888,7 @@ animation-fill-mode: both; /* 🔒 CRITICAL */
 }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 390px) {
   .diagram-wrapper {
     margin-bottom: -280px;
   }

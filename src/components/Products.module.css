@@ -250,7 +250,7 @@
 
 @media (max-width: 480px) {
     .products {
-        padding: 2rem 1rem;
+        padding: 3rem 1rem;
         margin-left: 0;
     }
 
@@ -279,6 +279,20 @@
         height: 450px;
         margin: 1.5rem 0;
         order: -1;
+    }
+    .centerImage::before {
+        content: "";
+        position: absolute;
+        inset: -20px;
+
+        background: radial-gradient(ellipse at 50% 10%,
+                /* 🔼 moved up */
+                #4846FFB2,
+                transparent 70%);
+
+        filter: blur(210px);
+        z-index: -1;
+        pointer-events: none;
     }
 
     .doc {

@@ -202,9 +202,9 @@ const CareerPage = () => {
 
   const heroRef = useRef(null);
   const positionsRef = useRef(null);
-const portraitRef = useRef(null);
-const contactportraitRef = useRef(null);
-const formRef = useRef(null);
+  const portraitRef = useRef(null);
+  const contactportraitRef = useRef(null);
+  const formRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -224,46 +224,47 @@ const formRef = useRef(null);
   }, []);
 
   useEffect(() => {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show");
-        } else {
-          // remove so it replays when scrolling back
-          entry.target.classList.remove("show");
-        }
-      });
-    },
-    { threshold: 0.35 }
-  );
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+          } else {
+            // remove so it replays when scrolling back
+            entry.target.classList.remove("show");
+          }
+        });
+      },
+      { threshold: 0.35 }
+    );
 
-  if (positionsRef.current) observer.observe(positionsRef.current);
-  if (portraitRef.current) observer.observe(portraitRef.current);
+    if (positionsRef.current) observer.observe(positionsRef.current);
+    if (portraitRef.current) observer.observe(portraitRef.current);
 
-  return () => observer.disconnect();
-}, []);
+    return () => observer.disconnect();
+  }, []);
 
-useEffect(() => {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show");
-        } else {
-          // remove to replay on scroll
-          entry.target.classList.remove("show");
-        }
-      });
-    },
-    { threshold: 0.35 }
-  );
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+          } else {
+            // remove to replay on scroll
+            entry.target.classList.remove("show");
+          }
+        });
+      },
+      { threshold: 0.35 }
+    );
 
-  if (contactportraitRef.current) observer.observe(contactportraitRef.current);
-  if (formRef.current) observer.observe(formRef.current);
+    if (contactportraitRef.current)
+      observer.observe(contactportraitRef.current);
+    if (formRef.current) observer.observe(formRef.current);
 
-  return () => observer.disconnect();
-}, []);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="career-page">
@@ -293,12 +294,19 @@ useEffect(() => {
       </div>
 
       <section className="positions-section">
-        <div className="positions-content"  ref={positionsRef}>
+        <div className="positions-content" ref={positionsRef}>
           <div className="positions-text">
             <h2 className="section-title">Open Positions</h2>
             <p className="section-lead"></p>
             <div className="hero-card">
-              <ul className="role-list">
+              <ul
+                className="role-list"
+                onClick={() => {
+                  document.getElementById("career-contact")?.scrollIntoView({
+                    behavior: "smooth",
+                  });
+                }}
+              >
                 {openRoles.map((role, idx) => (
                   <li key={idx} className="role-item">
                     <div>
@@ -334,7 +342,7 @@ useEffect(() => {
         </div>
       </section>
 
-      <section className="career-contact-block">
+      <section className="career-contact-block" id="career-contact">
         <div className="contact-card">
           <div className="contact-portrait" ref={contactportraitRef}>
             <img src={personTwo} alt="Work with us" />
@@ -362,29 +370,29 @@ useEffect(() => {
                 </div>
                 <div className="form-group-career">
                   <div className="phone-input-wrapper-career">
-                  <div className="select-wrapper-career">
-                    <select
-                      name="countryCode"
-                      value={formData.countryCode}
-                      onChange={handleChange}
-                      className="country-code-select-career"
-                    >
-                      <option value="+91">+91</option>
-                      <option value="+60">+60</option>
-                      <option value="+1">+1</option>
-                    </select>
-                  </div>
+                    <div className="select-wrapper-career">
+                      <select
+                        name="countryCode"
+                        value={formData.countryCode}
+                        onChange={handleChange}
+                        className="country-code-select-career"
+                      >
+                        <option value="+91">+91</option>
+                        <option value="+60">+60</option>
+                        <option value="+1">+1</option>
+                      </select>
+                    </div>
 
-                  <input
-                    type="tel"
-                    name="phone"
-                    placeholder=" Phone number"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    inputMode="numeric"
-                    maxLength={10}
-                  />
-                </div>
+                    <input
+                      type="tel"
+                      name="phone"
+                      placeholder=" Phone number"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      inputMode="numeric"
+                      maxLength={10}
+                    />
+                  </div>
                   {errors.phone && (
                     <span className="error-message-career">{errors.phone}</span>
                   )}

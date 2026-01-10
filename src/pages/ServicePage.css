@@ -5,6 +5,7 @@
   color: #ffffff;
   font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
+    margin-top: 100px;
 }
 
 /* .service-hero-gradient {
@@ -40,7 +41,7 @@
   display: flex;
   flex-direction: column;
   margin-top: 110px;
-  padding: 0 6%;
+  padding: 0 12%;
   gap: 12px;
 }
 
@@ -650,7 +651,7 @@ flex-shrink: 0;
 /* Laptop (1024px - 1439px) */
 @media (min-width: 1024px) and (max-width: 1439px) {
   .service-hero-content {
-    padding: 0 5%;
+    padding: 0 10%;
     margin-top: 90px;
   }
 
@@ -674,6 +675,7 @@ flex-shrink: 0;
 
   .service-community-section {
     padding: 80px 4%;
+    padding-right: 7%;
   }
 
   .service-community-text {
@@ -1164,7 +1166,7 @@ transform: translate(-20%, -40%);
   }
 
   .service-hero-subtitle {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   .service-community-title {

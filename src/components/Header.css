@@ -1,11 +1,12 @@
 .header {
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 1000;
   background: #1A195F;
   backdrop-filter: blur(12px);
   /* border-bottom: 1px solid rgba(255, 255, 255, 0.1); */
   padding: 1rem 0;
+  width: 100%;
 }
 
 .header-container {
@@ -15,13 +16,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 2rem;
+  gap: 4rem;
 }
 
 .logo {
   display: flex;
   align-items: center;
-  margin-left: 36px;
+  margin-left: 32px;
 }
 
 .logo-image-head {
@@ -108,7 +109,7 @@
 
   transition: transform 0.3s ease;
   white-space: nowrap;
-  margin-right: 70px;
+  margin-right: 50px;
 }
 
 /* ---------------- GLOW BORDER ---------------- */
@@ -218,11 +219,11 @@
 @media (min-width: 1024px) and (max-width: 1439px) {
   .header-container {
     max-width: 1200px;
-    padding: 0 1.5rem;
+    padding: 0 1rem;
   }
 
   .logo {
-    margin-left: 20px;
+    margin-left: 17px;
   }
 
   .nav {
@@ -236,7 +237,7 @@
   .book-appointment-btn {
     padding: 14px 32px;
     font-size: 16px;
-    margin-right: 40px;
+    margin-right: 20px;
   }
 }
 

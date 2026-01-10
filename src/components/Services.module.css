@@ -1,6 +1,6 @@
 .services {
-  padding: 2rem 2rem 3.5rem;
-  margin-left: 70px;
+  padding: 2rem 3rem 3.5rem;
+  margin-left: 50px;
   color: white;
   margin-bottom: 30px;
 }
@@ -150,6 +150,7 @@
 @media (min-width: 1024px) and (max-width: 1439px) {
   .services {
     margin-left: 60px;
+    padding-right: 5rem;
   }
 
   .heading {

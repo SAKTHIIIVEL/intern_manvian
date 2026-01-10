@@ -7,6 +7,7 @@
     sans-serif;
   padding: 0;
   margin: 0;
+  margin-top: 100px;
 }
 
 /* ABOUT Hero Section */
@@ -45,14 +46,14 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #FFFFFF;
-  margin-bottom: 10px;
+  margin-bottom: 19px;
 }
 
 .about-title {
   font-size: 100px;
   font-weight: 600;
   line-height: 0.7;
-  margin-bottom: 24px;
+  margin-bottom: 38px;
   color: #ffffff;
 }
 
@@ -354,7 +355,7 @@ strong {
    TEAM SECTION
 =========================== */
 .team-section {
-  padding: 90px 6%;
+  padding: 90px 7%;
   background: transparent;
 }
 
@@ -378,8 +379,35 @@ strong {
 .team-label {
   font-size: 36px;
   font-weight: 600;
+  color: #ffffff;
+  position: relative;
+  display: inline-block;
+  text-align: center;
   margin-bottom: 30px;
 }
+
+/* underline */
+.team-label::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 35%;
+
+  width: 80px;
+  height: 3px;
+  background-color: #ffffff;
+
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: left;          /* 🔥 key change */
+  transition: transform 1s ease-out;
+}
+
+/* hover animation */
+.team-label:hover::after,
+.team-visible .team-label::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
 
 .team-left h2 {
   font-size: 48px;
@@ -908,7 +936,7 @@ strong {
 /* Mobile (up to 767px) */
 @media (max-width: 767px) {
   .about-hero-section {
-    padding: 40px 5%;
+    padding: 40px 4%;
   }
 
   .about-hero-container {
@@ -1044,6 +1072,9 @@ strong {
     font-size: 20px;
     margin-bottom: 20px;
   }
+  .team-label::after {
+    left: 49%;
+  }
 
   .team-left h2 {
     font-size: 32px;
@@ -1111,6 +1142,48 @@ strong {
   .vertical-text {
     bottom: 120px;
   }
+
+  /* 🔒 Disable hover behavior on mobile */
+.team-right:hover .team-card:not(:hover) {
+  width: auto !important;
+  max-width: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.team-card:hover {
+  width: auto !important;
+  max-width: none !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* ===========================
+   TEAM DOT INDICATOR
+=========================== */
+.team-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.team-dots .dot {
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.team-dots .dot.active {
+  width: 22px;
+  border-radius: 10px;
+  background: #ffffff;
+}
+
+
 
   /* Commitment section */
   .commitment-section {
@@ -1283,6 +1356,22 @@ strong {
     bottom: 120px;
   }
 
+  /* 🔒 Disable hover behavior on very small screens */
+.team-right:hover .team-card:not(:hover) {
+  width: auto !important;
+  max-width: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+.team-card:hover {
+  width: auto !important;
+  max-width: none !important;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+
   .commitment-title {
     font-size: 28px;
   }
@@ -1379,11 +1468,11 @@ strong {
   }
 
   .team-info h3 {
-    font-size: 12px;
+    font-size: 10.5px;
   }
 
   .team-info p {
-    font-size: 10px;
+    font-size: 9.5px;
   }
 
   .vertical-text {

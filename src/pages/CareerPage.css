@@ -4,6 +4,7 @@
   background: #161952;
   color: #e6e9f5;
   overflow: hidden;
+  margin-top: 110px;
 }
 
 .career-hero {
@@ -1390,6 +1391,16 @@
 
 /* Extra small mobile (up to 390px) */
 @media (max-width: 390px) {
+  .hero-portrait img {
+        max-width: 380px;
+    }
+  .career-hero-content {
+    top: 70px;
+  }
+  .hero-info{
+    top: 100px;
+    margin-bottom: 2rem;
+  }
   .hero-subtitle {
     font-size: 24px;
   }
@@ -1412,6 +1423,12 @@
 
   .role-name {
     font-size: 16px;
+  }
+  .positions-text{
+    padding-right:0;
+  }
+  .role-list{
+    padding-right:1.5rem;
   }
 
   .contact-form-header .contact-kicker {

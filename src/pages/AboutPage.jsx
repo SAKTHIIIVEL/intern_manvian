@@ -8,7 +8,7 @@ import aboutTeamCloseup from "../assets/about/scientist.jpg";
 import magaeshImage from "../assets/about/managing_director.jpeg";
 import seniorManager1 from "../assets/about/director.jpeg";
 import seniorManager2 from "../assets/about/general_Manager.jpeg";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import FlightTimeline from "../components/FlightTimeline";
 
 const AboutPage = () => {
@@ -17,6 +17,21 @@ const AboutPage = () => {
   const commitmentRef = useRef(null);
   const missionRef = useRef(null);
 const visionRef = useRef(null);
+const [activeTeamIndex, setActiveTeamIndex] = useState(0);
+const [isPaused, setIsPaused] = useState(false);
+
+useEffect(() => {
+  const isMobile = window.innerWidth < 767;
+  if (!isMobile || isPaused) return;
+
+  const interval = setInterval(() => {
+    setActiveTeamIndex((prev) => (prev + 1) % 3);
+  }, 2500);
+
+  return () => clearInterval(interval);
+}, [isPaused]);
+
+
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -183,39 +198,58 @@ const visionRef = useRef(null);
     </div>
 
     {/* RIGHT */}
-    <div className="team-right">
-      {/* MAIN CARD */}
-      <div className="team-card active">
-        <img src={magaeshImage} alt="Dr. Jefry Wilson" />
+    <div className="team-right"  onTouchStart={() => setIsPaused(true)}
+  onTouchEnd={() => setIsPaused(false)}
+  onMouseEnter={() => setIsPaused(true)}   // optional (tablet)
+  onMouseLeave={() => setIsPaused(false)} >
+  {[ 
+    {
+      img: magaeshImage,
+      name: "Dr. Jefry Wilson",
+      role: "Managing Director",
+    },
+    {
+      img: seniorManager1,
+      name: "Dr. Arjun",
+      role: "Director",
+    },
+    {
+      img: seniorManager2,
+      name: "Mr. Kathireswaran",
+      role: "General Manager",
+    },
+  ].map((member, index) => (
+    <div
+      key={index}
+      className={`team-card ${
+        index === activeTeamIndex ? "active" : "side"
+      }`}
+    >
+      <img src={member.img} alt={member.name} />
 
-        <div className="team-info">
-          <h3>Dr. Jefry Wilson</h3>
-          <p>Managing Director</p>
-        </div>
-      </div>
+      {index !== activeTeamIndex && (
+        <span className="vertical-text">{member.role}</span>
+      )}
 
-      {/* SIDE CARD */}
-      <div className="team-card side">
-        <img src={seniorManager1} alt="Senior Manager" />
-        <span className="vertical-text">Director</span>
-
-        <div className="team-info">
-          <h3>Dr. Arjun</h3>
-          <p>Director</p>
-        </div>
-      </div>
-
-      {/* SIDE CARD */}
-      <div className="team-card side">
-        <img src={seniorManager2} alt="Senior Manager" />
-        <span className="vertical-text">General Manager</span>
-
-        <div className="team-info">
-          <h3>Mr. Kathireswaran</h3>
-          <p>General Manager</p>
-        </div>
+      <div className="team-info">
+        <h3>{member.name}</h3>
+        <p>{member.role}</p>
       </div>
     </div>
+  ))}
+</div>
+{/* Dots Indicator (Mobile only) */}
+<div className="team-dots">
+  {[0, 1, 2].map((index) => (
+    <span
+      key={index}
+      className={`dot ${index === activeTeamIndex ? "active" : ""}`}
+      onClick={() => setActiveTeamIndex(index)}
+    />
+  ))}
+</div>
+
+
   </div>
 </section>
 

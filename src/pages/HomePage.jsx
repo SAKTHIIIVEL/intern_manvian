@@ -10,7 +10,7 @@ import StayConected from '../components/StayConected'
 
 function HomePage() {
   return (
-    <div>
+    <div className='home-page'>
         <Home />
         <About/>
         <Services/>

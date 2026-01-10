@@ -3,7 +3,7 @@
       #161952 0%,
       #050b2c 100%);
   color: #e2e8f0;
-  padding: 2rem 1rem 2rem;
+  padding: 2rem 3rem 2rem;
 }
 
 .big-title {
@@ -250,6 +250,9 @@
 
 /* Laptop (1024px - 1439px) */
 @media (min-width: 1024px) and (max-width: 1439px) {
+  .footer{
+    padding-right: 3.8rem;
+  }
   .big-title {
     font-size: 12.3rem;
     letter-spacing: 0.89rem;
@@ -261,7 +264,7 @@
 
   .footer-content {
     grid-template-columns: 1.8fr 1fr 1fr 1.3fr;
-    margin-left: 30px;
+    margin-left: 10px;
   }
 
   .footer-description {
