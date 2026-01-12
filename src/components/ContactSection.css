@@ -1,6 +1,6 @@
 .contact-section {
   background: #161952;
-  padding: 2rem 2rem;
+  padding: 2rem 4rem;
 
 }
 
@@ -49,11 +49,12 @@
   display: grid;
   padding-left: 1rem;
   grid-template-columns: 1fr 1.2fr;
-  gap: 1.7rem;
+  gap: 1rem;
   position: relative;
   z-index: 2;
   align-items: start;
   margin-left: 50px;
+  padding-right: 1rem;
 }
 
 .contact-info-panel {
@@ -149,7 +150,7 @@
 .contact-form-panel {
   background: transparent;
   border-radius: 16px;
-  padding: 2.5rem;
+  padding: 3rem;
   display: flex;
   flex-direction: column;
 }
@@ -334,6 +335,9 @@
 
 /* Laptop (1024px - 1439px) */
 @media (min-width: 1024px) and (max-width: 1439px) {
+  .contact-section {
+    padding: 2rem 2rem;
+  }
   .contact-content {
     margin-left: 30px;
     gap: 1.5rem;
@@ -353,6 +357,9 @@
 
   .info-value {
     font-size: 20px;
+  }
+  .contact-form-panel{
+    padding: 2.5rem;
   }
 }
 

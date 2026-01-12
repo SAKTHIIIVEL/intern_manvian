@@ -271,6 +271,10 @@
   color: #ffffff;
 }
 
+.mission-content{
+  padding-left: 3rem;
+}
+
 .mission-content h2,
 .vision-content h2 {
   position: relative;
@@ -355,7 +359,7 @@ strong {
    TEAM SECTION
 =========================== */
 .team-section {
-  padding: 90px 7%;
+  padding: 90px 9%;
   background: transparent;
 }
 
@@ -679,6 +683,9 @@ strong {
 
 /* Laptop (1024px - 1439px) */
 @media (min-width: 1024px) and (max-width: 1439px) {
+  .mission-content{
+  padding-left: 0rem;
+}
 
   .about-hero-section,
   .mission-vision-section,
@@ -708,6 +715,10 @@ strong {
   .mission-content p,
   .vision-content p {
     font-size: 20px;
+  }
+
+  .team-section{
+    padding: 90px 7%;
   }
 
   .team-left {

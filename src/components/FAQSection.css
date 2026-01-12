@@ -1,7 +1,7 @@
 .faq-section {
   background: #161952;
 
-  padding: 4rem 3rem;
+  padding: 4rem 5rem;
   position: relative;
 }
 
@@ -180,6 +180,9 @@
 
 /* Laptop (1024px - 1439px) */
 @media (min-width: 1024px) and (max-width: 1439px) {
+  .faq-section {
+     padding: 4rem 3rem;
+  }
   .faq-container {
     margin: 0 50px;
   }

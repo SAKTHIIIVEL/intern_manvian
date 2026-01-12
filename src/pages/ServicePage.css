@@ -41,7 +41,7 @@
   display: flex;
   flex-direction: column;
   margin-top: 110px;
-  padding: 0 12%;
+  padding: 0 9%;
   gap: 12px;
 }
 
@@ -115,7 +115,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 28px;
-  padding: 0px 80px;
+  padding: 0px 100px;
   justify-items: center;
   margin-top: -120px;
 
@@ -338,9 +338,10 @@
 .service-community-section {
   display: flex;
   justify-content: space-evenly;
-  padding: 100px 2% 100px;
+  padding: 100px 4%;
   position: relative;
   z-index: 1;
+  padding-right: 8rem;
 }
 
 .service-community-section::before {
@@ -415,7 +416,7 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   /* Slightly larger gap between cards */
-  margin-right: 80px;
+  margin-right: 110px;
 
 }
 
@@ -651,7 +652,7 @@ flex-shrink: 0;
 /* Laptop (1024px - 1439px) */
 @media (min-width: 1024px) and (max-width: 1439px) {
   .service-hero-content {
-    padding: 0 10%;
+    padding: 0 8%;
     margin-top: 90px;
   }
 
@@ -688,6 +689,10 @@ flex-shrink: 0;
 
   .service-community-description {
     font-size: 19px;
+  }
+
+  .service-community-stats{
+   margin-right: 80px;
   }
 
   .service-contact-title {

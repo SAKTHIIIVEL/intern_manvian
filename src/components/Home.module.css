@@ -2,7 +2,9 @@
     position: relative;
     min-height: 100vh;
      background:url("../assets/home_background.png");
-     object-fit: cover;
+    background-size: cover;        /* KEY */
+    background-position: center;   /* KEY */
+    background-repeat: no-repeat;
     /* Subtle glowing center */
     color: white;
     overflow: hidden;
