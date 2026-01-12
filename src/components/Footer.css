@@ -16,9 +16,9 @@
   text-align: center;
 
   color: #fff;
-  font-size: 12.5rem; /* ✅ FIXED UNIT */
+  font-size: 14.2rem; /* ✅ FIXED UNIT */
   font-weight: 800;
-  letter-spacing: 1.3rem;
+  letter-spacing: 1rem;
 
   user-select: none;
   pointer-events: none;
