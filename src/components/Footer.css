@@ -63,9 +63,10 @@
 .footer-content {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1.5fr;
-  gap: 3rem;
+  gap: 2.5rem;
   margin-bottom: 3rem;
   margin-left: 50px;
+  padding-right: 2rem;
 }
 
 .footer-column {
@@ -221,6 +222,7 @@
 .footer-partner-list img{
   width: 150px;
   cursor: pointer;
+  border-radius: 10px;
 }
 
 .footer-bottom {
@@ -236,7 +238,9 @@
   text-decoration: none;
   color: inherit;
   cursor: pointer;
-
+}
+.footer-contact-address{
+  max-width: 240px;
 }
 
 .address-link:hover {

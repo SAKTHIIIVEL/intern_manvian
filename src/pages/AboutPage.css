@@ -1029,6 +1029,10 @@ strong {
     gap: 40px;
   }
 
+  .mission-content{
+    padding-left: 0rem;
+  }
+
   .mission-content h2,
   .vision-content h2 {
     font-size: 24px;

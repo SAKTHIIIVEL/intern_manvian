@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import partners from "../assets/brands/footer_partners.png";
 import indoPartner from "../assets/brands/idocontinental_partners.png";
 import drwill from "../assets/brands/drwill_partners.png";
+import diwholesale from "../assets/brands/diwholesale.jpeg";
 
 const Footer = () => {
   const titleRef = useRef(null);
@@ -141,6 +142,7 @@ const Footer = () => {
               <div className="footer-partner-list">
                 <img src={indoPartner} alt="" />
                 <img src={drwill} alt="" />
+                <img src={diwholesale} alt="" />
               </div>
             </div>
           </div>
@@ -215,7 +217,7 @@ const Footer = () => {
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                 <circle cx="12" cy="10" r="5" fill="#222065" />
               </svg>
-              <div>
+              <div className="footer-contact-address">
                 <p>Corporate Office:</p>
                 <a
                   href="https://maps.app.goo.gl/tWf7yn3a2a17tGt9A"
