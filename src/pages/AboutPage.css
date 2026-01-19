@@ -1081,6 +1081,7 @@ strong {
   .team-left {
     width: 100%;
     flex: 1;
+    text-align: center;
   }
 
   .team-label {
@@ -1224,6 +1225,12 @@ strong {
 
 
 @media (max-width: 480px) {
+  .about-hero-section {
+    padding: 30px 2%;
+  }
+  .about-hero-container{
+    margin-left: 4px;
+  }
   .about-title {
     font-size: 28px;
   }
@@ -1244,16 +1251,16 @@ strong {
   }
   .collage-top-left {
     grid-column: 1 / 2;
-    width: 150%;
+    width: 155%;
     grid-row: 1 / 2;
     height: 125%;
   }
   .collage-middle-left {
     grid-column: 3 / 4;
     grid-row: 1 / 2;
-    width: 150%;
+    width: 165%;
     height: 100%;
-    right: 30px;
+    right: 29px;
     
   }
   .collage-top-right {
@@ -1274,13 +1281,18 @@ strong {
     grid-column: 5 / 7;
     grid-row: 2 / 3;
     height: 100%;
+    right: 8px;
   }
   .collage-bottom-left {
     grid-column: 2 / 4;
     grid-row: 2 / 3;
     height: 100%;
    width: 125%;
-   left: 29px;
+   left: 20px;
+  }
+
+  .mission-vision-section{
+    padding: 30px 5%;
   }
 
   .mission-content h2,
@@ -1417,12 +1429,15 @@ strong {
 
   .vision-content {
     text-align: left;
+    position: relative;
+    left: 10px;
+    top: 20px;
   }
 
   .mission-content p,
   .vision-content p {
-    font-size: 14px;
-    max-width: 170px;
+    font-size: 13px;
+    max-width: 160px;
   }
 
   .team-left h2 {
@@ -1483,11 +1498,11 @@ strong {
   }
 
   .team-info h3 {
-    font-size: 10.5px;
+    font-size: 9.5px;
   }
 
   .team-info p {
-    font-size: 9.5px;
+    font-size: 8.5px;
   }
 
   .vertical-text {

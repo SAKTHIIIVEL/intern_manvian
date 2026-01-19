@@ -165,6 +165,10 @@
 }
 
 @media (max-width: 768px) {
+    .hero{
+        min-height: fit-content;
+        padding-bottom: 30px;
+    }
     .title {
         font-size: 36px;
     }
@@ -208,8 +212,9 @@
     }
 
     .bottomRight {
+        position: static;
         bottom: 40px;
-        right: 10px;
+         margin-left: auto;
         max-width: 45%;
     }
 
@@ -312,6 +317,8 @@
     }
 }
 
-@media (max-width: 375px) {
-    
+@media (max-width: 345px) {
+    .subtitle{
+        font-size: 10px;
+    }
 }

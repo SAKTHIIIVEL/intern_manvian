@@ -973,3 +973,104 @@ animation-fill-mode: both; /* 🔒 CRITICAL */
   animation-delay: 0.5s;
 }
 }
+
+@media (max-width: 345px) {
+  .diagram-wrapper {
+    margin-bottom: -330px;
+  }
+  .diagram {
+  position: relative;
+  width: 500px;
+  height: 450px;
+  margin: auto;
+  background: transparent;
+  transition: transform 0.3s ease;
+}
+
+  .server {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  z-index: 2;
+  filter: drop-shadow(0 18px 28px rgba(0, 0, 0, 0.55));
+}
+
+ .server-wrap.lt .server-btn,
+.server-wrap.wl .server-btn {
+  right: -70px;
+  z-index: 30;
+}
+.server-wrap.lb .server-btn{
+   right: -110px;
+  z-index: 30;
+}
+.server-wrap.rb .server-btn{
+   right: -110px;
+  z-index: 30;
+}
+
+  /* ================= TOP ================= */
+.lt {
+  top: -10px;
+  left: 35px;
+  animation-delay: 0s;
+}
+
+.rt {
+  top: -10px;
+  right: 130px;
+  animation-delay: 0.8s;
+}
+
+/* ================= BOTTOM ================= */
+.lb {
+  top: 50px;
+  left: -40px;
+  animation-delay: 1.4s;
+}
+
+.rb {
+  top: 50px;
+  right: 90px;
+  animation-delay: 2s;
+}
+
+/* ================= WHITE LOWER ================= */
+.wl {
+  top: 130px;
+  left: 30px;
+  animation-delay: 1s;
+}
+
+.wr {
+  top: 130px;
+  right: 135px;
+  animation-delay: 1.8s;
+}
+
+/* ================= CENTER GROUP ================= */
+.center-group {
+  position: absolute;
+  top: 20px;
+  left: 160px;
+  width: 100px;
+  height: 90px;
+  z-index: 3;
+}
+.center-base {
+  position: absolute;
+  bottom: -1px;
+  left: -30px;
+  width: 80px;
+  height: 60px;
+}
+.center {
+  position: absolute;
+  bottom: 85px;
+  left: -35px;
+  width: 99px;
+  z-index: 4;
+  animation-duration: 5.5s;
+  animation-delay: 0.5s;
+}
+}

@@ -370,3 +370,9 @@
         content: none;
     }
 }
+
+@media (max-width: 345px) {
+    .card p{
+        font-size: 15px;
+    }
+}

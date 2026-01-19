@@ -279,7 +279,7 @@
   }
 
   .buttonContainer {
-    top: 40px;
+    top: -40px;
   }
 
   .viewButton {
@@ -327,9 +327,9 @@
     font-size: 15px;
   }
 
-  .buttonContainer {
+  /* .buttonContainer {
     top: 5px;
-  }
+  } */
 
   .viewButton {
     font-size: 15px;
@@ -377,9 +377,9 @@
     font-size: 15px;
   }
 
-  .buttonContainer {
+  /* .buttonContainer {
     top: 5px;
-  }
+  } */
 
   .viewButton {
     font-size: 15px;
@@ -424,9 +424,9 @@
     font-size: 14px;
   }
 
-  .buttonContainer {
+  /* .buttonContainer {
     top: 1px;
-  }
+  } */
 
   .viewButton {
     font-size: 14px;
