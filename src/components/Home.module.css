@@ -151,6 +151,9 @@
 }
 
 @media (max-width: 1024px) {
+    .hero{
+        min-height: 80vh;
+    }
     .visualsContainer {
         transform: scale(0.8);
     }
@@ -161,6 +164,24 @@
 
     .subtitle {
         font-size: 20px;
+    }
+    /* Keep bottomLeft and bottomRight side by side */
+    .bottomLeft {
+        position: relative;
+        bottom: 60px;
+        left: 10px;
+        max-width: 45%;
+    }
+
+    .social {
+        position: relative;
+        bottom: 0px;
+        left: 20px;
+        font-size: 16px;
+        margin-bottom: 1rem;
+    }
+    .bottomRight{
+        max-width: 45%;
     }
 }
 

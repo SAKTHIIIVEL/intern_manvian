@@ -1089,10 +1089,14 @@ transform: translate(-20%, -40%);
 
   .service-hero-kicker {
     font-size: 15px;
+    color: #ffffff;
   }
 
   .service-hero-subtitle {
     font-size: 15px;
+  }
+  .mobile{
+    display: none;
   }
 
   .service-card-title {
@@ -1162,18 +1166,20 @@ transform: translate(-20%, -40%);
   }
 
   .service-hero-title {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 700;
   }
 
   .service-hero-kicker {
-    font-size: 15px;
-  }
-
-  .service-hero-subtitle {
     font-size: 14px;
   }
 
+  .service-hero-subtitle {
+    font-size: 13px;
+  }
+  .desktop{
+    display: none;
+  }
   .service-community-title {
     font-size: 24px;
   }
@@ -1196,5 +1202,25 @@ transform: translate(-20%, -40%);
 
   .quote-author {
     font-size: 18px;
+  }
+}
+
+@media (max-width: 345px) {
+  .service-hero-subtitle {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 330px) {
+  .service-hero-kicker{
+    font-size: 15px;
+    margin-bottom: 5px;
+  }
+  .service-hero-title{
+    font-size: 17px;
+    margin-bottom: 10px;
+  }
+  .service-hero-subtitle{
+    font-size: 11.8px;
   }
 }

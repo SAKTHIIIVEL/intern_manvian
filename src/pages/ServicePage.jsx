@@ -205,8 +205,8 @@ const ServicePage = () => {
         <div className="service-hero-content">
           <p className="service-hero-kicker">Our Services</p>
           <h1 className="service-hero-title">
-            DI Polyclinic offers comprehensive
-            <br />
+            DI Polyclinic offers <br className="mobile"/> comprehensive{" "}
+            <br className="desktop"/>
             medical services
           </h1>
           <p className="service-hero-subtitle">

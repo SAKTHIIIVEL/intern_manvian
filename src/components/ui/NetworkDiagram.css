@@ -910,48 +910,48 @@ animation-fill-mode: both; /* 🔒 CRITICAL */
 }
   /* ================= TOP ================= */
 .lt {
-  top: 5px;
-  left: 80px;
+  top: -10px;
+  left: 50px;
   animation-delay: 0s;
 }
 
 .rt {
-  top: 5px;
-  right: 200px;
+  top: -10px;
+  right: 150px;
   animation-delay: 0.8s;
 }
 
 /* ================= BOTTOM ================= */
 .lb {
-  top: 90px;
-  left: -20px;
+  top: 60px;
+  left: -35px;
   animation-delay: 1.4s;
 }
 
 .rb {
-  top: 90px;
+  top: 60px;
   right: 100px;
   animation-delay: 2s;
 }
 
 /* ================= WHITE LOWER ================= */
 .wl {
-  top: 180px;
-  left: 60px;
+  top: 150px;
+  left: 40px;
   animation-delay: 1s;
 }
 
 .wr {
-  top: 180px;
-  right: 185px;
+  top: 150px;
+  right: 145px;
   animation-delay: 1.8s;
 }
 
 /* ================= CENTER GROUP ================= */
 .center-group {
   position: absolute;
-  top: 60px;
-  left: 200px;
+  top: 40px;
+  left: 170px;
   width: 150px;
   height: 120px;
   z-index: 3;

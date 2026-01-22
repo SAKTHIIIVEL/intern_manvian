@@ -222,6 +222,9 @@
   .faq-title {
     font-size: 2.25rem;
   }
+  .faq-left{
+    top: 0;
+  }
 
   .faq-description {
     font-size: 18px;
@@ -260,6 +263,7 @@
 
   .faq-left {
     text-align: center;
+    top: 0;
   }
 
   .faq-subtitle {

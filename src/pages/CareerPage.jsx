@@ -297,7 +297,7 @@ const CareerPage = () => {
         <div className="positions-content" ref={positionsRef}>
           <div className="positions-text">
             <h2 className="section-title">Open Positions</h2>
-            <p className="section-lead"></p>
+            
             <div className="hero-card">
               <ul
                 className="role-list"

@@ -511,12 +511,13 @@
 /* Extra small mobile */
 @media (max-width: 390px) {
   .contact-section {
-    padding: 0.5rem 0.75rem;
+    padding: 1.5rem 0.75rem;
   }
 
   .contact-content {
     margin-left: 5px;
     margin-right: 5px;
+    padding: 0rem;
   }
 
   .contact-info-panel {
@@ -529,7 +530,7 @@
   }
 
   .info-value {
-    font-size: 16px;
+    font-size: 14px;
   }
 
   .social-icons {
@@ -547,7 +548,7 @@
   }
 
   .contact-form-panel {
-    padding: 1.25rem;
+    padding: 3px
   }
 
   .form-title {

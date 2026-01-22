@@ -69,12 +69,12 @@
   }
 
   .flight-svg {
-    max-width: 100%;
+     top: auto;
+     
   }
-
-  /* Scale down SVG for mobile */
   .flight-svg svg {
-    height: 200px;
+    width: 490px;
+    height: 490px;
   }
 
   .pin-card {
@@ -110,11 +110,30 @@
 
 @media (max-width: 390px) {
   .flight-svg {
-    top: 100px;
+    top: 70px;
 
   }
   .flight-svg svg {
-    width: 390px;
+    width: 440px;
     height: 430px;
   }
+}
+@media (max-width: 330px){
+  .flight-svg {
+    top: 100px;
+  }
+  .flight-svg svg {
+    width: 380px;
+    height: 390px;
+  }
+}
+@media (max-width: 310px) {
+  .flight-svg{
+    top: 120px;
+  }
+  .flight-svg svg {
+    width: 350px;
+    height: 330px;
+  }
+  
 }

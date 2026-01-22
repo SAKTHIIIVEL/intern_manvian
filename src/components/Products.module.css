@@ -369,6 +369,9 @@
     .grid::before {
         content: none;
     }
+    .card p{
+        font-size: 15px;
+    }
 }
 
 @media (max-width: 345px) {
