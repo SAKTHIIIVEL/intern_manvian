@@ -511,7 +511,7 @@ strong {
   right: 16px;
 
   display: inline-block;      /* ✅ REQUIRED */
-  width: 100px;               /* ✅ Use width instead of max-width */
+  width: 118px;               /* ✅ Use width instead of max-width */
 
   transform: translateY(-50%) rotate(-90deg);
   transform-origin: center;
@@ -528,7 +528,7 @@ strong {
   transition: opacity 0.3s ease;
   pointer-events: none;
 
-   padding: 6px 10px;
+   padding: 6px 6px;
   background: rgba(0, 0, 0, 0.183);
   border-radius: 6px;
 

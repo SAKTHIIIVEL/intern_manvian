@@ -10,6 +10,14 @@ import seniorManager1 from "../assets/about/director.jpeg";
 import seniorManager2 from "../assets/about/general_Manager.jpeg";
 import { useEffect, useRef, useState } from "react";
 import FlightTimeline from "../components/FlightTimeline";
+import sudha from "../assets/about/sudha.jpeg";
+import uma from "../assets/about/Uma.jpeg";
+import Magesh from "../assets/about/Magesh.jpeg";
+import nikhila from "../assets/about/nikhila.jpeg";
+import Paulweshly from "../assets/about/PAULWESHLY.jpeg";
+import raghul from "../assets/about/raghul.jpeg";
+import santhosh from "../assets/about/santhosh.jpeg";
+import devika from "../assets/about/devika.jpeg";
 
 const AboutPage = () => {
   const teamMembers = [
@@ -28,7 +36,47 @@ const AboutPage = () => {
       name: "Mr. Kathireswaran",
       role: "General Manager",
     },
-    // ➕ add more freely
+    {
+      img: sudha,
+      name: "Ms. T.Sudha",
+      role: "Head Nurse",
+    },
+    {
+      img: uma,
+      name: "Ms. Uma Maheswari.G",
+      role: "Clinical Pharmacist",
+    },
+    {
+      img: Magesh,
+      name: "Mr. Magesh",
+      role: "Accountant",
+    },
+    {
+      img: nikhila,
+      name: "Ms. Nikhila.L",
+      role: "Senior Lab Technician",
+    },
+    {
+      img: Paulweshly,
+      name: "Mr. J.Paulweshly",
+      role: "Stock Accountent",
+    },
+    {
+      img: raghul,
+      name: "Mr. Ragul.G",
+      role: "Staff Nurse",
+    },
+    {
+      img: santhosh,
+      name: "Mr. C.Santhosh",
+      role: "Staff Nurse",
+    },
+    {
+      img: devika,
+      name: "Ms. A.Devika",
+      role: "Lab Technician",
+    },
+
   ];
 
   const sectionRef = useRef(null);
