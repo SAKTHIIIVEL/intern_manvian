@@ -1079,6 +1079,8 @@ strong {
   }
 
   .vertical-text {
+    width: 100px;
+    top: 75%;
     right: -16px;
   }
 
