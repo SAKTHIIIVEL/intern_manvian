@@ -1,3 +1,8 @@
+:root {
+  --team-card-width: 250px;
+  --team-card-gap: 28px;
+}
+
 .about-page {
   min-height: 100vh;
   background: linear-gradient(135deg, #161952 0%, #1a1a3d 50%, #2d1b4e 100%);
@@ -372,7 +377,7 @@ strong {
 }
 
 /* ===========================
-   LEFT SIDE (LOCKED)
+   LEFT SIDE
 =========================== */
 .team-left {
   width: 460px;
@@ -386,32 +391,25 @@ strong {
   color: #ffffff;
   position: relative;
   display: inline-block;
-  text-align: center;
   margin-bottom: 30px;
 }
 
-/* underline */
 .team-label::after {
   content: "";
   position: absolute;
   bottom: -10px;
   left: 35%;
-
   width: 80px;
   height: 3px;
   background-color: #ffffff;
-
   transform: translateX(-50%) scaleX(0);
-  transform-origin: left;          /* 🔥 key change */
+  transform-origin: left;
   transition: transform 1s ease-out;
 }
 
-/* hover animation */
-.team-label:hover::after,
 .team-visible .team-label::after {
   transform: translateX(-50%) scaleX(1);
 }
-
 
 .team-left h2 {
   font-size: 48px;
@@ -419,38 +417,38 @@ strong {
 }
 
 /* ===========================
-   RIGHT SIDE (LOCKED AREA)
+   RIGHT SIDE (MARQUEE)
 =========================== */
 .team-right {
-  display: flex;
-  gap: 28px;
-  align-items: center;
-  justify-content: flex-end;
   width: 600px;
-  flex-shrink: 0;
+  overflow: hidden;
+  position: relative;
 }
 
 /* ===========================
-   TEAM CARD BASE
+   MOVING TRACK
+=========================== */
+.team-track {
+  display: flex;
+  gap: var(--team-card-gap);
+  will-change: transform;
+}
+
+/* ===========================
+   TEAM CARD
 =========================== */
 .team-card {
-  position: relative;
+   width: var(--team-card-width);
+  height: 380px;
   border-radius: 22px;
   overflow: hidden;
   background: linear-gradient(180deg, #6262d9, #1c1c57);
-  cursor: pointer;
-
-  width: 250px;
-  height: 380px;
   flex-shrink: 0;
+  position: relative;
 
-  transition: transform 0.45s ease, opacity 0.35s ease;
-  will-change: transform;
-  transition:
-    width 0.45s ease,
-    transform 0.45s ease,
-    opacity 0.35s ease;
-
+  opacity: 0.45;
+  transform: scale(0.92);
+  transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
 .team-card img {
@@ -459,41 +457,25 @@ strong {
   object-fit: cover;
 }
 
-/* SIDE CARD BASE */
-.team-card.side {
-  width: 130px;
-  height: 380px;
-}
-
 /* ===========================
-   DEFAULT STATE (NO HOVER)
+   ACTIVE CARD
 =========================== */
-.team-right:not(:hover) .team-card.active {
-  width: 250px;
-  height: 380px;
-  transform: scale(1);
+.team-card.active {
   opacity: 1;
+  transform: scale(1);
   z-index: 5;
 }
 
-.team-right:not(:hover) .team-card:not(.active) {
-  width: 130px;
-  height: 380px;
-  transform: scale(1);
-  opacity: 0.45;
-}
-
 /* ===========================
-   INFO BOX (HIDDEN)
+   INFO (ACTIVE ONLY)
 =========================== */
 .team-info {
   position: absolute;
   bottom: 24px;
   left: 24px;
   right: 24px;
-  width: 200px;            /* 🔒 LOCKED WIDTH */
-  max-width: 200px;
-  background: #fff;
+
+  background: #ffffff;
   border-radius: 10px;
   padding: 14px 12px;
 
@@ -501,7 +483,13 @@ strong {
   transform: translateY(12px);
   pointer-events: none;
 
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.team-card.active .team-info {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .team-info h3 {
@@ -515,55 +503,39 @@ strong {
 }
 
 /* ===========================
-   VERTICAL TEXT (VISIBLE)
+   VERTICAL TEXT (INACTIVE ONLY)
 =========================== */
 .vertical-text {
   position: absolute;
-  bottom: 110px;
-  right: 20px;
-  transform: rotate(-90deg);
-  transform-origin: right;
+  top: 80%;
+  right: 16px;
 
-  font-size: 14px;
+  display: inline-block;      /* ✅ REQUIRED */
+  width: 100px;               /* ✅ Use width instead of max-width */
+
+  transform: translateY(-50%) rotate(-90deg);
+  transform-origin: center;
+
+  font-size: 16px;
   letter-spacing: 1px;
-  color: #e9e9f1;
-  font-weight: 500;
+  color: #ffffff;
+  font-weight: 700;
+
+  white-space: normal;        /* ✅ allow wrapping */
+  text-align: center;
 
   opacity: 1;
-  transition: opacity 0.25s ease;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+
+   padding: 6px 10px;
+  background: rgba(0, 0, 0, 0.183);
+  border-radius: 6px;
+
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
 }
 
-/* ===========================
-   HOVER STATE
-=========================== */
-.team-right:hover .team-card:not(:hover) {
-  width: 130px;
-  height: 380px;
-  opacity: 0.35;
-  transform: scale(1);
-  z-index: 1;
-}
-
-.team-card:hover {
-  width: 250px;
-  height: 380px;
-  transform: scale(1.05);
-  opacity: 1;
-  z-index: 10;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-}
-
-/* SHOW INFO ON HOVER */
-.team-card:hover .team-info,
-.team-right:not(:hover) .team-card.active .team-info {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-
-/* HIDE VERTICAL TEXT ON HOVER */
-.team-card:hover .vertical-text {
+.team-card.active .vertical-text {
   opacity: 0;
 }
 
@@ -589,6 +561,10 @@ strong {
   opacity: 1;
   transform: translateX(0);
 }
+.team-track {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 
 
 /* Commitment Section */
@@ -892,42 +868,14 @@ strong {
     width: 100%;
     justify-content: center;
   }
-
+:root {
+    --team-card-width: 280px;
+    --team-card-gap: 20px;
+  }
   .team-card {
-    width: 180px;
-    height: 320px;
-  }
-
-  .team-card.side {
-    width: 110px;
-    height: 320px;
-  }
-
-  .team-right:not(:hover) .team-card.active {
-    width: 180px;
-    height: 320px;
-  }
-
-  .team-right:not(:hover) .team-card:not(.active) {
-    width: 110px;
-    height: 320px;
-  }
-
-  .team-right:hover .team-card:not(:hover) {
-    width: 110px;
-    height: 320px;
-    opacity: 0.35;
-    transform: scale(1);
-    z-index: 1;
-  }
-
-  .team-card:hover {
-    width: 180px;
-    height: 320px;
-    transform: scale(1.05);
-    opacity: 1;
-    z-index: 10;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    width: var(--team-card-width) !important;
+    max-width: var(--team-card-width);
+    transform: none;
   }
 
   /* Commitment section */
@@ -1074,7 +1022,6 @@ strong {
   }
 
   .team-wrapper {
-    flex-direction: column;
     gap: 30px;
   }
 
@@ -1102,49 +1049,25 @@ strong {
     gap: 0px;
   }
 
+  :root {
+    --team-card-width: 210px;
+    --team-card-gap: 16px;
+  }
+
+  .team-wrapper {
+    flex-direction: column;
+  }
+
   .team-card {
-    width: 100% !important;
-    max-width: 210px;
+    width: var(--team-card-width);
     height: 260px;
-    margin: 0 auto;
+    transform: none;
+    opacity: 0.7;
   }
-
-  .team-card.side {
-    width: 150px !important;
-    max-width: 150px;
-    height: 260px;
-  }
-
-  .team-right:not(:hover) .team-card.active {
-    width: 210px !important;
-    max-width: 210px;
-    height: 260px;
-  }
-
-  .team-right:not(:hover) .team-card:not(.active) {
-    width: 150px !important;
-    max-width: 150px;
-    height: 260px;
-    opacity: 0.45;
-  }
-
-  .team-right:hover .team-card:not(:hover) {
-    width: 150px !important;
-    max-width: 150px;
-    height: 260px;
-    opacity: 0.35;
-    transform: scale(1);
-    z-index: 1;
-  }
-
-  .team-card:hover {
-    width: 210px !important;
-    max-width: 210px;
-    height: 260px;
-    transform: scale(1.05);
+  .team-card.active{
+    width: var(--team-card-width);
     opacity: 1;
-    z-index: 10;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+
   }
 
   .team-info h3 {
@@ -1156,48 +1079,9 @@ strong {
   }
 
   .vertical-text {
-    bottom: 120px;
+    right: -16px;
   }
 
-  /* 🔒 Disable hover behavior on mobile */
-.team-right:hover .team-card:not(:hover) {
-  width: auto !important;
-  max-width: none !important;
-  opacity: 1 !important;
-  transform: none !important;
-}
-
-.team-card:hover {
-  width: auto !important;
-  max-width: none !important;
-  transform: none !important;
-  box-shadow: none !important;
-}
-
-/* ===========================
-   TEAM DOT INDICATOR
-=========================== */
-.team-dots {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 16px;
-}
-
-.team-dots .dot {
-  width: 8px;
-  height: 8px;
-  background: rgba(255, 255, 255, 0.4);
-  border-radius: 50%;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.team-dots .dot.active {
-  width: 22px;
-  border-radius: 10px;
-  background: #ffffff;
-}
 
 
 
@@ -1322,6 +1206,10 @@ strong {
   .team-section {
     padding: 35px 4%;
   }
+  :root {
+    --team-card-width: 160px;
+    --team-card-gap: 12px;
+  }
 
   .team-wrapper {
     gap: 20px;
@@ -1330,41 +1218,19 @@ strong {
   .team-right {
     gap: 0px;
   }
-
   .team-card {
-    width: 140px !important;
-    max-width: 140px;
+    width: var(--team-card-width);
+    max-width: var(--team-card-width);
     height: 240px;
+
+    opacity: 0.7;
+    transform: none;
   }
 
-  .team-card.side {
-    width: 90px !important;
-    max-width: 90px;
-    height: 240px;
-  }
-
-  .team-right:not(:hover) .team-card.active {
-    width: 150px !important;
-    max-width: 150px;
-    height: 240px;
-  }
-
-  .team-right:not(:hover) .team-card:not(.active) {
-    width: 90px !important;
-    max-width: 90px;
-    height: 240px;
-  }
-
-  .team-right:hover .team-card:not(:hover) {
-    width: 90px !important;
-    max-width: 90px;
-    height: 240px;
-  }
-
-  .team-card:hover {
-    width: 170px !important;
-    max-width: 170px;
-    height: 240px;
+  .team-card.active {
+    width: var(--team-card-width);
+    max-width: var(--team-card-width);
+    opacity: 1;
   }
 
   .team-info {
@@ -1380,23 +1246,7 @@ strong {
 
   .vertical-text {
     font-size: 11px;
-    bottom: 120px;
   }
-
-  /* 🔒 Disable hover behavior on very small screens */
-.team-right:hover .team-card:not(:hover) {
-  width: auto !important;
-  max-width: none !important;
-  opacity: 1 !important;
-  transform: none !important;
-}
-
-.team-card:hover {
-  width: auto !important;
-  max-width: none !important;
-  transform: none !important;
-  box-shadow: none !important;
-}
 
 
   .commitment-title {
@@ -1503,42 +1353,6 @@ strong {
     gap: 0px;
   }
 
-  .team-card {
-    width: 120px !important;
-    max-width: 120px;
-    height: 240px;
-  }
-
-  .team-card.side {
-    width: 70px !important;
-    max-width: 70px;
-    height: 240px;
-  }
-
-  .team-right:not(:hover) .team-card.active {
-    width: 140px !important;
-    max-width: 140px;
-    height: 240px;
-  }
-
-  .team-right:not(:hover) .team-card:not(.active) {
-    width: 70px !important;
-    max-width: 70px;
-    height: 240px;
-  }
-
-  .team-right:hover .team-card:not(:hover) {
-    width: 70px !important;
-    max-width: 70px;
-    height: 240px;
-  }
-
-  .team-card:hover {
-    width: 140px !important;
-    max-width: 140px;
-    height: 240px;
-  }
-
   .team-info h3 {
     font-size: 9.5px;
   }
@@ -1549,7 +1363,6 @@ strong {
 
   .vertical-text {
     font-size: 11px;
-    bottom: 120px;
   }
 
   .commitment-title {
@@ -1574,41 +1387,6 @@ strong {
   .mission-content h2,
   .vision-content h2 {
     font-size: 19px;
-  }
-  .team-card {
-    width: 100px !important;
-    max-width: 100px;
-    height: 240px;
-  }
-
-  .team-card.side {
-    width: 50px !important;
-    max-width: 50px;
-    height: 240px;
-  }
-
-  .team-right:not(:hover) .team-card.active {
-    width: 120px !important;
-    max-width: 120px;
-    height: 240px;
-  }
-
-  .team-right:not(:hover) .team-card:not(.active) {
-    width: 50px !important;
-    max-width: 50px;
-    height: 240px;
-  }
-
-  .team-right:hover .team-card:not(:hover) {
-    width: 50px !important;
-    max-width: 50px;
-    height: 240px;
-  }
-
-  .team-card:hover {
-    width: 120px !important;
-    max-width: 120px;
-    height: 240px;
   }
   .team-info h3 {
     font-size: 7.5px;

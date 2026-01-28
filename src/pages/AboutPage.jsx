@@ -12,26 +12,118 @@ import { useEffect, useRef, useState } from "react";
 import FlightTimeline from "../components/FlightTimeline";
 
 const AboutPage = () => {
+  const teamMembers = [
+    {
+      img: magaeshImage,
+      name: "Dr. Jefry Wilson",
+      role: "Managing Director",
+    },
+    {
+      img: seniorManager1,
+      name: "Dr. Arjun",
+      role: "Director",
+    },
+    {
+      img: seniorManager2,
+      name: "Mr. Kathireswaran",
+      role: "General Manager",
+    },
+    // ➕ add more freely
+  ];
+
   const sectionRef = useRef(null);
   const teamRef = useRef(null);
   const commitmentRef = useRef(null);
   const missionRef = useRef(null);
-const visionRef = useRef(null);
-const [activeTeamIndex, setActiveTeamIndex] = useState(0);
-const [isPaused, setIsPaused] = useState(false);
+  const visionRef = useRef(null);
 
-useEffect(() => {
-  const isMobile = window.innerWidth < 767;
-  if (!isMobile || isPaused) return;
+  const trackRef = useRef(null);
 
-  const interval = setInterval(() => {
-    setActiveTeamIndex((prev) => (prev + 1) % 3);
-  }, 2500);
+  // const CARD_GAP = 28; // same as CSS gap
+  // const CARD_WIDTH = 250 + CARD_GAP; // card + gap
+  const total = teamMembers.length;
 
-  return () => clearInterval(interval);
-}, [isPaused]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isTransitionEnabled, setIsTransitionEnabled] = useState(true);
+  const [isPaused, setIsPaused] = useState(false);
+  const [cardWidth, setCardWidth] = useState(0);
 
+  /* =========================
+     GET CARD WIDTH FROM CSS
+  ========================= */
+  const getCardWidth = () => {
+    const styles = getComputedStyle(document.documentElement);
+    const width = parseFloat(styles.getPropertyValue("--team-card-width"));
+    const gap = parseFloat(styles.getPropertyValue("--team-card-gap"));
+    return width + gap;
+  };
+ useEffect(() => {
+    setCardWidth(getCardWidth());
 
+    const onResize = () => setCardWidth(getCardWidth());
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  /* =========================
+     AUTO SLIDE
+  ========================= */
+  useEffect(() => {
+    if (isPaused) return;
+
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => prev + 1);
+      setActiveIndex((prev) => (prev + 1) % total);
+    }, 2500);
+
+    return () => clearInterval(interval);
+  }, [isPaused, total]);
+
+  /* =========================
+     SILENT RESET (NO JUMP)
+  ========================= */
+  useEffect(() => {
+    if (currentIndex === total) {
+      const timer = setTimeout(() => {
+        setIsTransitionEnabled(false);
+        setCurrentIndex(0);
+
+        requestAnimationFrame(() => {
+          setIsTransitionEnabled(true);
+        });
+      }, 800); // must match transition duration
+      return () => clearTimeout(timer);
+    }
+  }, [currentIndex, total]);
+
+  /* =========================
+     TEAM VISIBILITY ANIMATION
+  ========================= */
+  useEffect(() => {
+    if (!teamRef.current) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        teamRef.current.classList.toggle("team-visible", entry.isIntersecting);
+      },
+      { threshold: 0.3 },
+    );
+
+    observer.observe(teamRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  // useEffect(() => {
+  //   const isMobile = window.innerWidth < 767;
+  //   if (!isMobile || isPaused) return;
+
+  //   const interval = setInterval(() => {
+  //     setActiveTeamIndex((prev) => (prev + 1) % 3);
+  //   }, 2500);
+
+  //   return () => clearInterval(interval);
+  // }, [isPaused]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -44,7 +136,7 @@ useEffect(() => {
       },
       {
         threshold: 0.3, // triggers when 30% visible
-      }
+      },
     );
 
     if (sectionRef.current) {
@@ -68,7 +160,7 @@ useEffect(() => {
       },
       {
         threshold: 0.3,
-      }
+      },
     );
 
     observer.observe(teamRef.current);
@@ -89,7 +181,7 @@ useEffect(() => {
       },
       {
         threshold: 0.3,
-      }
+      },
     );
     observer.observe(commitmentRef.current);
 
@@ -97,27 +189,26 @@ useEffect(() => {
   }, []);
 
   useEffect(() => {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show");
-        } else {
-          entry.target.classList.remove("show");
-        }
-      });
-    },
-    {
-      threshold: 0.35,
-    }
-  );
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+          } else {
+            entry.target.classList.remove("show");
+          }
+        });
+      },
+      {
+        threshold: 0.35,
+      },
+    );
 
-  if (missionRef.current) observer.observe(missionRef.current);
-  if (visionRef.current) observer.observe(visionRef.current);
+    if (missionRef.current) observer.observe(missionRef.current);
+    if (visionRef.current) observer.observe(visionRef.current);
 
-  return () => observer.disconnect();
-}, []);
-
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="about-page">
@@ -163,7 +254,7 @@ useEffect(() => {
         <FlightTimeline />
 
         {/* FOREGROUND CONTENT */}
-        <div className="mission-vision-container" >
+        <div className="mission-vision-container">
           <div className="mission-content" ref={missionRef}>
             <h2>Our Mission</h2>
             <p>
@@ -190,69 +281,56 @@ useEffect(() => {
       </section>
 
       <section className="team-section" ref={teamRef}>
-  <div className="team-wrapper">
-    {/* LEFT */}
-    <div className="team-left">
-      <p className="team-label">Our Team</p>
-      <h2>Dedicated Minds Driving Healthcare Forward</h2>
-    </div>
+        <div className="team-wrapper">
+          {/* LEFT */}
+          <div className="team-left">
+            <p className="team-label">Our Team</p>
+            <h2>Dedicated Minds Driving Healthcare Forward</h2>
+          </div>
 
-    {/* RIGHT */}
-    <div className="team-right"  onTouchStart={() => setIsPaused(true)}
-  onTouchEnd={() => setIsPaused(false)}
-  onMouseEnter={() => setIsPaused(true)}   // optional (tablet)
-  onMouseLeave={() => setIsPaused(false)} >
-  {[ 
-    {
-      img: magaeshImage,
-      name: "Dr. Jefry Wilson",
-      role: "Managing Director",
-    },
-    {
-      img: seniorManager1,
-      name: "Dr. Arjun",
-      role: "Director",
-    },
-    {
-      img: seniorManager2,
-      name: "Mr. Kathireswaran",
-      role: "General Manager",
-    },
-  ].map((member, index) => (
-    <div
-      key={index}
-      className={`team-card ${
-        index === activeTeamIndex ? "active" : "side"
-      }`}
-    >
-      <img src={member.img} alt={member.name} />
+          {/* RIGHT */}
+          <div
+            className="team-right"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+            onTouchStart={() => setIsPaused(true)}
+            onTouchEnd={() => setIsPaused(false)}
+          >
+            <div
+            className="team-track"
+            ref={trackRef}
+            style={{
+              transform: `translateX(-${currentIndex * cardWidth}px)`,
+              transition: isTransitionEnabled
+                ? "transform 0.8s ease-in-out"
+                : "none",
+            }}
+          >
+              {[...teamMembers, ...teamMembers].map((member, index) => {
+                const isActive = index % total === activeIndex;
 
-      {index !== activeTeamIndex && (
-        <span className="vertical-text">{member.role}</span>
-      )}
+                return (
+                  <div
+                    key={index}
+                    className={`team-card ${isActive ? "active" : ""}`}
+                  >
+                    <img src={member.img} alt={member.name} />
 
-      <div className="team-info">
-        <h3>{member.name}</h3>
-        <p>{member.role}</p>
-      </div>
-    </div>
-  ))}
-</div>
-{/* Dots Indicator (Mobile only) */}
-<div className="team-dots">
-  {[0, 1, 2].map((index) => (
-    <span
-      key={index}
-      className={`dot ${index === activeTeamIndex ? "active" : ""}`}
-      onClick={() => setActiveTeamIndex(index)}
-    />
-  ))}
-</div>
+                    {!isActive && (
+                      <span className="vertical-text">{member.role}</span>
+                    )}
 
-
-  </div>
-</section>
-
+                    <div className="team-info">
+                      <h3>{member.name}</h3>
+                      <p>{member.role}</p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Our Commitment Section */}
       <section className="commitment-section" ref={commitmentRef}>
