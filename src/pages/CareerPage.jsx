@@ -3,6 +3,7 @@ import "./CareerPage.css";
 import heroBanner from "../assets/career_banner.png";
 import personOne from "../assets/career_person1.png";
 import personTwo from "../assets/career_person2.png";
+import Swal from "sweetalert2";
 
 const openRoles = [
   {
@@ -54,6 +55,7 @@ const CareerPage = () => {
   const [fileName, setFileName] = useState("No file chosen");
   const [errors, setErrors] = useState({});
   const [selectedFile, setSelectedFile] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const validatePhoneByCountry = (countryCode, phone) => {
     const cleanPhone = phone.replace(/\D/g, "");
@@ -179,26 +181,61 @@ const CareerPage = () => {
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    if (validateForm()) {
-      alert(
-        "Your application has been received. Our team will respond within 24 hours."
-      );
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        role: "",
-        message: "",
-        countryCode: "+91",
-      });
-      setFileName("No file chosen");
-      setSelectedFile(null);
-      setErrors({});
-    }
-  };
+  if (!validateForm()) return;
+
+  setIsSubmitting(true);
+
+  const data = new FormData();
+  data.append("name", formData.name);
+  data.append("email", formData.email);
+  data.append("phone", formData.phone);
+  data.append("countryCode", formData.countryCode);
+  data.append("role", formData.role);
+  data.append("message", formData.message);
+  data.append("upload", selectedFile);
+
+  try {
+    await fetch("http://localhost:5000/submit-form", {
+      method: "POST",
+      body: data,
+    });
+
+    // 🎉 Success popup
+    Swal.fire({
+      icon: "success",
+      title: "Application Submitted!",
+      text: "Thank you for applying. Our team will contact you within 24 hours.",
+      confirmButtonColor: "#222065",
+    });
+
+    // Reset form
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      role: "",
+      message: "",
+      countryCode: "+91",
+    });
+    setSelectedFile(null);
+    setFileName("No file chosen");
+    setErrors({});
+  } catch (error) {
+    // ❌ Error popup
+    Swal.fire({
+      icon: "error",
+      title: "Submission Failed",
+      text: "Something went wrong. Please try again later.",
+      confirmButtonColor: "#d33",
+    });
+  } finally {
+    setIsSubmitting(false);
+  }
+};
+
 
   const heroRef = useRef(null);
   const positionsRef = useRef(null);
@@ -215,7 +252,7 @@ const CareerPage = () => {
           entry.target.classList.remove("show");
         }
       },
-      { threshold: 0.4 }
+      { threshold: 0.4 },
     );
 
     if (heroRef.current) observer.observe(heroRef.current);
@@ -235,7 +272,7 @@ const CareerPage = () => {
           }
         });
       },
-      { threshold: 0.35 }
+      { threshold: 0.35 },
     );
 
     if (positionsRef.current) observer.observe(positionsRef.current);
@@ -256,7 +293,7 @@ const CareerPage = () => {
           }
         });
       },
-      { threshold: 0.35 }
+      { threshold: 0.35 },
     );
 
     if (contactportraitRef.current)
@@ -297,7 +334,7 @@ const CareerPage = () => {
         <div className="positions-content" ref={positionsRef}>
           <div className="positions-text">
             <h2 className="section-title">Open Positions</h2>
-            
+
             <div className="hero-card">
               <ul
                 className="role-list"
@@ -474,8 +511,12 @@ const CareerPage = () => {
                   )}
                 </div>
 
-                <button type="submit" className="send-btn-career">
-                  Submit
+                <button
+                  type="submit"
+                  className="send-btn-career"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Submitting..." : "Submit"}
                 </button>
               </div>
               <p className="upload-hint">

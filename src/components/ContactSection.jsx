@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import "./ContactSection.css";
+import Swal from "sweetalert2";
 
 const COUNTRY_RULES = {
   "+91": { name: "India", min: 10, max: 10 },
@@ -18,6 +19,7 @@ const ContactSection = () => {
     message: "",
   });
   const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -79,6 +81,7 @@ const ContactSection = () => {
     const isValid = validate();
     if (!isValid) return;
     console.log("Form submitted:", formData);
+    setIsSubmitting(true);
 
     try {
       const response = await fetch("http://localhost:5000/api/contact", {
@@ -90,7 +93,12 @@ const ContactSection = () => {
       });
 
       if (response.ok) {
-        alert("Message sent successfully!");
+         Swal.fire({
+              icon: "success",
+              title: "Application Submitted!",
+              text: "Thank you for Contacting. Our team will contact you within 24 hours.",
+              confirmButtonColor: "#222065",
+            });
         setFormData({
           firstName: "",
           lastName: "",
@@ -100,11 +108,23 @@ const ContactSection = () => {
           message: "",
         });
       } else {
-        alert("Failed to send message");
+         Swal.fire({
+              icon: "error",
+              title: "Submission Failed",
+              text: "Something went wrong. Please try again later.",
+              confirmButtonColor: "#d33",
+            });
       }
     } catch (error) {
       console.error(error);
-      alert("Server error");
+      Swal.fire({
+              icon: "error",
+              title: "Submission Failed",
+              text: "Something went wrong. Please try again later.",
+              confirmButtonColor: "#d33",
+            });
+    }finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -352,8 +372,8 @@ const ContactSection = () => {
               )}
             </div>
 
-            <button type="submit" className="send-message-btn">
-              Send Message
+            <button type="submit" className="send-message-btn" disabled={isSubmitting}>
+              {isSubmitting ? "Sending..." : "Send Message"}
             </button>
           </form>
         </div>
