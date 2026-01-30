@@ -198,7 +198,7 @@ const CareerPage = () => {
   data.append("upload", selectedFile);
 
   try {
-    await fetch("http://localhost:5000/submit-form", {
+    await fetch(`${import.meta.env.VITE_API_URL}/submit-form`, {
       method: "POST",
       body: data,
     });

@@ -84,7 +84,7 @@ const ContactSection = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("http://localhost:5000/api/contact", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/contact`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -95,7 +95,7 @@ const ContactSection = () => {
       if (response.ok) {
          Swal.fire({
               icon: "success",
-              title: "Application Submitted!",
+              title: "Contact Submitted!",
               text: "Thank you for Contacting. Our team will contact you within 24 hours.",
               confirmButtonColor: "#222065",
             });
