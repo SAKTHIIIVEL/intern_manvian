@@ -7,6 +7,7 @@ import Partners from '../components/Partners'
 import FAQSection from '../components/FAQSection'
 import ContactSection from '../components/ContactSection'
 import StayConected from '../components/StayConected'
+import './HomePage.css'
 
 function HomePage() {
   return (

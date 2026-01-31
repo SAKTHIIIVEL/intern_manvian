@@ -134,10 +134,11 @@
 
 .bottomRight {
     position: absolute;
-    bottom: 60px;
-    right: 10px;
+    bottom: 20px;
+    right: 60px;
     text-align: left;
-    max-width: 540px;
+    max-width: 400px;
+    padding-right: 20px;
 }
 
 .bottomRight p {
