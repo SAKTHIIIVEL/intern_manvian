@@ -49,16 +49,24 @@
 /* Tablet (768px - 1023px) */
 @media (min-width: 768px) and (max-width: 1023px) {
   .flight-wrapper {
-    padding: 0 1rem;
+    padding: 0 0.5rem;
   }
 
   .flight-svg {
-    max-width: 100%;
+      top: 0;
+  }
+  .flight-svg svg {
+    width: 890px;
+    height: 790px;
   }
 
-  /* Scale down SVG elements for tablet */
-  .flight-svg svg {
-    height: 250px;
+  .pin-card {
+    padding: 4px 8px;
+    font-size: 10px;
+  }
+
+  .pin-card strong {
+    font-size: 11px;
   }
 }
 
@@ -73,8 +81,8 @@
      
   }
   .flight-svg svg {
-    width: 490px;
-    height: 490px;
+    width: 790px;
+    height: 390px;
   }
 
   .pin-card {
