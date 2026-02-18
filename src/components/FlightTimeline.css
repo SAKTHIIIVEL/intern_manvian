@@ -116,6 +116,18 @@
   }
 }
 
+@media (max-width:420px) {
+  .flight-svg {
+     top: 100px;
+     
+  }
+  .flight-svg svg {
+    width: 465px;
+    height: 430px;
+  }
+  
+}
+
 @media (max-width: 390px) {
   .flight-svg {
     top: 70px;
@@ -133,6 +145,13 @@
   }
   
 }
+@media (max-width:350px) {
+  .flight-svg svg {
+    width: 400px;
+    height: 430px;
+  }
+  
+}
 @media (max-width: 330px){
   .flight-svg {
     top: 100px;
@@ -141,6 +160,16 @@
     width: 380px;
     height: 390px;
   }
+}
+@media (max-width: 315px) {
+  .flight-svg{
+    top: 120px;
+  }
+  .flight-svg svg {
+    width: 360px;
+    height: 330px;
+  }
+  
 }
 @media (max-width: 310px) {
   .flight-svg{
