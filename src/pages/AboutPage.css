@@ -1145,9 +1145,9 @@ strong {
   .collage-middle-left {
     grid-column: 3 / 4;
     grid-row: 1 / 2;
-    width: 165%;
+    width: 160%;
     height: 100%;
-    right: 27px;
+    right: 36px;
     
   }
   .collage-top-right {
