@@ -127,6 +127,17 @@
   }
   
 }
+@media (max-width:400px) {
+  .flight-svg {
+     top: 100px;
+     
+  }
+  .flight-svg svg {
+    width: 455px;
+    height: 430px;
+  }
+  
+}
 
 @media (max-width: 390px) {
   .flight-svg {
@@ -145,9 +156,16 @@
   }
   
 }
-@media (max-width:350px) {
+@media (max-width:360px) {
   .flight-svg svg {
     width: 400px;
+    height: 430px;
+  }
+  
+}
+@media (max-width:350px) {
+  .flight-svg svg {
+    width: 390px;
     height: 430px;
   }
   
@@ -157,7 +175,7 @@
     top: 100px;
   }
   .flight-svg svg {
-    width: 380px;
+    width: 370px;
     height: 390px;
   }
 }
@@ -177,6 +195,16 @@
   }
   .flight-svg svg {
     width: 350px;
+    height: 330px;
+  }
+  
+}
+@media (max-width: 295px) {
+  .flight-svg{
+    top: 120px;
+  }
+  .flight-svg svg {
+    width: 330px;
     height: 330px;
   }
   
