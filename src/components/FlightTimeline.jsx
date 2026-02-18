@@ -82,7 +82,8 @@ function RoadPin({ refProp, year, title }) {
 
       const maxTextWidth = Math.max(titleWidth, yearWidth);
 
-      setBoxWidth(maxTextWidth + PADDING_X * 2);
+      const extraWidth = title === "MJ7" ? 38 : 0;
+      setBoxWidth(maxTextWidth + PADDING_X * 2 + extraWidth);
     }
   }, [title, year]);
 
@@ -102,11 +103,11 @@ function RoadPin({ refProp, year, title }) {
 
       {/* LABEL BELOW PIN */}
       <g
-  transform={`translate(${12 - boxWidth / 2}, 53)`}
+  transform={`translate(${12 - boxWidth / 2}, 38)`}
 >
   <rect
     width={boxWidth}
-    height="54"
+    height={title === "MJ7" ? 60 : 54}
     rx="10"
     fill="#D7D7ED"
   />
@@ -114,7 +115,7 @@ function RoadPin({ refProp, year, title }) {
   <text
     ref={yearRef}
     x={PADDING_X}
-    y="22"
+    y={title === "MJ7" ? 26 : 22}
     fontSize="11"
     fontWeight="600"
   >
@@ -124,7 +125,7 @@ function RoadPin({ refProp, year, title }) {
   <text
     ref={titleRef}
     x={PADDING_X}
-    y="40"
+    y={title === "MJ7" ? 46 : 40}
     fontSize="12"
   >
     {title}
@@ -187,68 +188,89 @@ const MOBILE_PATH =
   }
 
   useEffect(() => {
-    if (!planeRef.current || !pinRefs.current.length) return;
+  if (!planeRef.current || !pinRefs.current.length) return;
 
-    // PLACE PINS
-    pins.forEach((pin, index) => {
-      gsap.set(pinRefs.current[index], {
-        motionPath: {
-          path: "#road-path",
-          align: "#road-path",
-          alignOrigin: [0.5, 0.15],
-          start: pin.position,
-          end: pin.position,
-        },
-      });
-    });
-
-    const FLIGHT_START = 1;
-    const FLIGHT_END = 0.3;
-    const FLIGHT_DISTANCE = FLIGHT_START - FLIGHT_END;
-
-    const tl = gsap.timeline({
-      paused: true,
-      onUpdate: () => {
-        const flightProgress = FLIGHT_START - tl.progress() * FLIGHT_DISTANCE;
-
-        pinRefs.current.forEach((pinEl, index) => {
-          const pinPos = pins[index].position;
-          activatePin(pinEl, flightProgress <= pinPos);
-        });
-      },
-    });
-
-    tl.to(planeRef.current, {
-      duration: 5,
-      ease: "power2.inOut",
+  // =========================
+  // PLACE PINS ON PATH
+  // =========================
+  pins.forEach((pin, index) => {
+    gsap.set(pinRefs.current[index], {
       motionPath: {
         path: "#road-path",
         align: "#road-path",
-        autoRotate: -130,
-        alignOrigin: [0.5, 0.5],
-        start: FLIGHT_START,
-        end: FLIGHT_END,
+        alignOrigin: [0.5, 0.15],
+        start: pin.position,
+        end: pin.position,
       },
     });
 
-    timelineRef.current = tl;
+    // ensure all start inactive
+    activatePin(pinRefs.current[index], false);
+  });
 
-    // INTERSECTION OBSERVER
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          tl.restart();
-        } else {
-          tl.pause(0);
-        }
-      },
-      { threshold: 0.4 }
-    );
+  const FLIGHT_START = 1;
+  const FLIGHT_END = 0.3;
+  const TOTAL_DURATION = 6;
 
-    observer.observe(sectionRef.current);
+  // Track activation state (cleaner than dataset)
+  let activatedPins = new Array(pins.length).fill(false);
 
-    return () => observer.disconnect();
-  }, []);
+  const tl = gsap.timeline({ paused: true });
+
+  tl.to(planeRef.current, {
+    duration: TOTAL_DURATION,
+    ease: "power2.inOut",
+    motionPath: {
+      path: "#road-path",
+      align: "#road-path",
+      autoRotate: -130,
+      alignOrigin: [0.5, 0.5],
+      start: FLIGHT_START,
+      end: FLIGHT_END,
+    },
+    onUpdate: function () {
+  const planeX = planeRef.current.getCTM().e;
+
+  pins.forEach((pin, index) => {
+    const pinX = pinRefs.current[index].getCTM().e;
+
+    // Since plane moves right → left
+    if (!activatedPins[index] && planeX <= pinX) {
+      activatePin(pinRefs.current[index], true);
+      activatedPins[index] = true;
+    }
+  });
+},
+  });
+
+  timelineRef.current = tl;
+
+  // =========================
+  // INTERSECTION OBSERVER
+  // =========================
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        tl.restart();
+      } else {
+        tl.pause(0);
+
+        // Reset all pins when leaving section
+        activatedPins.fill(false);
+
+        pinRefs.current.forEach((pinEl) => {
+          activatePin(pinEl, false);
+        });
+      }
+    },
+    { threshold: 0.4 }
+  );
+
+  observer.observe(sectionRef.current);
+
+  return () => observer.disconnect();
+}, []);
+
 
   const isMobile = useIsMobile();
   const path = isMobile ? MOBILE_PATH : DESKTOP_PATH;

@@ -98,7 +98,7 @@
 /* Extra Small Mobile (up to 390px) */
 @media (max-width: 480px) {
   .flight-svg {
-     top: auto;
+     top: 60px;
      
   }
   .flight-svg svg {
@@ -125,6 +125,13 @@
     width: 440px;
     height: 430px;
   }
+}
+@media (max-width:370px) {
+  .flight-svg svg {
+    width: 420px;
+    height: 430px;
+  }
+  
 }
 @media (max-width: 330px){
   .flight-svg {
