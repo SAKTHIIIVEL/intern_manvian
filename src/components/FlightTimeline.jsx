@@ -16,13 +16,19 @@ const pins = [
     year: "2014",
     title: "IndoContinental 7",
     align: "right",
-    position: 0.77,
+    position: 0.82,
   },
   {
     year: "2017",
     title: "MJ7",
     align: "left",
-    position: 0.63,
+    position: 0.71,
+  },
+  {
+    year: "2025",
+    title: "Di polyclinic",
+    align: "right",
+    position: 0.61,
   },
   {
     year: "2025",
@@ -31,22 +37,28 @@ const pins = [
     position: 0.50,
   },
   {
-    year: "coming soon",
-    title: "Di polyclinic",
+    year: "2025",
+    title: "Di Laboratories",
     align: "right",
-    position: 0.36,
+    position: 0.40,
   },
   {
     year: "coming soon",
-    title: "Di Laboratories",
+    title: "Dr. Will",
     align: "right",
-    position: 0.24,
+    position: 0.26,
   },
   {
     year: "coming soon",
     title: "Di Research",
     align: "right",
-    position: 0.1,
+    position: 0.16,
+  },
+  {
+    year: "coming soon",
+    title: "Grandis 7",
+    align: "right",
+    position: 0.07,
   },
 ];
 
@@ -54,9 +66,33 @@ const pins = [
    ROAD PIN COMPONENT
 ======================= */
 function RoadPin({ refProp, year, title }) {
-  const LABEL_PADDING = 14;
+  // const LABEL_PADDING = 14;
+  const groupRef = useRef(null);
+  const titleRef = useRef(null);
+  const yearRef = useRef(null);
+  const [boxWidth, setBoxWidth] = useState(120);
+
+  const PADDING_X = 16;
+  // const PADDING_Y = 14;
+
+  useEffect(() => {
+    if (titleRef.current && yearRef.current) {
+      const titleWidth = titleRef.current.getBBox().width;
+      const yearWidth = yearRef.current.getBBox().width;
+
+      const maxTextWidth = Math.max(titleWidth, yearWidth);
+
+      setBoxWidth(maxTextWidth + PADDING_X * 2);
+    }
+  }, [title, year]);
+
   return (
-    <g ref={refProp} opacity="0.35">
+    <g ref={(el) => {
+        refProp(el);
+        groupRef.current = el;
+      }}
+      opacity="0.35"
+    >
       {/* PIN ICON */}
       <path
         d="M12 2C7 2 3 6 3 11c0 7 9 15 9 15s9-8 9-15c0-5-4-9-9-9z"
@@ -65,17 +101,35 @@ function RoadPin({ refProp, year, title }) {
       <circle cx="12" cy="11" r="4" fill="#2a3170" />
 
       {/* LABEL BELOW PIN */}
-      <g transform="translate(-50, 63)">
-        <rect width={120 + LABEL_PADDING} height="54" rx="10" fill="#D7D7ED" />
+      <g
+  transform={`translate(${12 - boxWidth / 2}, 53)`}
+>
+  <rect
+    width={boxWidth}
+    height="54"
+    rx="10"
+    fill="#D7D7ED"
+  />
 
-        <text x={LABEL_PADDING} y="22" fontSize="11" fontWeight="600">
-          {year}
-        </text>
+  <text
+    ref={yearRef}
+    x={PADDING_X}
+    y="22"
+    fontSize="11"
+    fontWeight="600"
+  >
+    {year}
+  </text>
 
-        <text x={LABEL_PADDING} y="40" fontSize="12">
-          {title}
-        </text>
-      </g>
+  <text
+    ref={titleRef}
+    x={PADDING_X}
+    y="40"
+    fontSize="12"
+  >
+    {title}
+  </text>
+</g>
     </g>
   );
 }
@@ -141,7 +195,7 @@ const MOBILE_PATH =
         motionPath: {
           path: "#road-path",
           align: "#road-path",
-          alignOrigin: [0.5, 0.26],
+          alignOrigin: [0.5, 0.15],
           start: pin.position,
           end: pin.position,
         },
@@ -149,7 +203,7 @@ const MOBILE_PATH =
     });
 
     const FLIGHT_START = 1;
-    const FLIGHT_END = 0.50;
+    const FLIGHT_END = 0.3;
     const FLIGHT_DISTANCE = FLIGHT_START - FLIGHT_END;
 
     const tl = gsap.timeline({
