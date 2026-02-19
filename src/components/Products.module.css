@@ -349,7 +349,7 @@
     }
 
     .headingContainer p {
-        font-size: 15px;
+        font-size: 14px;
     }
 
     .centerImage {
@@ -381,12 +381,12 @@
         content: none;
     }
     .card p{
-        font-size: 15px;
+        font-size: 14px;
     }
 }
 
 @media (max-width: 345px) {
     .card p{
-        font-size: 15px;
+        font-size: 14px;
     }
 }
