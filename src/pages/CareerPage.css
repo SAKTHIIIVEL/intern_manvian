@@ -1416,6 +1416,8 @@
   }
   .role-apply{
     top: 0.6rem;
+     width: 42px;
+    height: 42px;
   }
   
 }
