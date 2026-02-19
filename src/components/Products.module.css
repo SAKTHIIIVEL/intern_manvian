@@ -329,6 +329,15 @@
     }
 }
 
+@media (max-width:420px) {
+    .headingContainer p{
+        font-size: 14px;
+    }
+    .card p{
+        font-size: 14px;
+    }
+}
+
 /* Extra small mobile */
 @media (max-width: 390px) {
     .products {

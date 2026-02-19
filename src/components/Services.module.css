@@ -337,6 +337,16 @@
   
 }
 
+@media (max-width: 420px) {
+  .description{
+    font-size: 14px;
+  }
+  .cardText {
+    font-size: 14px;
+  }
+  
+}
+
 /* Extra small mobile */
 @media (max-width: 390px) {
   .container {
@@ -348,7 +358,7 @@
   }
 
   .description {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   .card {
@@ -374,7 +384,7 @@
   }
 
   .cardText {
-    font-size: 15px;
+    font-size: 14px;
   }
 
   /* .buttonContainer {

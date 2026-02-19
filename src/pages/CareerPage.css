@@ -1410,6 +1410,16 @@
   
 }
 
+@media (max-width: 410px) {
+  .role-list{
+    padding-right:2.8rem;
+  }
+  .role-apply{
+    top: 0.6rem;
+  }
+  
+}
+
 /* Extra small mobile (up to 390px) */
 @media (max-width: 390px) {
   .career-hero-content {

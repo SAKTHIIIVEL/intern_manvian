@@ -1120,7 +1120,7 @@ transform: translate(-20%, -40%);
 
   .service-community-description {
     margin-top: 10px;
-    font-size: 14px;
+    font-size: 15px;
   }
 
   .service-stat-card {
@@ -1157,6 +1157,13 @@ transform: translate(-20%, -40%);
     opacity: 1 !important;
     transform: translateY(0) !important;
   }
+}
+
+@media (max-width: 420px) {
+  .service-hero-title{
+    font-size: 20px;
+  }
+  
 }
 
 /* Extra small mobile (up to 390px) */
