@@ -210,13 +210,7 @@ const ServicePage = () => {
             medical services
           </h1>
           <p className="service-hero-subtitle">
-            Diverse Innovation Pharmaceuticals Pvt. Ltd. is a
-            <br />
-            growing healthcare organization committed to
-            <br />
-            delivering comprehensive and accessible
-            <br />
-            medical
+            Diverse Innovation Pharmaceuticals Pvt. Ltd. is dedicated to delivering reliable, high-quality healthcare services with a focus on accessibility, patient care, and continuous medical excellence.
           </p>
         </div>
       </section>
@@ -234,9 +228,7 @@ const ServicePage = () => {
             </div>
             <h3 className="service-card-title">Doctor will</h3>
             <p className="service-card-text">
-              Sed porttitor lectus nibh. Nulla porttitor accumsan tincidunt.
-              Vestibulum ante ipsum primis Sed porttitor lectus nibh. Nulla
-              porttitor accumsan tincidunt. Vestibulum ante ipsum primis
+              Professional doctor consultation services ensure timely diagnosis and effective treatment. Our experienced medical team provides personalized care, helping patients maintain better health and well-being with trusted support.
             </p>
           </div>
         </div>
@@ -251,9 +243,7 @@ const ServicePage = () => {
             </div>
             <h3 className="service-card-title">DI wholeSale</h3>
             <p className="service-card-text">
-              Sed porttitor lectus nibh. Nulla porttitor accumsan tincidunt.
-              Vestibulum ante ipsum primis Sed porttitor lectus nibh. Nulla
-              porttitor accumsan tincidunt. Vestibulum ante ipsum primis
+              Reliable wholesale distribution services offering quality pharmaceutical products at competitive pricing. We ensure consistent supply, efficient delivery, and trusted sourcing to support businesses with seamless operations.
             </p>
           </div>
         </div>
@@ -264,9 +254,7 @@ const ServicePage = () => {
             </div>
             <h3 className="service-card-title">DI Laboratory services</h3>
             <p className="service-card-text">
-              Sed porttitor lectus nibh. Nulla porttitor accumsan tincidunt.
-              Vestibulum ante ipsum primis Sed porttitor lectus nibh. Nulla
-              porttitor accumsan tincidunt. Vestibulum ante ipsum primis
+              Advanced laboratory testing services with accurate results and modern technology. Our certified processes ensure reliability, helping patients and professionals make informed healthcare decisions with confidence.
             </p>
           </div>
         </div>
@@ -281,9 +269,7 @@ const ServicePage = () => {
             </div>
             <h3 className="service-card-title">Di Research</h3>
             <p className="service-card-text">
-              Sed porttitor lectus nibh. Nulla porttitor accumsan tincidunt.
-              Vestibulum ante ipsum primis Sed porttitor lectus nibh. Nulla
-              porttitor accumsan tincidunt. Vestibulum ante ipsum primis
+              Innovative research solutions focused on healthcare advancements and data-driven insights. We support development initiatives, ensuring quality analysis and meaningful outcomes for continuous improvement and growth.
             </p>
           </div>
         </div>
@@ -298,9 +284,7 @@ const ServicePage = () => {
             </div>
             <h3 className="service-card-title">Indocontinental 7</h3>
             <p className="service-card-text">
-              Sed porttitor lectus nibh. Nulla porttitor accumsan tincidunt.
-              Vestibulum ante ipsum primis Sed porttitor lectus nibh. Nulla
-              porttitor accumsan tincidunt. Vestibulum ante ipsum primis
+              Global healthcare solutions delivering high-quality products across regions. We focus on innovation, reliability, and excellence to meet international standards and support evolving healthcare needs.
             </p>
           </div>
         </div>
@@ -321,9 +305,7 @@ const ServicePage = () => {
             Join a Growing Community of Business &amp; Logistics
           </h2>
           <p className="service-community-description">
-            Diverse Innovation Pharmaceuticals Pvt. Ltd. is agrowing healthcare
-            organization committed to delivering comprehensive and accessible
-            medical
+            Diverse Innovation Pharmaceuticals Pvt. Ltd. is committed to building a strong network by providing accessible healthcare solutions and supporting growth across business and logistics.
           </p>
           <button className="service-community-btn" onClick={() => navigate("/contact")}>
             Join Us

@@ -7,17 +7,17 @@ const servicesData = [
   {
     id: 1,
     title: "Diverse Innovation",
-    text: "Diverse Innovation Pharmaceuticals Pvt. Ltd. is a growing healthcare organization committed to delivering comprehensive and accessible medical services to the community.",
+    text: "Providing reliable wholesale distribution of pharmaceutical products with consistent supply, competitive pricing, and efficient delivery support.",
   },
   {
     id: 2,
     title: "Diverse Innovation",
-    text: "Diverse Innovation Pharmaceuticals Pvt. Ltd. is a growing healthcare organization committed to delivering comprehensive and accessible medical services to the community.",
+    text: "Delivering accurate testing and research solutions using advanced technology to support diagnosis, innovation, and improved healthcare decisions.",
   },
   {
     id: 3,
     title: "Diverse Innovation",
-    text: "Diverse Innovation Pharmaceuticals Pvt. Ltd. is a growing healthcare organization committed to delivering comprehensive and accessible medical services to the community.",
+    text: "Focused on healthcare research and innovation, delivering data-driven insights to support development and improve medical outcomes.",
   },
 ];
 
@@ -36,9 +36,7 @@ const Services = () => {
             Our Services
           </motion.h2>
           <p className={styles.description}>
-            Diverse Innovation Pharmaceuticals Pvt. Ltd. is a growing healthcare
-            organization committed to delivering comprehensive and accessible
-            medical services to the community.
+            Comprehensive services focused on quality care, innovation, and improved patient outcomes, ensuring reliable and accessible healthcare for all.
           </p>
         </div>
 

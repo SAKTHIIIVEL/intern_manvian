@@ -24,9 +24,9 @@ const FAQSection = () => {
         "D Pharma offers a wide range of healthcare services including pharmaceutical solutions, medical consultations, health management programs, and comprehensive medical support services tailored to meet the diverse needs of our community.",
     },
     {
-      question: "What are the services?",
+      question: "How can I access your services?",
       answer:
-        "D Pharma offers a wide range of healthcare services including pharmaceutical solutions, medical consultations, health management programs, and comprehensive medical support services tailored to meet the diverse needs of our community.",
+        "You can easily access our services by contacting us directly or visiting our facility, where our team will guide you through the process and assist you based on your requirements.",
     },
   ];
   useEffect(() => {
@@ -62,9 +62,7 @@ const FAQSection = () => {
             <p className="faq-subtitle">Want to know more?</p>
             <h2 className="faq-title">Frequently asked questions</h2>
             <p className="faq-description">
-              Diverse Innovation Pharmaceuticals Pvt. Ltd. is a growing
-              healthcare organization committed to delivering comprehensive and
-              accessible medical services to the community.
+              Have questions? Find clear and helpful answers about our services and healthcare solutions here.
             </p>
           </div>
 
