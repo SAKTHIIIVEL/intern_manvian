@@ -22,7 +22,7 @@ const Footer = () => {
           setVisible(false); // hide when out of view
         }
       },
-      { threshold: 0.4 }
+      { threshold: 0.4 },
     );
 
     if (titleRef.current) observer.observe(titleRef.current);
@@ -160,7 +160,7 @@ const Footer = () => {
                 <Link to={"/career"}>Career</Link>
               </li>
               <li>
-                <a href="#partners">Partner</a>
+                <Link to={"/#partners"}>Partner</Link>
               </li>
             </ul>
           </div>
@@ -169,16 +169,10 @@ const Footer = () => {
             <h3 className="footer-heading">Support</h3>
             <ul className="footer-links">
               <li>
-                <a href="#help">Help Centre</a>
-              </li>
-              <li>
                 <Link to={"/contact"}>Contact Us</Link>
               </li>
               <li>
-                <a href="#faq">FAQ</a>
-              </li>
-              <li>
-                <a href="#community">Community</a>
+                <Link to={"/contact#faq"}>FAQ</Link>
               </li>
             </ul>
           </div>
@@ -203,7 +197,7 @@ const Footer = () => {
                   cursor: "pointer",
                 }}
               >
-               +91-9677787817
+                +91-9677787817
               </a>
             </div>
             <div className="footer-contact-item">

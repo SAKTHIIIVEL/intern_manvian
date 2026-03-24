@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import styles from "./Products.module.css";
 import { Stethoscope, Pill, Microscope, User } from "lucide-react"; // Example icons
 import doctor2 from "../assets/about/doctor2.png";
+import Swal from "sweetalert2";
 
 const Products = () => {
   return (
@@ -11,9 +12,9 @@ const Products = () => {
         <div className={styles.headingContainer}>
           <h2>Our Products</h2>
           <p>
-            Diverse Innovation Pharmaceuticals Pvt. Ltd. is a growing healthcare
-            organization committed to delivering comprehensive and accessible
-            medical services to the community.
+            Diverse Innovation Pharmaceuticals Pvt. Ltd. offers a wide range of
+            high-quality pharmaceutical products designed to meet diverse
+            healthcare needs with reliability and care.
           </p>
         </div>
 
@@ -205,7 +206,15 @@ const Products = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => {
-              window.open("https://di-wholesale.vercel.app/", "_blank");
+              Swal.fire({
+                title: "Coming Soon 🚀",
+                text: "Our products section will be live shortly. Stay tuned!",
+                icon: "info",
+                confirmButtonText: "Got it",
+                confirmButtonColor: "#222065",
+                background: "#1c1f4a",
+                color: "#ffffff",
+              });
             }}
           >
             View Products

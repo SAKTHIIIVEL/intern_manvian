@@ -91,6 +91,8 @@ const CareerPage = () => {
   const [errors, setErrors] = useState({});
   const [selectedFile, setSelectedFile] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(6); // default laptop
 
   const validatePhoneByCountry = (countryCode, phone) => {
     const cleanPhone = phone.replace(/\D/g, "");
@@ -338,6 +340,48 @@ const CareerPage = () => {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 480) {
+        setItemsPerPage(5); // mobile
+      } else {
+        setItemsPerPage(6); // laptop (2 rows × 3 cards)
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    const totalPages = Math.ceil(openRoles.length / itemsPerPage);
+
+    if (currentPage > totalPages) {
+      setCurrentPage(1);
+    }
+  }, [itemsPerPage, currentPage]);
+
+  useEffect(() => {
+    if (currentPage > 1) {
+      const section = document.querySelector(".positions-section");
+
+      if (section) {
+        const yOffset = -80; // 🔥 adjust this (try -60 to -120)
+        const y =
+          section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
+    }
+  }, [currentPage]);
+
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const selectedRoles = openRoles.slice(startIndex, startIndex + itemsPerPage);
+
+  const totalPages = Math.ceil(openRoles.length / itemsPerPage);
+
   return (
     <div className="career-page">
       <section className="career-hero">
@@ -372,36 +416,15 @@ const CareerPage = () => {
 
             <div className="hero-card">
               <ul className="role-list">
-                {openRoles.map((role, idx) => (
-                  <li
-                    key={idx}
-                    className={`role-item ${activeIndex === idx ? "active" : ""}`}
-                    onClick={() => {
-                      setActiveIndex(idx);
+                {selectedRoles.map((role, idx) => {
+                  const realIndex = startIndex + idx;
 
-                      // ✅ Prefill role in form
-                      setFormData((prev) => ({
-                        ...prev,
-                        role: role.title,
-                      }));
-
-                      document
-                        .getElementById("career-contact")
-                        ?.scrollIntoView({
-                          behavior: "smooth",
-                        });
-                    }}
-                  >
-                    <div>
-                      <p className="role-name">{role.title}</p>
-                      <p className="role-meta">{role.role_focus}</p>
-                    </div>
-                    <button
-                      className="role-apply"
-                      onClick={(e) => {
-                        e.stopPropagation(); // 🔑 prevents double trigger
-
-                        setActiveIndex(idx);
+                  return (
+                    <li
+                      key={realIndex}
+                      className={`role-item ${activeIndex === realIndex ? "active" : ""}`}
+                      onClick={() => {
+                        setActiveIndex(realIndex);
 
                         setFormData((prev) => ({
                           ...prev,
@@ -415,11 +438,55 @@ const CareerPage = () => {
                           });
                       }}
                     >
-                      Apply Now
-                    </button>
-                  </li>
-                ))}
+                      <div>
+                        <p className="role-name">{role.title}</p>
+                        <p className="role-meta">{role.role_focus}</p>
+                      </div>
+
+                      <button
+                        className="role-apply"
+                        onClick={(e) => {
+                          e.stopPropagation();
+
+                          setActiveIndex(realIndex);
+
+                          setFormData((prev) => ({
+                            ...prev,
+                            role: role.title,
+                          }));
+
+                          document
+                            .getElementById("career-contact")
+                            ?.scrollIntoView({
+                              behavior: "smooth",
+                            });
+                        }}
+                      >
+                        Apply Now
+                      </button>
+                    </li>
+                  );
+                })}
               </ul>
+              <div className="pagination">
+                <button
+                  disabled={currentPage === 1}
+                  onClick={() => setCurrentPage((prev) => prev - 1)}
+                >
+                  Prev
+                </button>
+
+                <span>
+                  {currentPage} / {totalPages}
+                </span>
+
+                <button
+                  disabled={currentPage === totalPages}
+                  onClick={() => setCurrentPage((prev) => prev + 1)}
+                >
+                  Next
+                </button>
+              </div>
             </div>
           </div>
         </div>

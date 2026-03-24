@@ -67,6 +67,9 @@
 
 .card p {
     max-width: 285px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
 }
 
 .darkCard {

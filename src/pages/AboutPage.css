@@ -1,6 +1,6 @@
 :root {
-  --team-card-width: 250px;
-  --team-card-gap: 28px;
+  --team-card-width: 420px;
+  --team-card-gap: 20px;
 }
 
 .about-page {
@@ -440,7 +440,7 @@ strong {
 =========================== */
 .team-card {
    width: var(--team-card-width);
-  height: 380px;
+  height: 450px;
   border-radius: 22px;
   overflow: hidden;
   background: linear-gradient(180deg, #6262d9, #1c1c57);
@@ -1210,7 +1210,7 @@ strong {
     padding: 35px 4%;
   }
   :root {
-    --team-card-width: 160px;
+    --team-card-width: 260px;
     --team-card-gap: 12px;
   }
 
@@ -1224,7 +1224,7 @@ strong {
   .team-card {
     width: var(--team-card-width);
     max-width: var(--team-card-width);
-    height: 240px;
+    height: 340px;
 
     opacity: 0.7;
     transform: none;
