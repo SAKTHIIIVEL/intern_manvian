@@ -59,9 +59,7 @@ const Home = () => {
 
           <div className={styles.bottomRight}>
             <p>
-              <strong>DI Polyclinic</strong> delivers trusted healthcare
-              services with a focus on patient comfort, advanced medical
-              support, and personalized care for every individual.
+              <strong>DI Polyclinic</strong> delivers trusted healthcare with a focus on patient comfort and personalized care.
             </p>
           </div>
         </div>
