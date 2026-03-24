@@ -57,9 +57,10 @@ const Products = () => {
             </div>
 
             <p>
-              Diverse Innovation Pharmaceuticals Pvt. Ltd. is a growing
-              healthcare organization committed to delivering comprehensive and
-              accessible medical services to the community.{" "}
+              <h4>Pharmaceuticals</h4>
+              Providing a wide range of high-quality medicines and healthcare
+              products, ensuring reliable supply and support for effective
+              patient care.
             </p>
           </motion.div>
 
@@ -81,7 +82,6 @@ const Products = () => {
                   height: "100%",
                   objectFit: "cover",
                   borderRadius: "20px",
-                  
                 }}
               />
               {/* In real app, use asset */}
@@ -112,9 +112,9 @@ const Products = () => {
             </div>
 
             <p>
-              Diverse Innovation Pharmaceuticals Pvt. Ltd. is a growing
-              healthcare organization committed to delivering comprehensive and
-              accessible medical services to the community.{" "}
+              <h4>Surgical Instruments</h4>
+              Offering precision-crafted surgical instruments designed for
+              safety, durability, and efficiency in medical procedures.
             </p>
           </motion.div>
 
@@ -156,9 +156,9 @@ const Products = () => {
               </svg>
             </div>
             <p>
-              Diverse Innovation Pharmaceuticals Pvt. Ltd. is a growing
-              healthcare organization committed to delivering comprehensive and
-              accessible medical services to the community.{" "}
+              <h4>Laboratory Equipment</h4>
+              Delivering advanced laboratory equipment and solutions to support
+              accurate diagnostics and efficient testing processes.
             </p>
           </motion.div>
 
@@ -193,11 +193,23 @@ const Products = () => {
               </svg>
             </div>
             <p>
-              Diverse Innovation Pharmaceuticals Pvt. Ltd. is a growing
-              healthcare organization committed to delivering comprehensive and
-              accessible medical services to the community.{" "}
+              <h4>Surgical & ICU Electronics</h4>
+              Supplying modern medical electronics and ICU equipment to ensure
+              critical care support and improved patient outcomes.
             </p>
           </motion.div>
+        </div>
+        <div className={styles.buttonContainer}>
+          <motion.button
+            className={styles.viewButton}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => {
+              window.open("https://di-wholesale.vercel.app/", "_blank");
+            }}
+          >
+            View Products
+          </motion.button>
         </div>
       </div>
     </section>

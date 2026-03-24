@@ -7,19 +7,19 @@ gsap.registerPlugin(MotionPathPlugin);
 
 const pins = [
   {
-    year: "2012",
+    year: "2023",
     title: "Di Pharma",
     align: "left",
     position: 0.92,
   },
   {
-    year: "2014",
+    year: "2023",
     title: "IndoContinental 7",
     align: "right",
     position: 0.82,
   },
   {
-    year: "2017",
+    year: "2024",
     title: "MJ7",
     align: "left",
     position: 0.71,
@@ -37,7 +37,7 @@ const pins = [
     position: 0.50,
   },
   {
-    year: "2025",
+    year: "2026",
     title: "Di Laboratories",
     align: "right",
     position: 0.40,

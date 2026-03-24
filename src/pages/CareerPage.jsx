@@ -7,39 +7,74 @@ import Swal from "sweetalert2";
 
 const openRoles = [
   {
-    title: "Research Assistant - Pharmaceutical Formulations",
+    title: "Pharmacist",
     role_focus:
-      " Assisting in formulation development, sample testing, documentation.",
-    location: "Chennai, Tamil Nadu",
-    type: "Full Time",
+      "We are looking for a qualified Pharmacist to dispense medicines, manage inventory, and guide patients.",
   },
   {
-    title: "Research Analyst - Pharmaceutical Formulations",
+    title: "Staff Nurse",
     role_focus:
-      " Assisting in formulation development, sample testing, documentation.",
-    location: "Chennai, Tamil Nadu",
-    type: "Full Time",
+      "We are looking for a caring Staff Nurse to provide patient care, assist doctors, and monitor recovery.",
   },
   {
-    title: "Research Assistant - Pharmaceutical Formulations",
+    title: "Physician Assistant",
     role_focus:
-      " Assisting in formulation development, sample testing, documentation.",
-    location: "Chennai, Tamil Nadu",
-    type: "Full Time",
+      "We are looking for a Physician Assistant to support doctors in diagnosis, procedures, and patient care.",
   },
   {
-    title: "Research Assistant - Pharmaceutical Formulations",
+    title: "Surgical Nurse",
     role_focus:
-      " Assisting in formulation development, sample testing, documentation.",
-    location: "Chennai, Tamil Nadu",
-    type: "Full Time",
+      "We are looking for a Surgical Nurse to assist in surgeries and ensure patient safety during procedures.",
   },
   {
-    title: "Research Assistant - Pharmaceutical Formulations",
+    title: "Lab Technician",
     role_focus:
-      " Assisting in formulation development, sample testing, documentation.",
-    location: "Chennai, Tamil Nadu",
-    type: "Full Time",
+      "We are looking for a Lab Technician to conduct tests, handle lab equipment, and maintain reports.",
+  },
+  {
+    title: "Office Staff",
+    role_focus:
+      "We are looking for Office Staff to handle administrative tasks and support daily operations.",
+  },
+  {
+    title: "Front Office Receptionist",
+    role_focus:
+      "We are looking for a Receptionist to manage front desk operations, calls, and appointments.",
+  },
+  {
+    title: "Accountant",
+    role_focus:
+      "We are looking for an Accountant to manage billing, financial records, and daily transactions.",
+  },
+  {
+    title: "Store Assistant",
+    role_focus:
+      "We are looking for a Store Assistant to manage stock, organize supplies, and maintain inventory.",
+  },
+  {
+    title: "Managers",
+    role_focus:
+      "We are looking for Managers to oversee operations, manage teams, and ensure smooth workflow.",
+  },
+  {
+    title: "Field Officers",
+    role_focus:
+      "We are looking for Field Officers to handle on-ground coordination and external operations.",
+  },
+  {
+    title: "Duty Doctors & Consultants",
+    role_focus:
+      "We are looking for Duty Doctors & Consultants to provide consultation, diagnosis, and treatment.",
+  },
+  {
+    title: "Pharmacy Manager",
+    role_focus:
+      "We are looking for a Pharmacy Manager to supervise operations and manage pharmacy staff.",
+  },
+  {
+    title: "Delivery Assistant",
+    role_focus:
+      "We are looking for a Delivery Assistant to handle deliveries and support logistics operations.",
   },
 ];
 
@@ -182,66 +217,66 @@ const CareerPage = () => {
   };
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  if (!validateForm()) return;
+    if (!validateForm()) return;
 
-  setIsSubmitting(true);
+    setIsSubmitting(true);
 
-  const data = new FormData();
-  data.append("name", formData.name);
-  data.append("email", formData.email);
-  data.append("phone", formData.phone);
-  data.append("countryCode", formData.countryCode);
-  data.append("role", formData.role);
-  data.append("message", formData.message);
-  data.append("upload", selectedFile);
+    const data = new FormData();
+    data.append("name", formData.name);
+    data.append("email", formData.email);
+    data.append("phone", formData.phone);
+    data.append("countryCode", formData.countryCode);
+    data.append("role", formData.role);
+    data.append("message", formData.message);
+    data.append("upload", selectedFile);
 
-  try {
-    await fetch(`${import.meta.env.VITE_API_URL}/submit-form`, {
-      method: "POST",
-      body: data,
-    });
+    try {
+      await fetch(`${import.meta.env.VITE_API_URL}/submit-form`, {
+        method: "POST",
+        body: data,
+      });
 
-    // 🎉 Success popup
-    Swal.fire({
-      icon: "success",
-      title: "Application Submitted!",
-      text: "Thank you for applying. Our team will contact you within 24 hours.",
-      confirmButtonColor: "#222065",
-    });
+      // 🎉 Success popup
+      Swal.fire({
+        icon: "success",
+        title: "Application Submitted!",
+        text: "Thank you for applying. Our team will contact you within 24 hours.",
+        confirmButtonColor: "#222065",
+      });
 
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      role: "",
-      message: "",
-      countryCode: "+91",
-    });
-    setSelectedFile(null);
-    setFileName("No file chosen");
-    setErrors({});
-  } catch (error) {
-    // ❌ Error popup
-    Swal.fire({
-      icon: "error",
-      title: "Submission Failed",
-      text: "Something went wrong. Please try again later.",
-      confirmButtonColor: "#d33",
-    });
-  } finally {
-    setIsSubmitting(false);
-  }
-};
-
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        role: "",
+        message: "",
+        countryCode: "+91",
+      });
+      setSelectedFile(null);
+      setFileName("No file chosen");
+      setErrors({});
+    } catch (error) {
+      // ❌ Error popup
+      Swal.fire({
+        icon: "error",
+        title: "Submission Failed",
+        text: "Something went wrong. Please try again later.",
+        confirmButtonColor: "#d33",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const heroRef = useRef(null);
   const positionsRef = useRef(null);
   const portraitRef = useRef(null);
   const contactportraitRef = useRef(null);
   const formRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -336,45 +371,56 @@ const CareerPage = () => {
             <h2 className="section-title">Open Positions</h2>
 
             <div className="hero-card">
-              <ul
-                className="role-list"
-                onClick={() => {
-                  document.getElementById("career-contact")?.scrollIntoView({
-                    behavior: "smooth",
-                  });
-                }}
-              >
+              <ul className="role-list">
                 {openRoles.map((role, idx) => (
-                  <li key={idx} className="role-item">
+                  <li
+                    key={idx}
+                    className={`role-item ${activeIndex === idx ? "active" : ""}`}
+                    onClick={() => {
+                      setActiveIndex(idx);
+
+                      // ✅ Prefill role in form
+                      setFormData((prev) => ({
+                        ...prev,
+                        role: role.title,
+                      }));
+
+                      document
+                        .getElementById("career-contact")
+                        ?.scrollIntoView({
+                          behavior: "smooth",
+                        });
+                    }}
+                  >
                     <div>
                       <p className="role-name">{role.title}</p>
                       <p className="role-meta">{role.role_focus}</p>
-                      <p className="role-meta">
-                        {role.location} • {role.type}
-                      </p>
                     </div>
-                    <button className="role-apply">
-                      <svg
-                        width="12"
-                        height="12"
-                        viewBox="0 0 18 18"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M5.9537 2.76827C5.76786 2.77483 5.58261 2.74389 5.40899 2.6773C5.23537 2.61071 5.07694 2.50983 4.94316 2.38069C4.80937 2.25154 4.70297 2.09677 4.63029 1.9256C4.55762 1.75444 4.52017 1.57039 4.52017 1.38444C4.52017 1.19849 4.55762 1.01445 4.63029 0.843284C4.70297 0.672122 4.80937 0.517351 4.94316 0.388204C5.07694 0.259056 5.23537 0.158177 5.40899 0.0915876C5.58261 0.024998 5.76786 -0.00593996 5.9537 0.000619815L16.3977 0.000620299C16.7646 0.000848641 17.1164 0.146718 17.3759 0.406185C17.6354 0.665653 17.7812 1.0175 17.7815 1.38444L17.7815 11.8284C17.788 12.0142 17.7571 12.1995 17.6905 12.3731C17.6239 12.5467 17.523 12.7052 17.3939 12.8389C17.2647 12.9727 17.11 13.0791 16.9388 13.1518C16.7677 13.2245 16.5836 13.2619 16.3977 13.2619C16.2117 13.2619 16.0277 13.2245 15.8565 13.1518C15.6853 13.0791 15.5306 12.9727 15.4014 12.8389C15.2723 12.7052 15.1714 12.5467 15.1048 12.3731C15.0382 12.1995 15.0073 12.0142 15.0138 11.8284L15.0138 4.72651L2.36359 17.3767C2.10391 17.6364 1.75171 17.7823 1.38447 17.7823C1.01723 17.7823 0.665028 17.6364 0.405349 17.3767C0.14567 17.1171 -0.000216123 16.7649 -0.00021646 16.3976C-0.000215786 16.0304 0.145671 15.6782 0.405349 15.4185L13.0556 2.76827L5.9537 2.76827Z"
-                          fill="white"
-                        />
-                      </svg>
+                    <button
+                      className="role-apply"
+                      onClick={(e) => {
+                        e.stopPropagation(); // 🔑 prevents double trigger
+
+                        setActiveIndex(idx);
+
+                        setFormData((prev) => ({
+                          ...prev,
+                          role: role.title,
+                        }));
+
+                        document
+                          .getElementById("career-contact")
+                          ?.scrollIntoView({
+                            behavior: "smooth",
+                          });
+                      }}
+                    >
+                      Apply Now
                     </button>
                   </li>
                 ))}
               </ul>
             </div>
-          </div>
-
-          <div className="hero-portrait framed" ref={portraitRef}>
-            <img src={personOne} alt="Team member" />
           </div>
         </div>
       </section>

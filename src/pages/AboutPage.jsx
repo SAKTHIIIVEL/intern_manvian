@@ -31,51 +31,6 @@ const AboutPage = () => {
       name: "Dr. Arjun",
       role: "Director",
     },
-    {
-      img: seniorManager2,
-      name: "Mr. Kathireswaran",
-      role: "General Manager",
-    },
-    {
-      img: sudha,
-      name: "Ms. T.Sudha",
-      role: "Head Nurse",
-    },
-    {
-      img: uma,
-      name: "Ms. Uma Maheswari.G",
-      role: "Clinical Pharmacist",
-    },
-    {
-      img: Magesh,
-      name: "Mr. Magesh",
-      role: "Accountant",
-    },
-    {
-      img: nikhila,
-      name: "Ms. Nikhila.L",
-      role: "Senior Lab Technician",
-    },
-    {
-      img: Paulweshly,
-      name: "Mr. J.Paulweshly",
-      role: "Stock Accountent",
-    },
-    {
-      img: raghul,
-      name: "Mr. Ragul.G",
-      role: "Staff Nurse",
-    },
-    {
-      img: santhosh,
-      name: "Mr. C.Santhosh",
-      role: "Staff Nurse",
-    },
-    {
-      img: devika,
-      name: "Ms. A.Devika",
-      role: "Lab Technician",
-    },
 
   ];
 
